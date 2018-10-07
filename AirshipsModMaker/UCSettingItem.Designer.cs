@@ -37,18 +37,18 @@
             // labelInfoName
             // 
             this.labelInfoName.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.labelInfoName.Location = new System.Drawing.Point(7, 9);
+            this.labelInfoName.Location = new System.Drawing.Point(3, 9);
             this.labelInfoName.Name = "labelInfoName";
-            this.labelInfoName.Size = new System.Drawing.Size(135, 17);
+            this.labelInfoName.Size = new System.Drawing.Size(164, 17);
             this.labelInfoName.TabIndex = 0;
             this.labelInfoName.Text = "InfoName";
             this.labelInfoName.Click += new System.EventHandler(this.UCSettingItem_Click);
             // 
             // textBoxinput
             // 
-            this.textBoxinput.Location = new System.Drawing.Point(148, 5);
+            this.textBoxinput.Location = new System.Drawing.Point(171, 5);
             this.textBoxinput.Name = "textBoxinput";
-            this.textBoxinput.Size = new System.Drawing.Size(276, 26);
+            this.textBoxinput.Size = new System.Drawing.Size(254, 26);
             this.textBoxinput.TabIndex = 1;
             this.textBoxinput.Click += new System.EventHandler(this.UCSettingItem_Click);
             this.textBoxinput.TextChanged += new System.EventHandler(this.textBoxinput_TextChanged);

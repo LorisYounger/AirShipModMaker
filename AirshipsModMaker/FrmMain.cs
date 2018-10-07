@@ -307,7 +307,7 @@ namespace AirshipsModMaker
                     lang.AppendLine($"{mi.UseTemp.Prefix}AMM{mi.ItemID}={mi.Name}\r\n{mi.UseTemp.Prefix}desc_AMM{mi.ItemID}={mi.Info.Replace("\r","").Replace("\n", @"\n")}");
 
                     if (mi.UseTemp.IsFlipped)
-                        lang.AppendLine($"{mi.UseTemp.Prefix}FLIPPED_AMM{mi.ItemID}={mi.Name}\r\n{mi.UseTemp.Prefix}desc_FLIPPED_AMM{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
+                        lang.AppendLine($"{mi.UseTemp.Prefix}FLIPPED_AMM{mi.ItemID}={mi.Name}(Flipped)\r\n{mi.UseTemp.Prefix}desc_FLIPPED_AMM{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
                 }
                 //lang
                 di = new DirectoryInfo(path + @"\strings");

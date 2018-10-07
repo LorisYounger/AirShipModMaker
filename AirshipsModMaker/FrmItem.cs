@@ -22,9 +22,16 @@ namespace AirshipsModMaker
             InitializeComponent();
             Templates = templates;
             relstmp();
-            comboBoxItemTemplare.SelectedText = mi.UseTemp.Name;
+            for (int i = 0; i < Templates.Length; i++)
+                if (Templates[i] == mi.UseTemp)
+                {
+                    comboBoxItemTemplare.SelectedIndex = i;
+                    break;
+                }
             TmpItem = new ModItem(mi);
             Nowed = TmpItem.ItemID;
+            textBoxName.Text = TmpItem.Name;
+            textBoxItemInfo.Text = TmpItem.Info;
             setShow();
         }
         public FrmItem(int id, Template[] templates)
@@ -54,12 +61,12 @@ namespace AirshipsModMaker
                 odsl = comboBoxItemTemplare.SelectedIndex;
             Template tm = Templates[odsl];
             TmpItem = new ModItem(Nowed, "", "", tm);
+            textBoxName.Text = TmpItem.UseTemp.Name;
+            textBoxItemInfo.Text = TmpItem.UseTemp.Info;
             setShow();
         }
         public void setShow()//展示全部的数据
-        {
-            textBoxName.Text = TmpItem.UseTemp.Name;
-            textBoxItemInfo.Text = TmpItem.UseTemp.Info;
+        {          
             pictureBoxdisplay.Image = TmpItem.UseTemp.DemoImage;
             toolTip1.SetToolTip(labelT2, "This Templare is Made By " + TmpItem.UseTemp.Author);
             //展示数据
