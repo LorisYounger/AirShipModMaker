@@ -165,6 +165,7 @@
             this.getMoreTemplateToolStripMenuItem.Name = "getMoreTemplateToolStripMenuItem";
             this.getMoreTemplateToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.getMoreTemplateToolStripMenuItem.Text = "Get more Template";
+            this.getMoreTemplateToolStripMenuItem.Click += new System.EventHandler(this.getMoreTemplateToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
             // 
@@ -187,60 +188,66 @@
             this.onStreamToolStripMenuItem,
             this.onGitHubToolStripMenuItem});
             this.reportBugsToolStripMenuItem.Name = "reportBugsToolStripMenuItem";
-            this.reportBugsToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
-            this.reportBugsToolStripMenuItem.Text = "Report Bugs";
+            this.reportBugsToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
+            this.reportBugsToolStripMenuItem.Text = "Suggest/Report Bugs";
             // 
             // onStreamToolStripMenuItem
             // 
             this.onStreamToolStripMenuItem.Name = "onStreamToolStripMenuItem";
             this.onStreamToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.onStreamToolStripMenuItem.Text = "On Stream";
+            this.onStreamToolStripMenuItem.Click += new System.EventHandler(this.onStreamToolStripMenuItem_Click);
             // 
             // onGitHubToolStripMenuItem
             // 
             this.onGitHubToolStripMenuItem.Name = "onGitHubToolStripMenuItem";
             this.onGitHubToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.onGitHubToolStripMenuItem.Text = "On GitHub";
+            this.onGitHubToolStripMenuItem.Click += new System.EventHandler(this.onGitHubToolStripMenuItem_Click);
             // 
             // sourceCodeToolStripMenuItem
             // 
             this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
-            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.sourceCodeToolStripMenuItem.Text = "Source Code";
+            this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.sourceCodeToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator3.Size = new System.Drawing.Size(198, 6);
             // 
             // howToUseToolStripMenuItem
             // 
             this.howToUseToolStripMenuItem.Name = "howToUseToolStripMenuItem";
-            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.howToUseToolStripMenuItem.Text = "How To Use";
             // 
             // updateSoftwareToolStripMenuItem
             // 
             this.updateSoftwareToolStripMenuItem.Name = "updateSoftwareToolStripMenuItem";
-            this.updateSoftwareToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.updateSoftwareToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.updateSoftwareToolStripMenuItem.Text = "Update Software";
+            this.updateSoftwareToolStripMenuItem.Click += new System.EventHandler(this.updateSoftwareToolStripMenuItem_Click);
             // 
             // subscribeAtSteamToolStripMenuItem
             // 
             this.subscribeAtSteamToolStripMenuItem.Name = "subscribeAtSteamToolStripMenuItem";
-            this.subscribeAtSteamToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.subscribeAtSteamToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.subscribeAtSteamToolStripMenuItem.Text = "Subscribe at Steam";
+            this.subscribeAtSteamToolStripMenuItem.Click += new System.EventHandler(this.subscribeAtSteamToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(185, 6);
+            this.toolStripSeparator2.Size = new System.Drawing.Size(198, 6);
             // 
             // authorToolStripMenuItem
             // 
             this.authorToolStripMenuItem.Name = "authorToolStripMenuItem";
-            this.authorToolStripMenuItem.Size = new System.Drawing.Size(188, 22);
+            this.authorToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
             this.authorToolStripMenuItem.Text = "About";
+            this.authorToolStripMenuItem.Click += new System.EventHandler(this.authorToolStripMenuItem_Click);
             // 
             // openFileDialog1
             // 
@@ -447,7 +454,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
-            this.Text = "Airships Mod Maker";
+            this.Text = "Airships Mod Maker - publish beta 1";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

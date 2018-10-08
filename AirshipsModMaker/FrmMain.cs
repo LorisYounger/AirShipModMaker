@@ -205,11 +205,11 @@ namespace AirshipsModMaker
             if (fi.ShowDialog() == DialogResult.OK)
             {
                 data.modItems[id] = fi.ModItem;
-                listView1.Items[id].SubItems[0].Text = fi.ModItem.Name;
-                listView1.Items[id].SubItems[1].Text = fi.ModItem.UseTemp.Name;
-                listView1.Items[id].SubItems[2].Text = fi.ModItem.Info;
-                //序列+1
-                data.ItemID++;
+                listView1.Items[id].SubItems[1].Text = fi.ModItem.Name;
+                listView1.Items[id].SubItems[2].Text = fi.ModItem.UseTemp.Name;
+                listView1.Items[id].SubItems[3].Text = fi.ModItem.Info;
+                ////序列+1
+                //data.ItemID++;
             }
         }
 
@@ -330,6 +330,41 @@ namespace AirshipsModMaker
                 lpsm = lpsm.Replace($"|{sub.Name}:|", sub.info);
             }
             return lpsm;
+        }
+
+        private void onGitHubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"https://github.com/LorisYounger/AirShipModMaker/issues");
+        }
+
+        private void authorToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("AirShip Mod Maker is Made by ZouJin\nIf you think this tool is not bad, Subscribe and five star on steam", "Thanks For Using AirshipsModMaker");
+        }
+
+        private void sourceCodeToolStripMenuItem_Click(object sender, EventArgs e)
+        {        
+            System.Diagnostics.Process.Start(@"https://github.com/LorisYounger/AirShipModMaker");
+        }
+
+        private void updateSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"http://download.exlb.org/?rootPath=./AirShipModMaker");
+        }
+
+        private void getMoreTemplateToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"http://download.exlb.org/?rootPath=./AirShipModMaker/Templates");
+        }
+
+        private void onStreamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"https://steamcommunity.com/sharedfiles/filedetails/?id=1533155962");
+        }
+
+        private void subscribeAtSteamToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"https://steamcommunity.com/sharedfiles/filedetails/?id=1533155962");
         }
     }
 
