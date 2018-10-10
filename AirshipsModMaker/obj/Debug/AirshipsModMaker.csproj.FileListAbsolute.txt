@@ -14,3 +14,4 @@ C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\Airships
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.csproj.CopyComplete
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\LinePutScript.dll
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.FrmItem.resources
+C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.FrmTemplate.resources

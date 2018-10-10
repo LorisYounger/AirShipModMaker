@@ -12,8 +12,6 @@ namespace AirshipsModMaker
 {
     public partial class FrmMain : Form
     {
-        public static readonly string pathmain = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\LBSoft\Airship";
-
         AirShipModData data = new AirShipModData();//当前存档
         //全部模板
         List<Template> Templates = new List<Template>();
@@ -24,20 +22,24 @@ namespace AirshipsModMaker
             //new LpsDocument().AddLine(new Line(""));
 
             //新建文件夹
-            DirectoryInfo info = new DirectoryInfo(pathmain);
+            DirectoryInfo info = new DirectoryInfo(Program.PathMain);
             if (!info.Exists)
             {
                 MessageBox.Show("You can creat mods with using this tool\nIf you think this tool is not bad, Subscribe and five star on steam", "Thanks For Using AirshipsModMaker");
                 DirectoryInfo di = new DirectoryInfo(Environment.CurrentDirectory + @"\Template\");
                 if (di.Exists)
-                    di.MoveTo(pathmain);
+                    di.MoveTo(Program.PathMain);
                 else
                     info.Create();
             }
             if (info.GetDirectories().Length == 0)//检查有没有模板
             {
-                inputToolStripMenuItem_Click(null, null);
-                return;
+                FrmTemplate.UpdateTemplates(new DirectoryInfo(Environment.CurrentDirectory + @"\Template\"));
+                if (info.GetDirectories().Length == 0)
+                {
+                    MessageBox.Show("Template No find");
+                    new FrmTemplate(Templates.ToArray()).ShowDialog();
+                }
             }
             //加载Template
             foreach (DirectoryInfo di in info.GetDirectories())
@@ -47,10 +49,11 @@ namespace AirshipsModMaker
 
         }
 
+
         private void inputToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(pathmain);
-            MessageBox.Show("Copy Template Directory to this path, Then restart the tool", "input Template");
+            System.Diagnostics.Process.Start(Program.PathMain);
+            //MessageBox.Show("Copy Template Directory to this path, Then restart the tool", "input Template");
         }
 
 
@@ -132,9 +135,9 @@ namespace AirshipsModMaker
                 data = new AirShipModData(sr.ReadToEnd(), Templates);
                 sr.Close();
                 sr.Dispose();
-                if(data.ModName =="")
+                if (data.ModName == "")
                 {
-                    MessageBox.Show("This File Is Not AirShipModMaker's File");
+                    MessageBox.Show("This File Is Not AirShipModMaker's File or File Corrupted");
                     return;
                 }
                 textBoxModName.Text = data.ModName;
@@ -262,7 +265,7 @@ namespace AirshipsModMaker
                     if (MessageBox.Show("There have Same Name folder,Do you want to cover it?", "Export", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     {
                         di.Delete(true);
-                        Thread.Sleep(10);//if Dekete it, it will have bug
+                        Thread.Sleep(10);//if Delete it, it will have bug
                         di.Create();
                     }
                     else
@@ -304,7 +307,7 @@ namespace AirshipsModMaker
                     fs.Dispose();
 
                     //lang
-                    lang.AppendLine($"{mi.UseTemp.Prefix}AMM{mi.ItemID}={mi.Name}\r\n{mi.UseTemp.Prefix}desc_AMM{mi.ItemID}={mi.Info.Replace("\r","").Replace("\n", @"\n")}");
+                    lang.AppendLine($"{mi.UseTemp.Prefix}AMM{mi.ItemID}={mi.Name}\r\n{mi.UseTemp.Prefix}desc_AMM{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
 
                     if (mi.UseTemp.IsFlipped)
                         lang.AppendLine($"{mi.UseTemp.Prefix}FLIPPED_AMM{mi.ItemID}={mi.Name}(Flipped)\r\n{mi.UseTemp.Prefix}desc_FLIPPED_AMM{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
@@ -343,7 +346,7 @@ namespace AirshipsModMaker
         }
 
         private void sourceCodeToolStripMenuItem_Click(object sender, EventArgs e)
-        {        
+        {
             System.Diagnostics.Process.Start(@"https://github.com/LorisYounger/AirShipModMaker");
         }
 
@@ -366,6 +369,11 @@ namespace AirshipsModMaker
         {
             System.Diagnostics.Process.Start(@"https://steamcommunity.com/sharedfiles/filedetails/?id=1533155962");
         }
+
+        private void templateManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new FrmTemplate(Templates.ToArray()).Show();
+        }
     }
 
     /// <summary>
@@ -373,7 +381,7 @@ namespace AirshipsModMaker
     /// </summary>
     public class AirShipModData
     {
-        public string ModName;
+        public string ModName = "";
         public string ModInfo;
         public string Modlogo = "";
         public List<ModItem> modItems = new List<ModItem>();
@@ -390,15 +398,22 @@ namespace AirshipsModMaker
         public AirShipModData() { }
         public AirShipModData(string lps, List<Template> templates)
         {
-            LpsDocument lpsd = new LpsDocument();
-            lpsd = new LpsDocument(lps);
-            if (lpsd.Read().Name != "airshipmod" && lpsd.Read().Info.ToLower() != "usersave")
-                return;
-            ModName = lpsd.Read().Find("name").Info;
-            ModInfo = lpsd.Read().Find("info").Info;
-            Modlogo = lpsd.ReadNext().Find("logo").Info;
-            while (lpsd.ReadCanNext())
-                modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates));
+            try
+            {
+                LpsDocument lpsd = new LpsDocument();
+                lpsd = new LpsDocument(lps);
+                if (lpsd.Read().Name != "airshipmod" && lpsd.Read().Info.ToLower() != "usersave")
+                    return;
+                ModName = lpsd.Read().Find("name").Info;
+                ModInfo = lpsd.Read().Find("info").Info;
+                Modlogo = lpsd.ReadNext().Find("logo").Info;
+                while (lpsd.ReadCanNext())
+                    modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates));
+            }
+            catch
+            {
+                ModName = "";
+            }
         }
     }
     /// <summary>
@@ -556,29 +571,39 @@ namespace AirshipsModMaker
         public bool IsFlipped = false;//是不是IsFlipped
         public LpsDocument Data;//替换的数据
         public Image DemoImage;
+        public string path;
+        public Exception Error = null;
         public Template(string path)
         {
-            FileInfo fi = new FileInfo(path + @"\json.lpsm");
-            StreamReader sr;
-            sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.Default);
-            RepFile = sr.ReadToEnd().Replace("\r", "");
-            sr.Dispose();
+            try
+            {
+                this.path = path;
+                FileInfo fi = new FileInfo(path + @"\json.lpsm");
+                StreamReader sr;
+                sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.Default);
+                RepFile = sr.ReadToEnd().Replace("\r", "");
+                sr.Dispose();
 
-            Data = new LpsDocument();
-            fi = new FileInfo(path + @"\info.lps");
-            sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.Default);
-            Data = new LpsDocument(sr.ReadToEnd());
-            sr.Dispose();
-            sr = null;
+                Data = new LpsDocument();
+                fi = new FileInfo(path + @"\info.lps");
+                sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.Default);
+                Data = new LpsDocument(sr.ReadToEnd());
+                sr.Dispose();
+                sr = null;
 
-            Name = Data.Read().Find("name").GetInfo();
-            Info = Data.Read().Find("info").GetInfo();
-            Author = Data.Read().Find("author").GetInfo();
-            Local = Data.Read().Find("local").GetInfo();
-            Prefix = Data.Read().Find("prefix").GetInfo();
-            DemoImage = Image.FromFile(path + @"\logo.png");
+                Name = Data.Read().Find("name").GetInfo();
+                Info = Data.Read().Find("info").GetInfo();
+                Author = Data.Read().Find("author").GetInfo();
+                Local = Data.Read().Find("local").GetInfo();
+                Prefix = Data.Read().Find("prefix").GetInfo();
+                DemoImage = Image.FromFile(path + @"\logo.png");
 
-            IsFlipped = (Data.Read().Find("flipped") != null);
+                IsFlipped = (Data.Read().Find("flipped") != null);
+            }
+            catch (Exception e)
+            {
+                Error = e;//cath error
+            }
         }
     }
 }

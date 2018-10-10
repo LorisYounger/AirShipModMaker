@@ -38,6 +38,8 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.templateManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getMoreTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aboutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,17 +149,31 @@
             // templateToolStripMenuItem1
             // 
             this.templateToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.templateManagerToolStripMenuItem,
+            this.toolStripSeparator4,
             this.inputToolStripMenuItem,
             this.getMoreTemplateToolStripMenuItem});
             this.templateToolStripMenuItem1.Name = "templateToolStripMenuItem1";
             this.templateToolStripMenuItem1.Size = new System.Drawing.Size(74, 21);
             this.templateToolStripMenuItem1.Text = "Template";
             // 
+            // templateManagerToolStripMenuItem
+            // 
+            this.templateManagerToolStripMenuItem.Name = "templateManagerToolStripMenuItem";
+            this.templateManagerToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.templateManagerToolStripMenuItem.Text = "Template Manager";
+            this.templateManagerToolStripMenuItem.Click += new System.EventHandler(this.templateManagerToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(186, 6);
+            // 
             // inputToolStripMenuItem
             // 
             this.inputToolStripMenuItem.Name = "inputToolStripMenuItem";
             this.inputToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.inputToolStripMenuItem.Text = "Input";
+            this.inputToolStripMenuItem.Text = "Template Path";
             this.inputToolStripMenuItem.Click += new System.EventHandler(this.inputToolStripMenuItem_Click);
             // 
             // getMoreTemplateToolStripMenuItem
@@ -454,7 +470,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
-            this.Text = "Airships Mod Maker - publish beta 1";
+            this.Text = "Airships Mod Maker - publish beta 2";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -517,5 +533,7 @@
         private System.Windows.Forms.ToolStripMenuItem onGitHubToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sourceCodeToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ToolStripMenuItem templateManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }

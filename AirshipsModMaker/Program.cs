@@ -8,6 +8,7 @@ namespace AirshipsModMaker
 {
     static class Program
     {
+        public static readonly string PathMain = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\LBSoft\Airship";
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>

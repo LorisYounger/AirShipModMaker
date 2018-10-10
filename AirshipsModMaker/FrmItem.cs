@@ -47,7 +47,8 @@ namespace AirshipsModMaker
             comboBoxItemTemplare.Items.Clear();
             foreach (Template tm in Templates)
             {
-                comboBoxItemTemplare.Items.Add(tm.Name);
+                if (tm.Error == null)
+                    comboBoxItemTemplare.Items.Add(tm.Name);
             }
         }
 
@@ -66,7 +67,7 @@ namespace AirshipsModMaker
             setShow();
         }
         public void setShow()//展示全部的数据
-        {          
+        {
             pictureBoxdisplay.Image = TmpItem.UseTemp.DemoImage;
             toolTip1.SetToolTip(labelT2, "This Templare is Made By " + TmpItem.UseTemp.Author);
             //展示数据
