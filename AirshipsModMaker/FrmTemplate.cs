@@ -85,5 +85,13 @@ namespace AirshipsModMaker
                 listView1.SelectedItems[0].SubItems[2].Text = "be removed";
             }
         }
+
+        private void showOnExplorerToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            if (listView1.SelectedIndices.Count == 0)
+                return;
+
+            System.Diagnostics.Process.Start(Templates[listView1.SelectedIndices[0]].path);
+        }
     }
 }

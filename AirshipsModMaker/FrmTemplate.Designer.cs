@@ -82,7 +82,7 @@
             this.reMoveTemplateToolStripMenuItem,
             this.showOnExplorerToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 70);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 92);
             // 
             // addTemplatesToolStripMenuItem
             // 
@@ -103,6 +103,7 @@
             this.showOnExplorerToolStripMenuItem.Name = "showOnExplorerToolStripMenuItem";
             this.showOnExplorerToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.showOnExplorerToolStripMenuItem.Text = "Show On Explorer";
+            this.showOnExplorerToolStripMenuItem.Click += new System.EventHandler(this.showOnExplorerToolStripMenuItem_Click);
             // 
             // FrmTemplate
             // 
