@@ -22,8 +22,11 @@ namespace AirshipsModMaker
             toolTip1.SetToolTip(this, ModSet.info);
             toolTip1.SetToolTip(textBoxinput, ModSet.info);
             toolTip1.SetToolTip(labelInfoName, ModSet.info);
-            textBoxinput.Text = ModSet.valuenomal;
-            labelInfoName.Text = ModSet.Mname;            
+            if (ModSet.Value == "")
+                textBoxinput.Text = ModSet.valuenomal;
+            else
+                textBoxinput.Text = ModSet.Value;
+            labelInfoName.Text = ModSet.Mname;
         }
         public ModSet ModSet;
         public delegate void ChangeText(string txt);
