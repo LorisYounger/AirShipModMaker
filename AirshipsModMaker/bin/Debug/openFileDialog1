@@ -1,0 +1,13 @@
+airshipmod#UserSave:|name#Template Part Armous:|info#This is Armous Template texting mod./r/nYou can use Airships Mod Maker to make Mod./r/nYou can use This Template Part do make more items.:|logo#C:\Users\Zou Jin\Desktop\Game图片\Bridge\logoto2.png:|id#2E7A3290:|
+temp#Armour Brick wall:|name#Brick wall 2:|info#double Cost lower Weight:|hp#30:|sort#71:|blastDmgAbsorb#0:|penDmgAbsorb#0:|weight#20:|cost#2:|
+temp#Armour Dragonhide:|name#Dragonhide 2:|info#this hide is from 'Kutu Kuta kuttkat':|hp#120:|sort#130:|blastDmgAbsorb#30:|penDmgAbsorb#10:|weight#0:|cost#20:|
+temp#Armour Heavy steel:|name#Heavy steel 2:|info#more heavy more Absorb:|hp#90:|sort#60:|blastDmgAbsorb#60:|penDmgAbsorb#40:|weight#100:|cost#16:|
+temp#Armour Reinforced Wooden:|name#Reinforced Wooden 2:|info#More HP with out Absorb:|hp#100:|sort#33:|blastDmgAbsorb#0:|penDmgAbsorb#0:|weight#30:|cost#6:|
+temp#Armour Steel wall:|name#Steel wall 2:|info#0 Cost because Weight:|hp#27:|sort#41:|blastDmgAbsorb#5:|penDmgAbsorb#3:|weight#10:|cost#0:|
+temp#Armour Wood wall:|name#Wood wall 2:|info#It not wood but wood Coating:|hp#60:|sort#40:|blastDmgAbsorb#5:|penDmgAbsorb#5:|weight#5:|cost#10:|
+temp#Armour Steel:|name#Armour Steel 2:|info#what is a 100 Absorb but 10 HP Armour:|hp#10:|sort#45:|blastDmgAbsorb#100:|penDmgAbsorb#100:|weight#5:|cost#5:|
+temp#Armour Wooden:|name#Armour Wooden 2:|info#It use Plastic because Wooden is very expensive.:|hp#20:|sort#20:|blastDmgAbsorb#1:|penDmgAbsorb#1:|weight#1:|cost#1:|
+temp#Fire extinguisher:|name#Fire extinguisher 2:|info#It don't have any water. build this for Deception money.:|hp#32:|water#0:|weight#12:|cost#-20:|moveDelay#0:|fireHP#5:|
+temp#Quarters:|name#Quarters 2:|info#it use 'payment by instalments' (no limits):|hp#100:|quarters#12:|weight#40:|cost#0:|maintenanceCost#20:|moveDelay#600:|fireHP#70:|
+temp#Steel Cargo Door:|name#Steel Cargo Door 2:|info#It have many Supply but lower Hp:|hp#2:|supplyProvided#80:|weight#20:|cost#25:|moveDelay#350:|fireHP#1:|
+temp#Teel Supply Hatch:|name#Teel Supply Hatch 2:|info#It don't Supply any thing  I think.:|hp#60:|supplyProvided#0:|weight#1:|cost#-10:|moveDelay#0:|fireHP#20:|

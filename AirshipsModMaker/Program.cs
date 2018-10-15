@@ -9,6 +9,7 @@ namespace AirshipsModMaker
     static class Program
     {
         public static readonly string PathMain = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\LBSoft\Airship";
+        public static bool Reload = true;
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -17,7 +18,20 @@ namespace AirshipsModMaker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new FrmMain());
+
+            while (Reload)
+            {
+                Reload = false;
+                try
+                {
+                    Application.Run(new FrmMain());
+                }
+                catch( Exception e)
+                {
+                    if (e.HResult != -2146232798)
+                        throw e;
+                }
+            }
         }
     }
 }

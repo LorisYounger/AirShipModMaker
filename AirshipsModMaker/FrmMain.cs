@@ -37,8 +37,13 @@ namespace AirshipsModMaker
                 FrmTemplate.UpdateTemplates(new DirectoryInfo(Environment.CurrentDirectory + @"\Template\"));
                 if (info.GetDirectories().Length == 0)
                 {
-                    MessageBox.Show("Template No find");
-                    new FrmTemplate(Templates.ToArray()).ShowDialog();
+                    MessageBox.Show("Template No find\nPlase choose Tempalte/Tempaltes folder", "Template No find");
+                    if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
+                    {
+                        FrmTemplate.UpdateTemplates(new DirectoryInfo(folderBrowserDialog1.SelectedPath));
+                        Program.Reload = true;
+                    }
+                    Close();
                 }
             }
             //加载Template
@@ -276,10 +281,9 @@ namespace AirshipsModMaker
 
                 fi.CopyTo(path + @"\logo.png");
 
-                string tmp = new Random().Next().ToString("X");
-                lang.AppendLine($"modulecategory_AMM{tmp}={data.ModName.Replace("\r", "").Replace("\n", @"\n")}");
+                lang.AppendLine($"modulecategory_AMM{data.Outputid}={data.ModName.Replace("\r", "").Replace("\n", @"\n")}");
 
-                tmp = LPSMReplace(Properties.Resources.info, new Sub("id", tmp),
+                string tmp = LPSMReplace(Properties.Resources.info, new Sub("id", data.Outputid),
                     new Sub("name", data.ModName.Replace("\r", "").Replace("\n", @"\n")),
                     new Sub("info", data.ModInfo.Replace("\r", "").Replace("\n", @"\n")));//info.json
 
@@ -307,7 +311,10 @@ namespace AirshipsModMaker
                     fs.Dispose();
 
                     //lang
-                    lang.AppendLine($"{mi.UseTemp.Prefix}AMM{mi.ItemID}={mi.Name}\r\n{mi.UseTemp.Prefix}desc_AMM{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
+                    if (mi.UseTemp.Prefix == "mod_")
+                        lang.AppendLine($"mod_AMM{mi.ItemID}={mi.Name}\r\nmod_desc_AMM{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
+                    else
+                        lang.AppendLine($"{mi.UseTemp.Prefix}AMM{mi.ItemID}={mi.Name}\r\n{mi.UseTemp.Prefix}AMM{mi.ItemID}_desc={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
 
                     if (mi.UseTemp.IsFlipped)
                         lang.AppendLine($"{mi.UseTemp.Prefix}FLIPPED_AMM{mi.ItemID}={mi.Name}(Flipped)\r\n{mi.UseTemp.Prefix}desc_FLIPPED_AMM{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
@@ -372,7 +379,7 @@ namespace AirshipsModMaker
 
         private void templateManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmTemplate(Templates.ToArray()).Show();
+            new FrmTemplate(Templates.ToArray(), this).Show();
         }
     }
 
@@ -386,11 +393,12 @@ namespace AirshipsModMaker
         public string Modlogo = "";
         public List<ModItem> modItems = new List<ModItem>();
         public int ItemID = 0;//用于编辑(自增)
+        public string Outputid = new Random().Next().ToString("X");
 
         public string ToLps()
         {
             LpsDocument lps = new LpsDocument();
-            lps.AddLine(new Line("airshipmod", "UserSave", "", new Sub("name", ModName), new Sub("info", ModInfo), new Sub("logo", Modlogo)));
+            lps.AddLine(new Line("airshipmod", "UserSave", "", new Sub("name", ModName), new Sub("info", ModInfo), new Sub("logo", Modlogo), new Sub("id", Outputid)));
             foreach (ModItem mi in modItems)
                 lps.AddLine(mi.ToLine());
             return lps.ToString();
@@ -406,6 +414,8 @@ namespace AirshipsModMaker
                     return;
                 ModName = lpsd.Read().Find("name").Info;
                 ModInfo = lpsd.Read().Find("info").Info;
+                if (lpsd.Read().Find("info") != null)
+                    Outputid = lpsd.Read().Find("id").info;//output id
                 Modlogo = lpsd.ReadNext().Find("logo").Info;
                 while (lpsd.ReadCanNext())
                     modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates));

@@ -331,7 +331,7 @@
             // 
             this.textBoxModName.Location = new System.Drawing.Point(86, 17);
             this.textBoxModName.Name = "textBoxModName";
-            this.textBoxModName.Size = new System.Drawing.Size(146, 26);
+            this.textBoxModName.Size = new System.Drawing.Size(267, 26);
             this.textBoxModName.TabIndex = 2;
             this.textBoxModName.Text = "Simple Mod";
             this.toolTip1.SetToolTip(this.textBoxModName, "A Name that show to everyone");
@@ -470,7 +470,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
-            this.Text = "Airships Mod Maker - publish beta 2.1";
+            this.Text = "Airships Mod Maker - publish beta 2.3";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();

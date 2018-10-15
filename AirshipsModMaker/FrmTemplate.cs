@@ -9,11 +9,12 @@ namespace AirshipsModMaker
     public partial class FrmTemplate : Form
     {
         Template[] Templates;
-
-        public FrmTemplate(Template[] templates)
+        FrmMain frmMain;
+        public FrmTemplate(Template[] templates, FrmMain frmMain)
         {
             InitializeComponent();
             Templates = templates;
+            this.frmMain = frmMain;
             Rels();
         }
 
@@ -29,11 +30,11 @@ namespace AirshipsModMaker
                     listView1.Items[listView1.Items.Count - 1].BackColor = Color.LightSalmon;
                     listView1.Items[listView1.Items.Count - 1].SubItems.Add("be removed");
                 }
-                else if(tmp.Error != null)
+                else if (tmp.Error != null)
                 {
                     listView1.Items[listView1.Items.Count - 1].BackColor = Color.LightCoral;
-                    listView1.Items[listView1.Items.Count - 1].SubItems.Add("Error:"+tmp.Error.Message);
-                }              
+                    listView1.Items[listView1.Items.Count - 1].SubItems.Add("Error:" + tmp.Error.Message);
+                }
                 else
                 {
                     listView1.Items[listView1.Items.Count - 1].SubItems.Add(tmp.Info);
@@ -55,6 +56,7 @@ namespace AirshipsModMaker
                     di.Delete(true);
                     Thread.Sleep(10);//if Delete it, it will have bug
                 }
+                Path.MoveTo(Program.PathMain + @"\" + Path.Name);
             }
             else//copy all
             {
@@ -68,6 +70,7 @@ namespace AirshipsModMaker
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 UpdateTemplates(new DirectoryInfo(folderBrowserDialog1.SelectedPath));
+                MessageBox.Show("Templat Installed (if have)\nIf you want to Load 'template',you need to Reload", "Templat Installed (if have)");
             }
         }
 
@@ -92,6 +95,16 @@ namespace AirshipsModMaker
                 return;
 
             System.Diagnostics.Process.Start(Templates[listView1.SelectedIndices[0]].path);
+        }
+
+        private void reloadToolStripMenuItem_Click(object sender, System.EventArgs e)
+        {
+            if (MessageBox.Show("You Will Lost All Work You Didn't Save!\nSure to Reload Template", "Reload Template", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                frmMain.Close();
+                Program.Reload = true;
+                this.Close();
+            }
         }
     }
 }

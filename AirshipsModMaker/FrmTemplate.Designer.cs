@@ -38,6 +38,8 @@
             this.reMoveTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.showOnExplorerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.folderBrowserDialog1 = new System.Windows.Forms.FolderBrowserDialog();
+            this.reloadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.contextMenuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -80,9 +82,11 @@
             this.contextMenuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.addTemplatesToolStripMenuItem,
             this.reMoveTemplateToolStripMenuItem,
-            this.showOnExplorerToolStripMenuItem});
+            this.showOnExplorerToolStripMenuItem,
+            this.toolStripSeparator1,
+            this.reloadToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 92);
+            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 120);
             // 
             // addTemplatesToolStripMenuItem
             // 
@@ -104,6 +108,18 @@
             this.showOnExplorerToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
             this.showOnExplorerToolStripMenuItem.Text = "Show On Explorer";
             this.showOnExplorerToolStripMenuItem.Click += new System.EventHandler(this.showOnExplorerToolStripMenuItem_Click);
+            // 
+            // reloadToolStripMenuItem
+            // 
+            this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
+            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
+            this.reloadToolStripMenuItem.Text = "Reload";
+            this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
             // 
             // FrmTemplate
             // 
@@ -137,5 +153,7 @@
         private System.Windows.Forms.ToolStripMenuItem reMoveTemplateToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem showOnExplorerToolStripMenuItem;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
+        private System.Windows.Forms.ToolStripMenuItem reloadToolStripMenuItem;
     }
 }

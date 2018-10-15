@@ -37,7 +37,7 @@ namespace AirshipsModMaker
         }
         private void UCSettingItem_Click(object sender, EventArgs e)
         {
-            TextChange(ModSet.info);
+            TextChange(ModSet.info + "\r\nDefault Value:"+ModSet.valuenomal);
         }
     }
 }
