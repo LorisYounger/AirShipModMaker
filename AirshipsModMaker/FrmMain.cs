@@ -414,7 +414,7 @@ namespace AirshipsModMaker
                     return;
                 ModName = lpsd.Read().Find("name").Info;
                 ModInfo = lpsd.Read().Find("info").Info;
-                if (lpsd.Read().Find("info") != null)
+                if (lpsd.Read().Find("id") != null)
                     Outputid = lpsd.Read().Find("id").info;//output id
                 Modlogo = lpsd.ReadNext().Find("logo").Info;
                 while (lpsd.ReadCanNext())
