@@ -19,8 +19,15 @@ namespace AirshipsModMaker
         public FrmMain()
         {
             InitializeComponent();
-            //new LpsDocument().AddLine(new Line(""));
+            //chack update first
+            string update = UpdateCheck();
+            if (update != "")
+            {
+                if (MessageBox.Show(update+"\nUpdate Now?", "There have new Update", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    System.Diagnostics.Process.Start(@"http://download.exlb.org/AirShipModMaker/AirShipModMaker.zip");
+            }
 
+            this.Text += Program.Verizon;
             //新建文件夹
             DirectoryInfo info = new DirectoryInfo(Program.PathMain);
             if (!info.Exists)
@@ -359,7 +366,50 @@ namespace AirshipsModMaker
 
         private void updateSoftwareToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start(@"http://download.exlb.org/?rootPath=./AirShipModMaker");
+            string update = UpdateCheck();
+            if (update != "")
+            {
+                if (MessageBox.Show(update + "\nUpdate Now?", "There have new Update", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                    System.Diagnostics.Process.Start(@"http://download.exlb.org/AirShipModMaker/AirShipModMaker.zip");
+            }
+            else
+            {
+                MessageBox.Show("Your Software are up-to-date","Update Check");
+            }
+        }
+
+        public string UpdateCheck()
+        {
+            string ReadText;
+            try
+            {
+                string UrlAdress = "http://download.exlb.org/verizon.asp?airshipmodmaker";//测试版
+                System.IO.Stream stream = System.Net.WebRequest.Create(UrlAdress).GetResponse().GetResponseStream();
+                //注意urladress为你上面的网页地址。
+                StreamReader sr = new StreamReader(stream, System.Text.Encoding.UTF8);
+                ReadText = sr.ReadToEnd(); //由于这里并非读取全部文件，这里正常为空
+                sr.Dispose(); //关闭流
+                ReadText = System.Uri.UnescapeDataString(ReadText);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, ex.Source);
+                return "";
+            }
+            string[] tmps = ReadText.Split('\n');
+            if (tmps.First().Contains(Program.Verizon))
+                return "";
+            ReadText = "What's New";
+            foreach (string tmp in tmps)
+            {
+                if (!tmp.Contains(Program.Verizon))
+                {
+                    ReadText += "\n" + tmp;
+                }
+                else
+                    break;
+            }
+            return ReadText;
         }
 
         private void getMoreTemplateToolStripMenuItem_Click(object sender, EventArgs e)
