@@ -25,6 +25,7 @@ namespace AirshipsModMaker
             {
                 listView1.Items.Add(tmp.Name);
                 listView1.Items[listView1.Items.Count - 1].SubItems.Add(tmp.Author);
+                listView1.Items[listView1.Items.Count - 1].SubItems.Add(tmp.Verison);
                 if (!new DirectoryInfo(tmp.path).Exists)
                 {
                     listView1.Items[listView1.Items.Count - 1].BackColor = Color.LightSalmon;

@@ -32,7 +32,7 @@ namespace AirshipsModMaker
             DirectoryInfo info = new DirectoryInfo(Program.PathMain);
             if (!info.Exists)
             {
-                MessageBox.Show("You can creat mods with using this tool\nIf you think this tool is not bad, Subscribe and five star on steam", "Thanks For Using AirshipsModMaker");
+                MessageBox.Show("You can creat mods with using this tool\nIf you think this tool is not bad, Subscribe and Thumbs-up on steam", "Thanks For Using AirshipsModMaker");
                 DirectoryInfo di = new DirectoryInfo(Environment.CurrentDirectory + @"\Template\");
                 if (di.Exists)
                     di.MoveTo(Program.PathMain);
@@ -356,7 +356,7 @@ namespace AirshipsModMaker
 
         private void authorToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("AirShip Mod Maker is Made by ZouJin\nIf you think this tool is not bad, Subscribe and five star on steam", "Thanks For Using AirshipsModMaker");
+            MessageBox.Show("AirShip Mod Maker is Made by Loris\nIf you think this tool is not bad, Subscribe and Thumbs-up on steam", "Thanks For Using AirshipsModMaker");
         }
 
         private void sourceCodeToolStripMenuItem_Click(object sender, EventArgs e)
@@ -430,6 +430,11 @@ namespace AirshipsModMaker
         private void templateManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new FrmTemplate(Templates.ToArray(), this).Show();
+        }
+
+        private void howToUseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            System.Diagnostics.Process.Start(@"https://www.exlb.org/airshipmodmaker/");
         }
     }
 
@@ -628,6 +633,7 @@ namespace AirshipsModMaker
         public string Author;//作者
         public string Local;//位置
         public string Prefix;//前缀
+        public string Verison="N/A";
         public bool IsFlipped = false;//是不是IsFlipped
         public LpsDocument Data;//替换的数据
         public Image DemoImage;
@@ -656,6 +662,10 @@ namespace AirshipsModMaker
                 Author = Data.Read().Find("author").GetInfo();
                 Local = Data.Read().Find("local").GetInfo();
                 Prefix = Data.Read().Find("prefix").GetInfo();
+
+                if (Data.Read().Find("ver") != null)
+                    Verison = Data.Read().Find("ver").GetInfo();
+
                 DemoImage = Image.FromFile(path + @"\logo.png");
 
                 IsFlipped = (Data.Read().Find("flipped") != null);
