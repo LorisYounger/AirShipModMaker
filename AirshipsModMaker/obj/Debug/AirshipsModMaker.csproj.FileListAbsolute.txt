@@ -14,3 +14,5 @@ C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\Airships
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.csproj.CopyComplete
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.exe
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.pdb
+C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.csprojAssemblyReference.cache
+C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.FrmModSet.resources

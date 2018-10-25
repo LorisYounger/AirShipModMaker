@@ -64,6 +64,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmModSet.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmModSet.Designer.cs">
+      <DependentUpon>FrmModSet.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmTemplate.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -83,6 +89,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmModSet.resx">
+      <DependentUpon>FrmModSet.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmTemplate.resx">
       <DependentUpon>FrmTemplate.cs</DependentUpon>

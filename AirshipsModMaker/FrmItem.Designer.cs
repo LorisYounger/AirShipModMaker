@@ -37,11 +37,14 @@
             this.textBoxName = new System.Windows.Forms.TextBox();
             this.pictureBoxdisplay = new System.Windows.Forms.PictureBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
-            this.buttonClose = new System.Windows.Forms.Button();
-            this.buttonSC = new System.Windows.Forms.Button();
-            this.buttonsave = new System.Windows.Forms.Button();
             this.textBoxlable = new System.Windows.Forms.TextBox();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.saveToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.saveAndCloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dontSaveAndCloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.addCustomStuffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxdisplay)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // flowLayoutPanelShow
@@ -55,7 +58,7 @@
             // 
             // textBoxItemInfo
             // 
-            this.textBoxItemInfo.Location = new System.Drawing.Point(121, 73);
+            this.textBoxItemInfo.Location = new System.Drawing.Point(121, 102);
             this.textBoxItemInfo.Multiline = true;
             this.textBoxItemInfo.Name = "textBoxItemInfo";
             this.textBoxItemInfo.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
@@ -68,7 +71,7 @@
             // 
             this.comboBoxItemTemplare.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxItemTemplare.FormattingEnabled = true;
-            this.comboBoxItemTemplare.Location = new System.Drawing.Point(121, 6);
+            this.comboBoxItemTemplare.Location = new System.Drawing.Point(121, 35);
             this.comboBoxItemTemplare.Name = "comboBoxItemTemplare";
             this.comboBoxItemTemplare.Size = new System.Drawing.Size(225, 24);
             this.comboBoxItemTemplare.TabIndex = 10;
@@ -78,7 +81,7 @@
             // labelT2
             // 
             this.labelT2.AutoSize = true;
-            this.labelT2.Location = new System.Drawing.Point(3, 9);
+            this.labelT2.Location = new System.Drawing.Point(3, 38);
             this.labelT2.Name = "labelT2";
             this.labelT2.Size = new System.Drawing.Size(112, 80);
             this.labelT2.TabIndex = 9;
@@ -86,7 +89,7 @@
             // 
             // textBoxName
             // 
-            this.textBoxName.Location = new System.Drawing.Point(121, 39);
+            this.textBoxName.Location = new System.Drawing.Point(121, 68);
             this.textBoxName.Name = "textBoxName";
             this.textBoxName.Size = new System.Drawing.Size(225, 26);
             this.textBoxName.TabIndex = 8;
@@ -96,55 +99,13 @@
             // pictureBoxdisplay
             // 
             this.pictureBoxdisplay.Image = ((System.Drawing.Image)(resources.GetObject("pictureBoxdisplay.Image")));
-            this.pictureBoxdisplay.Location = new System.Drawing.Point(359, 18);
+            this.pictureBoxdisplay.Location = new System.Drawing.Point(359, 47);
             this.pictureBoxdisplay.Name = "pictureBoxdisplay";
             this.pictureBoxdisplay.Size = new System.Drawing.Size(100, 100);
             this.pictureBoxdisplay.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxdisplay.TabIndex = 7;
             this.pictureBoxdisplay.TabStop = false;
             this.toolTip1.SetToolTip(this.pictureBoxdisplay, "Item LookLike");
-            // 
-            // buttonClose
-            // 
-            this.buttonClose.AutoSize = true;
-            this.buttonClose.BackColor = System.Drawing.Color.Orange;
-            this.buttonClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonClose.Location = new System.Drawing.Point(283, 134);
-            this.buttonClose.Name = "buttonClose";
-            this.buttonClose.Size = new System.Drawing.Size(180, 28);
-            this.buttonClose.TabIndex = 13;
-            this.buttonClose.Text = "Don\'t Save and Close";
-            this.toolTip1.SetToolTip(this.buttonClose, "Carful! Every Change you didn\'t save Will LOST!");
-            this.buttonClose.UseVisualStyleBackColor = false;
-            this.buttonClose.Click += new System.EventHandler(this.buttonClose_Click);
-            // 
-            // buttonSC
-            // 
-            this.buttonSC.AutoSize = true;
-            this.buttonSC.BackColor = System.Drawing.Color.GreenYellow;
-            this.buttonSC.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonSC.Location = new System.Drawing.Point(145, 134);
-            this.buttonSC.Name = "buttonSC";
-            this.buttonSC.Size = new System.Drawing.Size(132, 28);
-            this.buttonSC.TabIndex = 14;
-            this.buttonSC.Text = "Save and Close";
-            this.toolTip1.SetToolTip(this.buttonSC, "Close it After Save");
-            this.buttonSC.UseVisualStyleBackColor = false;
-            this.buttonSC.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // buttonsave
-            // 
-            this.buttonsave.AutoSize = true;
-            this.buttonsave.BackColor = System.Drawing.Color.PaleGreen;
-            this.buttonsave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonsave.Location = new System.Drawing.Point(7, 134);
-            this.buttonsave.Name = "buttonsave";
-            this.buttonsave.Size = new System.Drawing.Size(132, 28);
-            this.buttonsave.TabIndex = 15;
-            this.buttonsave.Text = "Save";
-            this.toolTip1.SetToolTip(this.buttonsave, "Save The Item");
-            this.buttonsave.UseVisualStyleBackColor = false;
-            this.buttonsave.Click += new System.EventHandler(this.buttonsave_Click);
             // 
             // textBoxlable
             // 
@@ -158,23 +119,67 @@
             this.textBoxlable.TabIndex = 16;
             this.textBoxlable.Text = "Click the Text Box To Show The HELP";
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.saveToolStripMenuItem,
+            this.saveAndCloseToolStripMenuItem,
+            this.dontSaveAndCloseToolStripMenuItem,
+            this.addCustomStuffToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(470, 25);
+            this.menuStrip1.TabIndex = 17;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // saveToolStripMenuItem
+            // 
+            this.saveToolStripMenuItem.BackColor = System.Drawing.Color.PaleGreen;
+            this.saveToolStripMenuItem.Name = "saveToolStripMenuItem";
+            this.saveToolStripMenuItem.Size = new System.Drawing.Size(47, 21);
+            this.saveToolStripMenuItem.Text = "Save";
+            this.saveToolStripMenuItem.Click += new System.EventHandler(this.saveToolStripMenuItem_Click);
+            // 
+            // saveAndCloseToolStripMenuItem
+            // 
+            this.saveAndCloseToolStripMenuItem.BackColor = System.Drawing.Color.GreenYellow;
+            this.saveAndCloseToolStripMenuItem.Name = "saveAndCloseToolStripMenuItem";
+            this.saveAndCloseToolStripMenuItem.Size = new System.Drawing.Size(109, 21);
+            this.saveAndCloseToolStripMenuItem.Text = "Save and Close";
+            this.saveAndCloseToolStripMenuItem.Click += new System.EventHandler(this.saveAndCloseToolStripMenuItem_Click);
+            // 
+            // dontSaveAndCloseToolStripMenuItem
+            // 
+            this.dontSaveAndCloseToolStripMenuItem.BackColor = System.Drawing.Color.Orange;
+            this.dontSaveAndCloseToolStripMenuItem.Name = "dontSaveAndCloseToolStripMenuItem";
+            this.dontSaveAndCloseToolStripMenuItem.Size = new System.Drawing.Size(144, 21);
+            this.dontSaveAndCloseToolStripMenuItem.Text = "Don\'t Save and Close";
+            this.dontSaveAndCloseToolStripMenuItem.Click += new System.EventHandler(this.dontSaveAndCloseToolStripMenuItem_Click);
+            // 
+            // addCustomStuffToolStripMenuItem
+            // 
+            this.addCustomStuffToolStripMenuItem.BackColor = System.Drawing.Color.Aquamarine;
+            this.addCustomStuffToolStripMenuItem.Name = "addCustomStuffToolStripMenuItem";
+            this.addCustomStuffToolStripMenuItem.Size = new System.Drawing.Size(122, 21);
+            this.addCustomStuffToolStripMenuItem.Text = "Add Custom Stuff";
+            this.addCustomStuffToolStripMenuItem.Click += new System.EventHandler(this.addCustomStuffToolStripMenuItem_Click);
+            // 
             // FrmItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(470, 573);
             this.Controls.Add(this.textBoxlable);
-            this.Controls.Add(this.buttonsave);
-            this.Controls.Add(this.buttonSC);
-            this.Controls.Add(this.buttonClose);
             this.Controls.Add(this.flowLayoutPanelShow);
             this.Controls.Add(this.textBoxItemInfo);
             this.Controls.Add(this.comboBoxItemTemplare);
             this.Controls.Add(this.labelT2);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.pictureBoxdisplay);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("宋体", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
+            this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -185,6 +190,8 @@
             this.toolTip1.SetToolTip(this, "Close");
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmItem_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxdisplay)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -199,9 +206,11 @@
         private System.Windows.Forms.TextBox textBoxName;
         private System.Windows.Forms.PictureBox pictureBoxdisplay;
         private System.Windows.Forms.ToolTip toolTip1;
-        private System.Windows.Forms.Button buttonClose;
-        private System.Windows.Forms.Button buttonSC;
-        private System.Windows.Forms.Button buttonsave;
         private System.Windows.Forms.TextBox textBoxlable;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem saveToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem saveAndCloseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem dontSaveAndCloseToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem addCustomStuffToolStripMenuItem;
     }
 }

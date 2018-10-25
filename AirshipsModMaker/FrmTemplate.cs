@@ -31,10 +31,10 @@ namespace AirshipsModMaker
                     listView1.Items[listView1.Items.Count - 1].BackColor = Color.LightSalmon;
                     listView1.Items[listView1.Items.Count - 1].SubItems.Add("be removed");
                 }
-                else if (tmp.Error != null)
+                else if (tmp.Error != "")
                 {
                     listView1.Items[listView1.Items.Count - 1].BackColor = Color.LightCoral;
-                    listView1.Items[listView1.Items.Count - 1].SubItems.Add("Error:" + tmp.Error.Message);
+                    listView1.Items[listView1.Items.Count - 1].SubItems.Add("Error:" + tmp.Error);
                 }
                 else
                 {

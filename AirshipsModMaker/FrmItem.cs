@@ -1,26 +1,21 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AirshipsModMaker
 {
     public partial class FrmItem : Form
     {
-        ModItem TmpItem;
+        ModItem TmpItem;//正在编辑的物品
         public ModItem ModItem;//输出的moditem
         public int Nowed;//当前正在编辑的物品id
         Template[] Templates;
-        public FrmItem(ModItem mi, Template[] templates)
+        MSetin[] MSetins;
+        public FrmItem(ModItem mi, Template[] templates, MSetin[] mSetins)
         {
             this.DialogResult = DialogResult.Cancel;
             InitializeComponent();
             Templates = templates;
+            MSetins = mSetins;
             relstmp();
             for (int i = 0; i < Templates.Length; i++)
                 if (Templates[i] == mi.UseTemp)
@@ -33,25 +28,33 @@ namespace AirshipsModMaker
             textBoxName.Text = TmpItem.Name;
             textBoxItemInfo.Text = TmpItem.Info;
             setShow();
-        }
-        public FrmItem(int id, Template[] templates)
+        }//加载
+        public FrmItem(int id, Template[] templates, MSetin[] mSetins)
         {
             this.DialogResult = DialogResult.Cancel;
             InitializeComponent();
-            Nowed = id;
+            MSetins = mSetins;
             Templates = templates;
+            Nowed = id;
+            addCustomStuffToolStripMenuItem.Visible = false;
             relstmp();
-        }
+        }//新建
         void relstmp()//刷新 comboBoxItemTemplare
         {
             comboBoxItemTemplare.Items.Clear();
             foreach (Template tm in Templates)
             {
-                if (tm.Error == null)
+                if (tm.Error == "")
                     comboBoxItemTemplare.Items.Add(tm.Name);
             }
         }
 
+        private void DelectModSetin(MSetin ms)
+        {
+            int id = TmpItem.Data.FindIndex(x=>x.Setin == ms);
+            flowLayoutPanelShow.Controls.RemoveAt(id);
+            TmpItem.Data.RemoveAt(id);
+        }
 
         int odsl = -1;//防止选择到同一个index时刷新
         private void comboBoxItemTemplare_SelectedIndexChanged(object sender, EventArgs e)
@@ -60,43 +63,37 @@ namespace AirshipsModMaker
                 return;
             else
                 odsl = comboBoxItemTemplare.SelectedIndex;
+            addCustomStuffToolStripMenuItem.Visible = true;
             Template tm = Templates[odsl];
-            TmpItem = new ModItem(Nowed, "", "", tm);
+            TmpItem = new ModItem(Nowed, "", "", tm, MSetins);
             textBoxName.Text = TmpItem.UseTemp.Name;
             textBoxItemInfo.Text = TmpItem.UseTemp.Info;
             setShow();
         }
         public void setShow()//展示全部的数据
         {
+            //try
+            //{
+            //    pictureBoxdisplay.Image = TmpItem.UseTemp.DemoImage;
+            //}
+            //catch
+            //{
+            //    pictureBoxdisplay.Image = Properties.Resources.nomal_image;
+            //}
             pictureBoxdisplay.Image = TmpItem.UseTemp.DemoImage;
+
             toolTip1.SetToolTip(labelT2, "This Templare is Made By " + TmpItem.UseTemp.Author);
             //展示数据
             flowLayoutPanelShow.Controls.Clear();
             UCSettingItem uC;
             foreach (ModSet ms in TmpItem.Data)
             {
-                uC = new UCSettingItem(ms, ChangeText);
+                uC = new UCSettingItem(ms, ChangeText, DelectModSetin);
                 flowLayoutPanelShow.Controls.Add(uC);
             }
         }
         public void ChangeText(string str) => textBoxlable.Text = str;
-        private void buttonsave_Click(object sender, EventArgs e)
-        {
-            Save();
-        }
 
-        private void button2_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.OK;
-            Save();
-            Close();
-        }
-
-        private void buttonClose_Click(object sender, EventArgs e)
-        {
-            this.DialogResult = DialogResult.No;
-            Close();
-        }
         public void Save()
         {
             if (comboBoxItemTemplare.SelectedIndex == -1)
@@ -128,6 +125,44 @@ namespace AirshipsModMaker
                         e.Cancel = true;
                         break;
                 }
+            }
+        }
+
+        private void saveToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Save();
+        }
+        private void saveAndCloseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.OK;
+            Save();
+            Close();
+        }
+        private void dontSaveAndCloseToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.DialogResult = DialogResult.No;
+            Close();
+        }
+        private void addCustomStuffToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmModSet modSet = new FrmModSet(MSetins);
+            if (modSet.ShowDialog() == DialogResult.OK)
+            {
+                if (TmpItem.Data.Find(x => x.Setin.Name == modSet.NowSelect.Name) != null)
+                {
+                    MessageBox.Show("It Have Same Stuff in this Items");
+                    return;
+                }
+                ModSet ms = new ModSet()
+                {
+                    Setin = modSet.NowSelect,
+                    valuenomal = modSet.NowSelect.valuenomal,
+                    Value = modSet.NowSelect.valuenomal,
+                };
+                TmpItem.Data.Add(ms);
+                UCSettingItem uC = new UCSettingItem(ms, ChangeText, DelectModSetin);
+                flowLayoutPanelShow.Controls.Add(uC);
+                flowLayoutPanelShow.ScrollControlIntoView(uC);
             }
         }
     }

@@ -39,6 +39,7 @@
             this.exportToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.templateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.templateManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.stuffManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getMoreTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -150,6 +151,7 @@
             // 
             this.templateToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.templateManagerToolStripMenuItem,
+            this.stuffManagerToolStripMenuItem,
             this.toolStripSeparator4,
             this.inputToolStripMenuItem,
             this.getMoreTemplateToolStripMenuItem});
@@ -163,6 +165,13 @@
             this.templateManagerToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
             this.templateManagerToolStripMenuItem.Text = "Template Manager";
             this.templateManagerToolStripMenuItem.Click += new System.EventHandler(this.templateManagerToolStripMenuItem_Click);
+            // 
+            // stuffManagerToolStripMenuItem
+            // 
+            this.stuffManagerToolStripMenuItem.Name = "stuffManagerToolStripMenuItem";
+            this.stuffManagerToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
+            this.stuffManagerToolStripMenuItem.Text = "Stuff Manager";
+            this.stuffManagerToolStripMenuItem.Click += new System.EventHandler(this.stuffManagerToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -471,6 +480,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Airships Mod Maker - ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.menuStrip1.ResumeLayout(false);
@@ -536,5 +546,6 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDialog1;
         private System.Windows.Forms.ToolStripMenuItem templateManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
+        private System.Windows.Forms.ToolStripMenuItem stuffManagerToolStripMenuItem;
     }
 }

@@ -32,6 +32,7 @@
             this.labelInfoName = new System.Windows.Forms.Label();
             this.textBoxinput = new System.Windows.Forms.TextBox();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.buttonDelete = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelInfoName
@@ -46,18 +47,33 @@
             // 
             // textBoxinput
             // 
-            this.textBoxinput.Location = new System.Drawing.Point(171, 5);
+            this.textBoxinput.Location = new System.Drawing.Point(173, 5);
             this.textBoxinput.Name = "textBoxinput";
-            this.textBoxinput.Size = new System.Drawing.Size(254, 26);
+            this.textBoxinput.Size = new System.Drawing.Size(228, 26);
             this.textBoxinput.TabIndex = 1;
             this.textBoxinput.Click += new System.EventHandler(this.UCSettingItem_Click);
             this.textBoxinput.TextChanged += new System.EventHandler(this.textBoxinput_TextChanged);
+            // 
+            // buttonDelete
+            // 
+            this.buttonDelete.BackColor = System.Drawing.Color.OrangeRed;
+            this.buttonDelete.FlatAppearance.BorderSize = 0;
+            this.buttonDelete.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonDelete.Font = new System.Drawing.Font("Swis721 Blk BT", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonDelete.Location = new System.Drawing.Point(405, 5);
+            this.buttonDelete.Name = "buttonDelete";
+            this.buttonDelete.Size = new System.Drawing.Size(21, 26);
+            this.buttonDelete.TabIndex = 2;
+            this.buttonDelete.Text = "X";
+            this.buttonDelete.UseVisualStyleBackColor = false;
+            this.buttonDelete.Click += new System.EventHandler(this.buttonDelect_Click);
             // 
             // UCSettingItem
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.White;
+            this.Controls.Add(this.buttonDelete);
             this.Controls.Add(this.textBoxinput);
             this.Controls.Add(this.labelInfoName);
             this.Font = new System.Drawing.Font("宋体", 12F);
@@ -76,5 +92,6 @@
         private System.Windows.Forms.Label labelInfoName;
         private System.Windows.Forms.TextBox textBoxinput;
         private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.Button buttonDelete;
     }
 }

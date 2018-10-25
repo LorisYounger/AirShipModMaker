@@ -15,18 +15,21 @@ namespace AirshipsModMaker
         AirShipModData data = new AirShipModData();//当前存档
         //全部模板
         List<Template> Templates = new List<Template>();
+        //子项集合
+        public List<MSetin> MSetins = new List<MSetin>();
         string SavePath = "";//保存位置
         public FrmMain()
         {
             InitializeComponent();
             //chack update first
+#if !DEBUG
             string update = UpdateCheck();
             if (update != "")
             {
-                if (MessageBox.Show(update+"\nUpdate Now?", "There have new Update", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                if (MessageBox.Show(update + "\nUpdate Now?", "There have new Update", MessageBoxButtons.YesNo) == DialogResult.Yes)
                     System.Diagnostics.Process.Start(@"http://download.exlb.org/AirShipModMaker/AirShipModMaker.zip");
             }
-
+#endif
             this.Text += Program.Verizon;
             //新建文件夹
             DirectoryInfo info = new DirectoryInfo(Program.PathMain);
@@ -56,7 +59,7 @@ namespace AirshipsModMaker
             //加载Template
             foreach (DirectoryInfo di in info.GetDirectories())
             {
-                Templates.Add(new Template(di.FullName));
+                Templates.Add(new Template(di.FullName, MSetins));
             }
 
         }
@@ -125,6 +128,7 @@ namespace AirshipsModMaker
         private void SavetoolStripMenuItem1_Click(object sender, EventArgs e)
         {
             Save();
+            MessageBox.Show("SaveSuccess");
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -136,6 +140,7 @@ namespace AirshipsModMaker
                 Save(SavePath);
                 return;
             }
+            MessageBox.Show("SaveSuccess");
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -144,14 +149,15 @@ namespace AirshipsModMaker
             {
                 FileInfo fi = new FileInfo(openFileDialog1.FileName);
                 StreamReader sr = new StreamReader(fi.OpenRead(), Encoding.UTF8);
-                data = new AirShipModData(sr.ReadToEnd(), Templates);
+                AirShipModData tmp = new AirShipModData(sr.ReadToEnd(), Templates.ToArray(), MSetins.ToArray());
                 sr.Close();
                 sr.Dispose();
-                if (data.ModName == "")
+                if (tmp.ModName == "")
                 {
-                    MessageBox.Show("This File Is Not AirShipModMaker's File or File Corrupted");
+                    MessageBox.Show("This File Is Not AirShipModMaker's File \nor File Corrupted \nor Do not have Template what File needed", "File Open Fail");
                     return;
                 }
+                data = tmp;
                 textBoxModName.Text = data.ModName;
                 textBoxModInfo.Text = data.ModInfo;
                 if (data.Modlogo != "" && new FileInfo(data.Modlogo).Exists)
@@ -161,7 +167,6 @@ namespace AirshipsModMaker
                     data.Modlogo = "";
                     pictureBoxModImage.Image = Properties.Resources.nomal_image;
                 }
-
 
                 //item
                 listView1.Items.Clear();
@@ -189,7 +194,7 @@ namespace AirshipsModMaker
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             isChange = true;
-            FrmItem fi = new FrmItem(data.ItemID, Templates.ToArray());
+            FrmItem fi = new FrmItem(data.ItemID, Templates.ToArray(), MSetins.ToArray());
             if (fi.ShowDialog() == DialogResult.OK)
             {
                 data.modItems.Add(fi.ModItem);
@@ -216,7 +221,7 @@ namespace AirshipsModMaker
             int id = listView1.SelectedIndices[0];
             ModItem mi = data.modItems[id];
             isChange = true;
-            FrmItem fi = new FrmItem(mi, Templates.ToArray());
+            FrmItem fi = new FrmItem(mi, Templates.ToArray(), MSetins.ToArray());
             if (fi.ShowDialog() == DialogResult.OK)
             {
                 data.modItems[id] = fi.ModItem;
@@ -290,13 +295,13 @@ namespace AirshipsModMaker
 
                 lang.AppendLine($"modulecategory_AMM{data.Outputid}={data.ModName.Replace("\r", "").Replace("\n", @"\n")}");
 
-                string tmp = LPSMReplace(Properties.Resources.info, new Sub("id", data.Outputid),
+                StringBuilder tmp = new StringBuilder(LPSMReplace(Properties.Resources.info, new Sub("id", data.Outputid),
                     new Sub("name", data.ModName.Replace("\r", "").Replace("\n", @"\n")),
-                    new Sub("info", data.ModInfo.Replace("\r", "").Replace("\n", @"\n")));//info.json
+                    new Sub("info", data.ModInfo.Replace("\r", "").Replace("\n", @"\n"))));//info.json
 
                 fi = new FileInfo(path + @"\info.json");
                 FileStream fs = fi.Create();
-                byte[] buff = Encoding.UTF8.GetBytes(tmp);
+                byte[] buff = Encoding.UTF8.GetBytes(tmp.ToString());
                 fs.Write(buff, 0, buff.Length);
                 fs.Close();
                 fs.Dispose();
@@ -309,10 +314,21 @@ namespace AirshipsModMaker
                         di.Create();
 
                     fi = new FileInfo(path + @"\" + mi.UseTemp.Local + @"\AMM" + mi.ItemID + ".json");//singlefile
-                    tmp = LPSMReplace(mi.UseTemp.RepFile, mi.ToSubs()).Replace("|name:|", "AMM" + mi.ItemID);
+
+                    /*LPSMReplace(mi.UseTemp.RepFile, mi.ToSubs()).Replace("|name:|", "AMM" + mi.ItemID);*/
+                    tmp.Clear();
+                    foreach (ModSet ms in mi.Data)
+                    {
+                        tmp.Append($"\"{ms.Setin.Name}\": ");
+                        if (ms.Setin.ModSetType == MSetin.SetType.STRING)
+                            tmp.AppendLine($"\"{ms.Value}\",");
+                        else
+                            tmp.AppendLine(ms.Value + ',');
+                    }
+
 
                     fs = fi.Create();
-                    buff = Encoding.UTF8.GetBytes(tmp);
+                    buff = Encoding.UTF8.GetBytes(mi.UseTemp.RepFile.Replace("|name:|", "AMM" + mi.ItemID).Replace("|lpsm:|", tmp.ToString()));
                     fs.Write(buff, 0, buff.Length);
                     fs.Close();
                     fs.Dispose();
@@ -374,7 +390,7 @@ namespace AirshipsModMaker
             }
             else
             {
-                MessageBox.Show("Your Software are up-to-date","Update Check");
+                MessageBox.Show("Your Software are up-to-date", "Update Check");
             }
         }
 
@@ -429,12 +445,19 @@ namespace AirshipsModMaker
 
         private void templateManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmTemplate(Templates.ToArray(), this).Show();
+            new FrmTemplate(Templates.ToArray(), this).ShowDialog();
         }
 
         private void howToUseToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(@"https://www.exlb.org/airshipmodmaker/");
+        }
+
+        private void stuffManagerToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            var tmp = new FrmModSet(MSetins.ToArray());
+            tmp.buttonSelect.Visible = false;
+            tmp.ShowDialog();
         }
     }
 
@@ -459,12 +482,11 @@ namespace AirshipsModMaker
             return lps.ToString();
         }
         public AirShipModData() { }
-        public AirShipModData(string lps, List<Template> templates)
+        public AirShipModData(string lps, Template[] templates, MSetin[] MSetins)
         {
             try
             {
-                LpsDocument lpsd = new LpsDocument();
-                lpsd = new LpsDocument(lps);
+                LpsDocument lpsd = new LpsDocument(lps);
                 if (lpsd.Read().Name != "airshipmod" && lpsd.Read().Info.ToLower() != "usersave")
                     return;
                 ModName = lpsd.Read().Find("name").Info;
@@ -473,7 +495,7 @@ namespace AirshipsModMaker
                     Outputid = lpsd.Read().Find("id").info;//output id
                 Modlogo = lpsd.ReadNext().Find("logo").Info;
                 while (lpsd.ReadCanNext())
-                    modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates));
+                    modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates, MSetins));
             }
             catch
             {
@@ -505,7 +527,7 @@ namespace AirshipsModMaker
                 subs.Add(ms.ToSub());
             return subs.ToArray();
         }
-        public ModItem(int id, Line line, List<Template> templates)
+        public ModItem(int id, Line line, Template[] templates, MSetin[] mSetins)//加载
         {
             ItemID = id;
             UseTemp = templates.FirstOrDefault(x => x.Name == line.Find("temp").Info);
@@ -517,16 +539,22 @@ namespace AirshipsModMaker
                 tmp = UseTemp.Data.FindLine(line.Subs[i].Name);
                 Data.Add(new ModSet()
                 {
-                    Name = line.Subs[i].Name,
+                    Setin = mSetins.First(x => x.Name == line.Subs[i].Name),
                     Value = line.Subs[i].Info,
-                    info = tmp.Find("info").Info,
-                    Mname = tmp.Find("name").info,
-                    ModSetType = (ModSet.SetType)Enum.Parse(typeof(ModSet.SetType), tmp.Find("type").info.ToUpper()),
-                    valuenomal = tmp.Find("nomal").Info
                 });
+                if (tmp.Find("nomal") != null)
+                    Data.Last().valuenomal = tmp.Find("nomal").Info;
+                else
+                    Data.Last().valuenomal = Data.Last().Setin.valuenomal;
             }
         }
-        public ModItem(int id, string name, string info, Template usrTemp)
+
+        //现在template 单独设置项所需内容为
+        //name 用作定位(ps:直接就是名字)
+        //nomal 标准值
+        //skip 如有需要跳过读取
+
+        public ModItem(int id, string name, string info, Template usrTemp, MSetin[] mSetins)//新建ModItem
         {
             ItemID = id;
             Name = name;
@@ -536,10 +564,7 @@ namespace AirshipsModMaker
             while (UseTemp.Data.ReadCanNext())
                 Data.Add(new ModSet
                 {
-                    Name = UseTemp.Data.Read().Name,
-                    info = UseTemp.Data.Read().Find("info").info,
-                    ModSetType = (ModSet.SetType)Enum.Parse(typeof(ModSet.SetType), UseTemp.Data.Read().Find("type").info.ToUpper()),
-                    Mname = UseTemp.Data.Read().Find("name").info,
+                    Setin = mSetins.First(x => x.Name == UseTemp.Data.Read().Name),
                     Value = UseTemp.Data.Read().Find("nomal").Info,
                     valuenomal = UseTemp.Data.ReadNext().Find("nomal").Info,
                 });
@@ -558,32 +583,30 @@ namespace AirshipsModMaker
     /// </summary>
     public class ModSet
     {
-        public SetType ModSetType = SetType.STRING;
-        private string value;
-        public string Name;
-        public string Mname;//展示给用户的名字
+        public MSetin Setin;//这是固定信息，属于不会变的那种
 
-        public string info;
+        private string value;
+
         public string valuenomal;
         public string Value
         {
             get => value; set
             {
-                switch (ModSetType)
+                switch (Setin.ModSetType)
                 {
-                    case SetType.UINT:
+                    case MSetin.SetType.UINT:
                         if (IsUnsignInt(value))
                             this.value = value;
                         break;
-                    case SetType.INT:
+                    case MSetin.SetType.INT:
                         if (IsInt(value))
                             this.value = value;
                         break;
-                    case SetType.NUMBER:
+                    case MSetin.SetType.NUMBER:
                         if (IsNumeric(value))
                             this.value = value;
                         break;
-                    case SetType.UNUMBER:
+                    case MSetin.SetType.UNUMBER:
                         if (IsUNumeric(value))
                             this.value = value;
                         break;
@@ -611,9 +634,54 @@ namespace AirshipsModMaker
         }
         public Sub ToSub()
         {
-            return new Sub(Name, Value);
+            return new Sub(Setin.Name, Value);
         }
 
+    }
+    ///// <summary>
+    ///// 从全部MS中找到的
+    ///// </summary>
+    //public class TempMSetin
+    //{
+
+
+    //    public MSetin GetMSetin(string name)
+    //    {
+    //        return MSetins.FirstOrDefault(x => x.Name == name);
+    //    }
+
+    //    public void AddMsetin(MSetin mSetin)
+    //    {
+    //        if (GetMSetin(mSetin.Name) == null)
+    //            MSetins.Add(mSetin);
+    //    }
+
+    //}
+    //这是ModSet的固定信息
+    public class MSetin
+    {
+        public SetType ModSetType = SetType.STRING;
+        /// <summary>
+        /// 名字
+        /// </summary>
+        public string Name;
+        /// <summary>
+        /// 给用户的名字
+        /// </summary>
+        public string Mname;
+        public string info;
+        /// <summary>
+        /// is Not Obsolete,It Only No Recommend 
+        /// </summary>
+        //[Obsolete()]
+        public string valuenomal;
+        //来自哪里
+        public string From;
+
+        public ModSet ToModSet()
+        {
+            return new ModSet();
+        }
         public enum SetType
         {
             UINT, INT, NUMBER, UNUMBER, STRING
@@ -633,13 +701,13 @@ namespace AirshipsModMaker
         public string Author;//作者
         public string Local;//位置
         public string Prefix;//前缀
-        public string Verison="N/A";
+        public string Verison = "N/A";
         public bool IsFlipped = false;//是不是IsFlipped
         public LpsDocument Data;//替换的数据
         public Image DemoImage;
         public string path;
-        public Exception Error = null;
-        public Template(string path)
+        public string Error = "";
+        public Template(string path, List<MSetin> mSetins)
         {
             try
             {
@@ -650,6 +718,8 @@ namespace AirshipsModMaker
                 RepFile = sr.ReadToEnd().Replace("\r", "");
                 sr.Dispose();
 
+                //读取完成
+
                 Data = new LpsDocument();
                 fi = new FileInfo(path + @"\info.lps");
                 sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.Default);
@@ -657,22 +727,59 @@ namespace AirshipsModMaker
                 sr.Dispose();
                 sr = null;
 
+                //判断版本
+
+                if (Data.Read().Find("ver") != null)
+                    Verison = Data.Read().Find("ver").GetInfo();
+                if (!(ModSet.IsUNumeric(Verison) && Convert.ToDouble(Verison) >= 2))
+                {
+                    Error = "Verison too old";
+                }
+                else if (Convert.ToDouble(Verison) >= 3)
+                {
+                    Error = "Verison too High, Upgreat software to support";
+                }
+
+                //获取信息
+
                 Name = Data.Read().Find("name").GetInfo();
                 Info = Data.Read().Find("info").GetInfo();
                 Author = Data.Read().Find("author").GetInfo();
                 Local = Data.Read().Find("local").GetInfo();
                 Prefix = Data.Read().Find("prefix").GetInfo();
+                IsFlipped = (Data.Read().Find("flipped") != null);
 
-                if (Data.Read().Find("ver") != null)
-                    Verison = Data.Read().Find("ver").GetInfo();
+
+                //加载到MSetins
+
+                Data.LineNode = 1;
+                MSetin tmp;
+                while (Data.ReadCanNext())
+                {
+                    tmp = mSetins.FirstOrDefault(x => x.Name == Data.Read().Name);
+                    if (tmp == null && Data.Read().Find("skip") == null)//如果读取到跳过，则跳过:(有引发bug的可能性)
+                    {
+                        mSetins.Add(new MSetin()
+                        {
+                            Name = Data.Read().Name,
+                            info = Data.Read().Find("info").info,
+                            valuenomal = Data.Read().Find("nomal").info,
+                            ModSetType = (MSetin.SetType)Enum.Parse(typeof(MSetin.SetType), Data.Read().Find("type").info.ToUpper()),
+                            Mname = Data.Read().Find("name").info,
+                            From = Name
+                        });
+                    }
+                    else
+                    {
+                        Data.LineNode++;
+                    }
+                }
 
                 DemoImage = Image.FromFile(path + @"\logo.png");
-
-                IsFlipped = (Data.Read().Find("flipped") != null);
             }
             catch (Exception e)
             {
-                Error = e;//cath error
+                Error = e.Message;//cath error
             }
         }
     }
