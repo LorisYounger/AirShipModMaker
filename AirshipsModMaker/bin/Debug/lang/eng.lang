@@ -1,0 +1,70 @@
+MLS#AirshipsModMaker:|lang#English:|def:|
+
+form#FrmMain:|Airships Mod Maker - 
+menu#openToolStripMenuItem:|Open
+menu#SavetoolStripMenuItem1:|Save
+menu#saveAsToolStripMenuItem:|Save As
+menu#exportToolStripMenuItem:|Export
+menu#fileToolStripMenuItem:|File
+menu#templateManagerToolStripMenuItem:|Template Manager
+menu#stuffManagerToolStripMenuItem:|Stuff Manager
+menu#inputToolStripMenuItem:|Template Path
+menu#getMoreTemplateToolStripMenuItem:|Get more Template
+menu#templateToolStripMenuItem1:|Template
+menu#onStreamToolStripMenuItem:|On Stream
+menu#onGitHubToolStripMenuItem:|On GitHub
+menu#reportBugsToolStripMenuItem:|Suggest/Report Bugs
+menu#sourceCodeToolStripMenuItem:|Source Code
+menu#howToUseToolStripMenuItem:|How To Use
+menu#updateSoftwareToolStripMenuItem:|Update Software
+menu#subscribeAtSteamToolStripMenuItem:|Subscribe at Steam
+menu#authorToolStripMenuItem:|About
+menu#aboutToolStripMenuItem:|More
+menu#englishToolStripMenuItem:|English
+menu#languageToolStripMenuItem:|Language
+menu#menuStrip1:|menuStrip1
+frm#labelT3:|Tips:/r/nMove Mouse to TextBox to see Help/r/nGo To 'Item' List To Add your own item/r/nFile-Export to output your Mod
+.ToolTip#labelT3.ToolTip:|You Open the ToolTip
+.ToolTip#textBoxModInfo.ToolTip:|introduce your mod/r/nWhat is strengths?
+.ToolTip#textBoxModName.ToolTip:|A Name that show to everyone
+frm#labelT1:|Mod Name/r/n/r/nMod Info
+.ToolTip#pictureBoxModImage.ToolTip:|a good image is a good way to show your mod/r/nTips this image will lost  when you move or delete
+frm#tabPage1:|Main Info
+frm#label1:|Tips:/r/nRight Click the Item to view more operation
+.ToolTip#label1.ToolTip:|You Open the ToolTip
+Header#columnHeader2:|Item Name
+Header#columnHeader3:|Item Template
+Header#columnHeader4:|Item Info
+ToolStrip#addToolStripMenuItem:|Add
+ToolStrip#editToolStripMenuItem:|Edit
+ToolStrip#removeToolStripMenuItem:|Remove
+frm#tabPage2:|Item List
+frm#templateToolStripMenuItem:|Template
+
+form#FrmItem:|Item Editor
+frm#textBoxItemInfo:|You Need Templare To make Item
+.ToolTip#textBoxItemInfo.ToolTip:|This text will help player to know what the item was
+.ToolTip#comboBoxItemTemplare.ToolTip:|Select Templare First
+frm#labelT2:|Item Template/r/n/r/nItem Name/r/n/r/nItem Info
+frm#textBoxName:|Select Templare First
+.ToolTip#textBoxName.ToolTip:|This is Name
+.ToolTip#pictureBoxdisplay.ToolTip:|Item LookLike
+frm#textBoxlable:|Click the Text Box To Show The HELP
+menu#saveToolStripMenuItem:|Save
+menu#saveAndCloseToolStripMenuItem:|Save and Close
+menu#dontSaveAndCloseToolStripMenuItem:|Don't Save and Close
+menu#addCustomStuffToolStripMenuItem:|Add Custom Stuff
+
+form#FrmTemplate:|Template Manager
+ToolStrip#addTemplatesToolStripMenuItem:|Install/Update
+Header#columnHeaderAuthor:|Author
+ToolStrip#reloadToolStripMenuItem:|Reload
+ToolStrip#reMoveTemplateToolStripMenuItem:|ReMove Template
+Header#columnHeaderVer:|Ver
+ToolStrip#showOnExplorerToolStripMenuItem:|Show On Explorer
+Header#columnHeaderName:|Name
+Header#columnHeaderInfo:|Info
+
+form#FrmModSet:|Select Stuff
+frm#textBoxlable:|<-- Enter text to seach/r/n/r/n/r/n/r/n<-- Select the ListBox To Show The HELP/r/n/r/n/r/n    Click this to Select ModSet/r/n      |/r/n     \|/
+frm#buttonSelect:|Select ModSet

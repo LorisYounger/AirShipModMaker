@@ -1,0 +1,68 @@
+MLS#AirshipsModMaker:|lang#Chinese (繁体):|
+
+form#FrmMain:|Airships Mod 製作器 - 
+menu#openToolStripMenuItem:|打開
+menu#SavetoolStripMenuItem1:|保存
+menu#saveAsToolStripMenuItem:|另存為
+menu#exportToolStripMenuItem:|匯出
+menu#fileToolStripMenuItem:|檔案
+menu#templateManagerToolStripMenuItem:|範本管理器
+menu#stuffManagerToolStripMenuItem:|自定義項管理器
+menu#inputToolStripMenuItem:|範本地址
+menu#getMoreTemplateToolStripMenuItem:|獲取更多範本
+menu#templateToolStripMenuItem1:|範本
+menu#onStreamToolStripMenuItem:|在 Stream
+menu#onGitHubToolStripMenuItem:|在 GitHub
+menu#reportBugsToolStripMenuItem:|建議/迴響BUG
+menu#sourceCodeToolStripMenuItem:|原始程式碼
+menu#howToUseToolStripMenuItem:|如何使用
+menu#updateSoftwareToolStripMenuItem:|更新軟體
+menu#subscribeAtSteamToolStripMenuItem:|訂閱在 Steam
+menu#authorToolStripMenuItem:|關於
+menu#aboutToolStripMenuItem:|更多
+menu#languageToolStripMenuItem:|Language
+frm#labelT3:|Tips:/r/n懸浮在文字方塊上查看幫助/r/n前往'項目'清單添加你自己的項目/r/n檔案-導出來輸出你的Mod（在遊戲中查看）
+.ToolTip#labelT3.ToolTip:|你成功打開了提示
+.ToolTip#textBoxModInfo.ToolTip:|介紹你的Mod/r/n有什麼特長
+.ToolTip#textBoxModName.ToolTip:|模組名字來給任何人的第一印象
+frm#labelT1:|模組名字/r/n/r/n模組介紹
+.ToolTip#pictureBoxModImage.ToolTip:|一個好的圖片幫助你介紹MOD/r/n如果你删除原始檔案，圖片會遺失
+frm#tabPage1:|主要信息
+frm#label1:|Tips:/r/n右鍵查看更多功能
+.ToolTip#label1.ToolTip:|你成功打開了提示
+Header#columnHeader2:|項目名
+Header#columnHeader3:|使用範本
+Header#columnHeader4:|介紹
+ToolStrip#addToolStripMenuItem:|添加
+ToolStrip#editToolStripMenuItem:|編輯
+ToolStrip#removeToolStripMenuItem:|移除
+frm#tabPage2:|清單
+frm#templateToolStripMenuItem:|範本
+
+form#FrmItem:|項目編輯器
+frm#textBoxItemInfo:|你需要範本去編輯項目
+.ToolTip#textBoxItemInfo.ToolTip:|這文字將會告訴用戶這個項目可以做什麼
+.ToolTip#comboBoxItemTemplare.ToolTip:|首先選擇範本
+frm#labelT2:|項目範本/r/n/r/n项目名/r/n/r/n項目介紹
+frm#textBoxName:|首先選擇範本
+.ToolTip#textBoxName.ToolTip:|這是名字
+.ToolTip#pictureBoxdisplay.ToolTip:|大致長相
+frm#textBoxlable:|點擊文字方塊查看幫助
+menu#saveToolStripMenuItem:|保存
+menu#saveAndCloseToolStripMenuItem:|保存並關閉
+menu#dontSaveAndCloseToolStripMenuItem:|不保存並關閉
+menu#addCustomStuffToolStripMenuItem:|添加自定義項目
+
+form#FrmTemplate:|範本管理器
+ToolStrip#addTemplatesToolStripMenuItem:|安裝/陞級
+Header#columnHeaderAuthor:|作者
+ToolStrip#reloadToolStripMenuItem:|重新加載
+ToolStrip#reMoveTemplateToolStripMenuItem:|删除範本
+Header#columnHeaderVer:|版本
+ToolStrip#showOnExplorerToolStripMenuItem:|在檔案管理器打開
+Header#columnHeaderName:|名稱
+Header#columnHeaderInfo:|介紹
+
+form#FrmModSet:|選擇自定義項
+frm#textBoxlable:|<-- 輸入文字來蒐索/r/n/r/n/r/n/r/n<-- 選擇清單來查看幫助/r/n/r/n/r/n    點擊來選擇自定義項目/r/n      |/r/n     \|/
+frm#buttonSelect:|選擇自定義項

@@ -16,3 +16,5 @@ C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\Airships
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Release\AirshipsModMaker.exe
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Release\AirshipsModMaker.pdb
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Release\AirshipsModMaker.csprojAssemblyReference.cache
+C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Release\MultiLang.dll
+C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Release\MultiLang.pdb

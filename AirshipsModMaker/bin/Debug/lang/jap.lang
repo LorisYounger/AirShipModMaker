@@ -1,0 +1,64 @@
+MLS#AirshipsModMaker:|lang#Japanese (日本語):|
+form#FrmMain:|Airship Mod 制作器 - 
+menu#openToolStripMenuItem:|開く
+menu#SavetoolStripMenuItem1:|保存する
+menu#saveAsToolStripMenuItem:|別に保存する
+menu#exportToolStripMenuItem:|導き出す
+menu#fileToolStripMenuItem:|ファイル
+menu#templateManagerToolStripMenuItem:|テンプレート管理器
+menu#stuffManagerToolStripMenuItem:|カスタマイズ項目管理器
+menu#inputToolStripMenuItem:|テンプレートのアドレス
+menu#getMoreTemplateToolStripMenuItem:|より多くのテンプレートを取得
+menu#templateToolStripMenuItem1:|テンプレート
+menu#onStreamToolStripMenuItem:|Stream
+menu#onGitHubToolStripMenuItem:|GitHub
+menu#reportBugsToolStripMenuItem:|メッセージ/フィードバック
+menu#sourceCodeToolStripMenuItem:|ソースコード
+menu#howToUseToolStripMenuItem:|どのように使うか
+menu#updateSoftwareToolStripMenuItem:|更新ソフト
+menu#subscribeAtSteamToolStripMenuItem:|ストーリーを購読する
+menu#authorToolStripMenuItem:|について
+menu#aboutToolStripMenuItem:|もっと
+menu#languageToolStripMenuItem:|Language
+frm#labelT3:|Tps :/r/nはテキストボックスでヘルプ/r/nは'プロジェクト'のリストに自分のプロジェクト/r/nファイルを追加します。
+.ToolTip#labelT3.ToolTip:|あなたは成功のヒントを開いた
+.ToolTip#textBoxModInfo.ToolTip:|あなたのMIT/r/nの特技を紹介します
+.ToolTip#textBoxModName.ToolTip:|モデルの名前は誰の第一印象を与える
+frm#labelT1:|モジュールの名前/r/n/r/nモデルの紹介
+.ToolTip#pictureBoxModImage.ToolTip:|あなたがソースファイルを削除するなら、画像が失われますか？
+frm#tabPage1:|主要な情報
+frm#label1:|Tps :/r/n右ボタンをより多くの機能をチェック
+.ToolTip#label1.ToolTip:|あなたは成功のヒントを開いた
+Header#columnHeader2:|プロジェクト名
+Header#columnHeader3:|テンプレートを使う
+Header#columnHeader4:|紹介する
+ToolStrip#addToolStripMenuItem:|追加
+ToolStrip#editToolStripMenuItem:|編集する
+ToolStrip#removeToolStripMenuItem:|取り除かれる
+frm#tabPage2:|リスト
+frm#templateToolStripMenuItem:|テンプレート
+form#FrmItem:|プロジェクトエディタ
+frm#textBoxItemInfo:|あなたはテンプレートを編集する必要があります。
+.ToolTip#textBoxItemInfo.ToolTip:|このテキストは、このプロジェクトに何をするかをユーザーに伝える。
+.ToolTip#comboBoxItemTemplare.ToolTip:|まずはテンプレートを選択
+frm#labelT2:|プロジェクトテンプレート/r/n/r/nプロジェクト名/r/n/r/n項目の紹介
+frm#textBoxName:|まずはテンプレートを選択
+.ToolTip#textBoxName.ToolTip:|これは名前です
+.ToolTip#pictureBoxdisplay.ToolTip:|大まかな顔つき
+frm#textBoxlable:|テキストボックスをクリックして助けてください
+menu#saveToolStripMenuItem:|保存する
+menu#saveAndCloseToolStripMenuItem:|保存して閉鎖する
+menu#dontSaveAndCloseToolStripMenuItem:|保存しないで閉じる
+menu#addCustomStuffToolStripMenuItem:|カスタムアイテムを追加
+form#FrmTemplate:|テンプレート管理器
+ToolStrip#addTemplatesToolStripMenuItem:|アップグレード
+Header#columnHeaderAuthor:|作者
+ToolStrip#reloadToolStripMenuItem:|リロード
+ToolStrip#reMoveTemplateToolStripMenuItem:|テンプレートを削除
+Header#columnHeaderVer:|バージョン
+ToolStrip#showOnExplorerToolStripMenuItem:|ファイル管理器で開く
+Header#columnHeaderName:|名称
+Header#columnHeaderInfo:|紹介する
+form#FrmModSet:|カスタマイズ項目を選択
+frm#textBoxlable:|<-- 入力テキストが検索/r/n/r/n/r/n/r/n <-- 選択リストをチェック/r/n/r/n/r/nクリックしてカスタマイズ項目を選択/r/n      |/r/n     \|/
+frm#buttonSelect:|カスタマイズ項目を選択

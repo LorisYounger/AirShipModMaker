@@ -1,0 +1,64 @@
+MLS#AirshipsModMaker:|lang#German (deutsche):|
+form#FrmMain:|Airships mod Macher - 
+menu#openToolStripMenuItem:|öffnen
+menu#SavetoolStripMenuItem1:|Speichern
+menu#saveAsToolStripMenuItem:|Speichern unter
+menu#exportToolStripMenuItem:|Daraus
+menu#fileToolStripMenuItem:|datei
+menu#templateManagerToolStripMenuItem:|Template manager
+menu#stuffManagerToolStripMenuItem:|Custom manager
+menu#inputToolStripMenuItem:|Vorlagen.
+menu#getMoreTemplateToolStripMenuItem:|Mehr vorlagen
+menu#templateToolStripMenuItem1:|Vorlage
+menu#onStreamToolStripMenuItem:|Im Stream
+menu#onGitHubToolStripMenuItem:|Auf github
+menu#reportBugsToolStripMenuItem:|EMPFEHLUNGEN/feedback - bug
+menu#sourceCodeToolStripMenuItem:|Der Source - code
+menu#howToUseToolStripMenuItem:|Wie MIT
+menu#updateSoftwareToolStripMenuItem:|Software - Update
+menu#subscribeAtSteamToolStripMenuItem:|Abonnement zur Verfügung.
+menu#authorToolStripMenuItem:|über
+menu#aboutToolStripMenuItem:|Mehr
+menu#languageToolStripMenuItem:|Language
+frm#labelT3:|Tips:/r/nausgesetzt, die in DAS textfeld auf der/r/nzu sehen in "Projekte" liste ihr eigenes Projekt/r/ndatei - guide aus Produktion ihren Mod (auf das Spiel zu sehen)
+.ToolTip#labelT3.ToolTip:|Sie öffnete die TIPPS
+.ToolTip#textBoxModInfo.ToolTip:|Stellen sie ihre Mod/r/netwas besonderes
+.ToolTip#textBoxModName.ToolTip:|Der name einer person - der Erste eindruck an
+frm#labelT1:|Der name/r/n/r/nWerden
+.ToolTip#pictureBoxModImage.ToolTip:|Eine Gute bilder helfen, wenn sie Ihnen MOD/r/nlöschen von dateien, bilder fehlen
+frm#tabPage1:|Die wichtigsten Informationen
+frm#label1:|Tips:/r/num weitere funktionen der rechten maustaste
+.ToolTip#label1.ToolTip:|Sie öffnete die TIPPS
+Header#columnHeader2:|Der name des projekts
+Header#columnHeader3:|Mit der vorlage
+Header#columnHeader4:|Die
+ToolStrip#addToolStripMenuItem:|Hinzufügen
+ToolStrip#editToolStripMenuItem:|Bearbeiten
+ToolStrip#removeToolStripMenuItem:|Entfernen
+frm#tabPage2:|Liste
+frm#templateToolStripMenuItem:|Vorlage
+form#FrmItem:|Projekt - editor
+frm#textBoxItemInfo:|Sie brauchen Projekte vorlagen zu bearbeiten
+.ToolTip#textBoxItemInfo.ToolTip:|Dieser Text wird dieses Projekt kann Tun, was sagen die user
+.ToolTip#comboBoxItemTemplare.ToolTip:|Zunächst wählen sie die vorlage
+frm#labelT2:|Projekte vorlagen/r/n/r/nProjekt/r/n/r/nProjekt eingeführt,
+frm#textBoxName:|Zunächst wählen sie die vorlage
+.ToolTip#textBoxName.ToolTip:|Das ist der name von
+.ToolTip#pictureBoxdisplay.ToolTip:|In etwa aussehen
+frm#textBoxlable:|Klicken sie auf das textfeld zu sehen
+menu#saveToolStripMenuItem:|Speichern
+menu#saveAndCloseToolStripMenuItem:|Speichern und schließen
+menu#dontSaveAndCloseToolStripMenuItem:|Nicht speichern und schließen
+menu#addCustomStuffToolStripMenuItem:|Noch eine eigene Projekte
+form#FrmTemplate:|Template manager
+ToolStrip#addTemplatesToolStripMenuItem:|Installation / upgrade
+Header#columnHeaderAuthor:|Der autor
+ToolStrip#reloadToolStripMenuItem:|Nachladen
+ToolStrip#reMoveTemplateToolStripMenuItem:|Löschen der vorlage
+Header#columnHeaderVer:|Version
+ToolStrip#showOnExplorerToolStripMenuItem:|In der datei - manager
+Header#columnHeaderName:|Der name
+Header#columnHeaderInfo:|Die
+form#FrmModSet:|Wählen sie benutzerdefiniert punkte
+frm#textBoxlable:|<-- text zu suchen/r/n/r/n/r/n/r/n<-- Wählen sie in der liste zu sehen, hilft/r/n/r/n/r/nKlicken sie auf individuelle Projekte ausgewählt./r/n      |/r/n     \|/
+frm#buttonSelect:|Wählen sie benutzerdefiniert punkte

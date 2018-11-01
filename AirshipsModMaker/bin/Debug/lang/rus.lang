@@ -1,0 +1,64 @@
+MLS#AirshipsModMaker:|lang#Russian (русский язык):|
+form#FrmMain:|изготовитель AirshiPs Myd - 
+menu#openToolStripMenuItem:|открыть 
+menu#SavetoolStripMenuItem1:|Сохранить 
+menu#saveAsToolStripMenuItem:|Сохранить как 
+menu#exportToolStripMenuItem:|экспортировать 
+menu#fileToolStripMenuItem:|Документация 
+menu#templateManagerToolStripMenuItem:|опалубочный менеджер 
+menu#stuffManagerToolStripMenuItem:|Автономный регулятор 
+menu#inputToolStripMenuItem:|адрес шаблона 
+menu#getMoreTemplateToolStripMenuItem:|получить больше шаблонов 
+menu#templateToolStripMenuItem1:|опалубка 
+menu#onStreamToolStripMenuItem:|в стреам 
+menu#onGitHubToolStripMenuItem:|в GitHub 
+menu#reportBugsToolStripMenuItem:|Рекомендация / обратная связь BUG 
+menu#sourceCodeToolStripMenuItem:|исходный код 
+menu#howToUseToolStripMenuItem:|как использовать 
+menu#updateSoftwareToolStripMenuItem:|обновить программное обеспечение 
+menu#subscribeAtSteamToolStripMenuItem:|подписка в Steam 
+menu#authorToolStripMenuItem:|О 
+menu#aboutToolStripMenuItem:|больше, чем больше 
+menu#languageToolStripMenuItem:|Languagy 
+frm#labelT3:|TiPs:/r/nподвеска в текстовой раме/r/nДобавить свой собственный проект в список "проекта"./r/nфайл - вырабатывает выход из вашего мода (просмотрен в игре)
+.ToolTip#labelT3.ToolTip:|Вам удалось открыть подсказку. 
+.ToolTip#textBoxModInfo.ToolTip:|Что с описанием вашего Mods/r/n? 
+.ToolTip#textBoxModName.ToolTip:|название группы, чтобы произнести первое впечатление на кого - либо 
+frm#labelT1:|название группы: r/n/r/n/n. 
+.ToolTip#pictureBoxModImage.ToolTip:|Хорошая фотография поможет вам представить MOD/n, если вы удалите исходный файл. артинка потеряна. 
+frm#tabPage1:|основная информация 
+frm#label1:|TiPs:/r/nправая клавиша проверяет больше функций.
+.ToolTip#label1.ToolTip:|Вам удалось открыть подсказку. 
+Header#columnHeader2:|Название проекта 
+Header#columnHeader3:|Использование шаблонов 
+Header#columnHeader4:|Презентация 
+ToolStrip#addToolStripMenuItem:|Добавить 
+ToolStrip#editToolStripMenuItem:|редактор 
+ToolStrip#removeToolStripMenuItem:|удалять 
+frm#tabPage2:|список 
+frm#templateToolStripMenuItem:|опалубка 
+form#FrmItem:|редактор проекта 
+frm#textBoxItemInfo:|Вам нужен шаблон для редактирования проекта. 
+.ToolTip#textBoxItemInfo.ToolTip:|в тексте будет рассказывать пользователям, что можно сделать в рамках проекта. 
+.ToolTip#comboBoxItemTemplare.ToolTip:|Сначала выберите шаблон для выбора 
+frm#labelT2:|шаблон проекта/n/r/n/n/n/n/r/n/n/n/n/n 
+frm#textBoxName:|Сначала выберите шаблон для выбора 
+.ToolTip#textBoxName.ToolTip:|это имя. 
+.ToolTip#pictureBoxdisplay.ToolTip:|примерная фаза 
+frm#textBoxlable:|Нажмите на кнопку для просмотра текста. 
+menu#saveToolStripMenuItem:|Сохранить 
+menu#saveAndCloseToolStripMenuItem:|сохранить и закрыть 
+menu#dontSaveAndCloseToolStripMenuItem:|не сохранить и закрыть 
+menu#addCustomStuffToolStripMenuItem:|Добавить самоопределённые проекты 
+form#FrmTemplate:|опалубочный менеджер 
+ToolStrip#addTemplatesToolStripMenuItem:|установка/обновление 
+Header#columnHeaderAuthor:|автор 
+ToolStrip#reloadToolStripMenuItem:|Перезагрузка 
+ToolStrip#reMoveTemplateToolStripMenuItem:|Удалить шаблон 
+Header#columnHeaderVer:|версия 
+ToolStrip#showOnExplorerToolStripMenuItem:|Открыть в файле менеджера файлов 
+Header#columnHeaderName:|имя 
+Header#columnHeaderInfo:|Презентация 
+form#FrmModSet:|Выберите пункт самоопределения 
+frm#textBoxlable:|<--Введите текст для поиска/r/n/r/n/r/n/r/n<-- Выбор списка для просмотра/r/n/r/n/r/nНажмите для выбора программы самоопределения./r/n      |/r/n     \|/
+frm#buttonSelect:|Выберите пункт самоопределения

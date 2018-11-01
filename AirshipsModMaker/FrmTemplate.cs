@@ -3,21 +3,51 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
-
+using LinePutScript;
+using MultiLang;
 namespace AirshipsModMaker
 {
     public partial class FrmTemplate : Form
     {
         Template[] Templates;
         FrmMain frmMain;
-        public FrmTemplate(Template[] templates, FrmMain frmMain)
+        Lang lang;
+        public FrmTemplate(Template[] templates, FrmMain frmMain,Lang lang)
         {
             InitializeComponent();
             Templates = templates;
             this.frmMain = frmMain;
+            //语言操作
+            if (lang != null && !lang.Default)
+            {
+                this.lang = lang;
+                Translate(lang);
+            }
             Rels();
         }
-
+        /// <summary>
+        /// 该Form的翻译方法
+        /// </summary>
+        /// <param name="lang">语言</param>
+        public void Translate(Lang lang)
+        {
+            lang.Translate(this);
+            //手动添加进行修改 例如 menu
+            foreach (Line line in lang.FindLangForm(this).FindGroupLine("ToolStrip"))
+            {
+                foreach (var tmp in contextMenuStrip1.Items.Find(line.Info, true))
+                {
+                    tmp.Text = line.Text;
+                }
+            }
+            foreach (ColumnHeader va in listView1.Columns)
+            {
+                var tmps = lang.FindLangForm(this).FindGroupLine("Header");
+                var tmp = tmps.Find(x => x.Info == (string)va.Tag);
+                if (tmp != null)
+                    va.Text = tmp.Text;
+            }
+        }
         public void Rels()
         {
             listView1.Items.Clear();
@@ -79,15 +109,15 @@ namespace AirshipsModMaker
         {
             if (listView1.SelectedIndices.Count == 0)
                 return;
-
-            if (MessageBox.Show("Operation cannot be cancelled\n Are you Sure Delete This Template", "You are Try to Delete '" +
-               listView1.SelectedItems[0].Text + "'", MessageBoxButtons.YesNo) == DialogResult.Yes)
-            {
-                new DirectoryInfo(Templates[listView1.SelectedIndices[0]].path).Delete(true);
-                Thread.Sleep(10);//if Delete it, it will have bug
-                listView1.SelectedItems[0].BackColor = Color.LightSalmon;
-                listView1.SelectedItems[0].SubItems[2].Text = "be removed";
-            }
+            if (listView1.SelectedItems[0].SubItems[3].Text != "be removed")
+                if (MessageBox.Show("Operation cannot be cancelled\n Are you Sure Delete This Template", "You are Try to Delete '" +
+                   listView1.SelectedItems[0].Text + "'", MessageBoxButtons.YesNo) == DialogResult.Yes)
+                {
+                    new DirectoryInfo(Templates[listView1.SelectedIndices[0]].path).Delete(true);
+                    Thread.Sleep(10);//if Delete it, it will have bug
+                    listView1.SelectedItems[0].BackColor = Color.LightSalmon;
+                    listView1.SelectedItems[0].SubItems[3].Text = "be removed";
+                }
         }
 
         private void showOnExplorerToolStripMenuItem_Click(object sender, System.EventArgs e)

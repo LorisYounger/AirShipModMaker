@@ -16,3 +16,25 @@ C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\Airships
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.pdb
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.csprojAssemblyReference.cache
 C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.FrmModSet.resources
+C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\MultiLang.dll
+C:\Users\Zou Jin\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\MultiLang.pdb
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\AirshipsModMaker.exe.config
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\AirshipsModMaker.exe
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\AirshipsModMaker.pdb
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\LinePutScript.dll
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\MultiLang.dll
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\LinePutScript.pdb
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\LinePutScript.xml
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\bin\Debug\MultiLang.pdb
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.csprojAssemblyReference.cache
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.FrmItem.resources
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.FrmMain.resources
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.FrmModSet.resources
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.FrmTemplate.resources
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.Properties.Resources.resources
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.UCSettingItem.resources
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.csproj.GenerateResource.cache
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.csproj.CoreCompileInputs.cache
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.csproj.CopyComplete
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.exe
+C:\Users\ZOUJI\Documents\Visual Studio 2017\Projects\AirshipsModMaker\AirshipsModMaker\obj\Debug\AirshipsModMaker.pdb

@@ -40,6 +40,8 @@
             this.templateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.templateManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stuffManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
+            this.versionChackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getMoreTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -54,6 +56,7 @@
             this.subscribeAtSteamToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.authorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.languageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.saveFileDialog1 = new System.Windows.Forms.SaveFileDialog();
             this.openFileDialogimage = new System.Windows.Forms.OpenFileDialog();
@@ -91,12 +94,10 @@
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fileToolStripMenuItem,
             this.templateToolStripMenuItem1,
-            this.aboutToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.aboutToolStripMenuItem,
+            this.languageToolStripMenuItem});
+            resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(484, 25);
-            this.menuStrip1.TabIndex = 1;
-            this.menuStrip1.Text = "menuStrip1";
             // 
             // fileToolStripMenuItem
             // 
@@ -107,44 +108,35 @@
             this.toolStripSeparator1,
             this.exportToolStripMenuItem});
             this.fileToolStripMenuItem.Name = "fileToolStripMenuItem";
-            this.fileToolStripMenuItem.Size = new System.Drawing.Size(39, 21);
-            this.fileToolStripMenuItem.Text = "File";
+            resources.ApplyResources(this.fileToolStripMenuItem, "fileToolStripMenuItem");
             // 
             // openToolStripMenuItem
             // 
-            this.openToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("openToolStripMenuItem.Image")));
+            resources.ApplyResources(this.openToolStripMenuItem, "openToolStripMenuItem");
             this.openToolStripMenuItem.Name = "openToolStripMenuItem";
-            this.openToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.openToolStripMenuItem.Text = "Open";
             this.openToolStripMenuItem.Click += new System.EventHandler(this.openToolStripMenuItem_Click);
             // 
             // SavetoolStripMenuItem1
             // 
-            this.SavetoolStripMenuItem1.Image = ((System.Drawing.Image)(resources.GetObject("SavetoolStripMenuItem1.Image")));
+            resources.ApplyResources(this.SavetoolStripMenuItem1, "SavetoolStripMenuItem1");
             this.SavetoolStripMenuItem1.Name = "SavetoolStripMenuItem1";
-            this.SavetoolStripMenuItem1.Size = new System.Drawing.Size(121, 22);
-            this.SavetoolStripMenuItem1.Text = "Save";
             this.SavetoolStripMenuItem1.Click += new System.EventHandler(this.SavetoolStripMenuItem1_Click);
             // 
             // saveAsToolStripMenuItem
             // 
-            this.saveAsToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("saveAsToolStripMenuItem.Image")));
+            resources.ApplyResources(this.saveAsToolStripMenuItem, "saveAsToolStripMenuItem");
             this.saveAsToolStripMenuItem.Name = "saveAsToolStripMenuItem";
-            this.saveAsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.saveAsToolStripMenuItem.Text = "Save As";
             this.saveAsToolStripMenuItem.Click += new System.EventHandler(this.saveAsToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(118, 6);
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // exportToolStripMenuItem
             // 
-            this.exportToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("exportToolStripMenuItem.Image")));
+            resources.ApplyResources(this.exportToolStripMenuItem, "exportToolStripMenuItem");
             this.exportToolStripMenuItem.Name = "exportToolStripMenuItem";
-            this.exportToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
-            this.exportToolStripMenuItem.Text = "Export";
             this.exportToolStripMenuItem.Click += new System.EventHandler(this.exportToolStripMenuItem_Click);
             // 
             // templateToolStripMenuItem1
@@ -152,44 +144,52 @@
             this.templateToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.templateManagerToolStripMenuItem,
             this.stuffManagerToolStripMenuItem,
+            this.toolStripSeparator5,
+            this.versionChackToolStripMenuItem,
             this.toolStripSeparator4,
             this.inputToolStripMenuItem,
             this.getMoreTemplateToolStripMenuItem});
             this.templateToolStripMenuItem1.Name = "templateToolStripMenuItem1";
-            this.templateToolStripMenuItem1.Size = new System.Drawing.Size(74, 21);
-            this.templateToolStripMenuItem1.Text = "Template";
+            resources.ApplyResources(this.templateToolStripMenuItem1, "templateToolStripMenuItem1");
             // 
             // templateManagerToolStripMenuItem
             // 
             this.templateManagerToolStripMenuItem.Name = "templateManagerToolStripMenuItem";
-            this.templateManagerToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.templateManagerToolStripMenuItem.Text = "Template Manager";
+            resources.ApplyResources(this.templateManagerToolStripMenuItem, "templateManagerToolStripMenuItem");
             this.templateManagerToolStripMenuItem.Click += new System.EventHandler(this.templateManagerToolStripMenuItem_Click);
             // 
             // stuffManagerToolStripMenuItem
             // 
             this.stuffManagerToolStripMenuItem.Name = "stuffManagerToolStripMenuItem";
-            this.stuffManagerToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.stuffManagerToolStripMenuItem.Text = "Stuff Manager";
+            resources.ApplyResources(this.stuffManagerToolStripMenuItem, "stuffManagerToolStripMenuItem");
             this.stuffManagerToolStripMenuItem.Click += new System.EventHandler(this.stuffManagerToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator5
+            // 
+            this.toolStripSeparator5.Name = "toolStripSeparator5";
+            resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
+            // 
+            // versionChackToolStripMenuItem
+            // 
+            this.versionChackToolStripMenuItem.Name = "versionChackToolStripMenuItem";
+            resources.ApplyResources(this.versionChackToolStripMenuItem, "versionChackToolStripMenuItem");
+            this.versionChackToolStripMenuItem.Click += new System.EventHandler(this.versionChackToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
             this.toolStripSeparator4.Name = "toolStripSeparator4";
-            this.toolStripSeparator4.Size = new System.Drawing.Size(186, 6);
+            resources.ApplyResources(this.toolStripSeparator4, "toolStripSeparator4");
             // 
             // inputToolStripMenuItem
             // 
             this.inputToolStripMenuItem.Name = "inputToolStripMenuItem";
-            this.inputToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.inputToolStripMenuItem.Text = "Template Path";
+            resources.ApplyResources(this.inputToolStripMenuItem, "inputToolStripMenuItem");
             this.inputToolStripMenuItem.Click += new System.EventHandler(this.inputToolStripMenuItem_Click);
             // 
             // getMoreTemplateToolStripMenuItem
             // 
             this.getMoreTemplateToolStripMenuItem.Name = "getMoreTemplateToolStripMenuItem";
-            this.getMoreTemplateToolStripMenuItem.Size = new System.Drawing.Size(189, 22);
-            this.getMoreTemplateToolStripMenuItem.Text = "Get more Template";
+            resources.ApplyResources(this.getMoreTemplateToolStripMenuItem, "getMoreTemplateToolStripMenuItem");
             this.getMoreTemplateToolStripMenuItem.Click += new System.EventHandler(this.getMoreTemplateToolStripMenuItem_Click);
             // 
             // aboutToolStripMenuItem
@@ -204,8 +204,7 @@
             this.toolStripSeparator2,
             this.authorToolStripMenuItem});
             this.aboutToolStripMenuItem.Name = "aboutToolStripMenuItem";
-            this.aboutToolStripMenuItem.Size = new System.Drawing.Size(52, 21);
-            this.aboutToolStripMenuItem.Text = "More";
+            resources.ApplyResources(this.aboutToolStripMenuItem, "aboutToolStripMenuItem");
             // 
             // reportBugsToolStripMenuItem
             // 
@@ -213,91 +212,85 @@
             this.onStreamToolStripMenuItem,
             this.onGitHubToolStripMenuItem});
             this.reportBugsToolStripMenuItem.Name = "reportBugsToolStripMenuItem";
-            this.reportBugsToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.reportBugsToolStripMenuItem.Text = "Suggest/Report Bugs";
+            resources.ApplyResources(this.reportBugsToolStripMenuItem, "reportBugsToolStripMenuItem");
             // 
             // onStreamToolStripMenuItem
             // 
             this.onStreamToolStripMenuItem.Name = "onStreamToolStripMenuItem";
-            this.onStreamToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.onStreamToolStripMenuItem.Text = "On Stream";
+            resources.ApplyResources(this.onStreamToolStripMenuItem, "onStreamToolStripMenuItem");
             this.onStreamToolStripMenuItem.Click += new System.EventHandler(this.onStreamToolStripMenuItem_Click);
             // 
             // onGitHubToolStripMenuItem
             // 
             this.onGitHubToolStripMenuItem.Name = "onGitHubToolStripMenuItem";
-            this.onGitHubToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
-            this.onGitHubToolStripMenuItem.Text = "On GitHub";
+            resources.ApplyResources(this.onGitHubToolStripMenuItem, "onGitHubToolStripMenuItem");
             this.onGitHubToolStripMenuItem.Click += new System.EventHandler(this.onGitHubToolStripMenuItem_Click);
             // 
             // sourceCodeToolStripMenuItem
             // 
             this.sourceCodeToolStripMenuItem.Name = "sourceCodeToolStripMenuItem";
-            this.sourceCodeToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.sourceCodeToolStripMenuItem.Text = "Source Code";
+            resources.ApplyResources(this.sourceCodeToolStripMenuItem, "sourceCodeToolStripMenuItem");
             this.sourceCodeToolStripMenuItem.Click += new System.EventHandler(this.sourceCodeToolStripMenuItem_Click);
             // 
             // toolStripSeparator3
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(198, 6);
+            resources.ApplyResources(this.toolStripSeparator3, "toolStripSeparator3");
             // 
             // howToUseToolStripMenuItem
             // 
             this.howToUseToolStripMenuItem.Name = "howToUseToolStripMenuItem";
-            this.howToUseToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.howToUseToolStripMenuItem.Text = "How To Use";
+            resources.ApplyResources(this.howToUseToolStripMenuItem, "howToUseToolStripMenuItem");
             this.howToUseToolStripMenuItem.Click += new System.EventHandler(this.howToUseToolStripMenuItem_Click);
             // 
             // updateSoftwareToolStripMenuItem
             // 
             this.updateSoftwareToolStripMenuItem.Name = "updateSoftwareToolStripMenuItem";
-            this.updateSoftwareToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.updateSoftwareToolStripMenuItem.Text = "Update Software";
+            resources.ApplyResources(this.updateSoftwareToolStripMenuItem, "updateSoftwareToolStripMenuItem");
             this.updateSoftwareToolStripMenuItem.Click += new System.EventHandler(this.updateSoftwareToolStripMenuItem_Click);
             // 
             // subscribeAtSteamToolStripMenuItem
             // 
             this.subscribeAtSteamToolStripMenuItem.Name = "subscribeAtSteamToolStripMenuItem";
-            this.subscribeAtSteamToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.subscribeAtSteamToolStripMenuItem.Text = "Subscribe at Steam";
+            resources.ApplyResources(this.subscribeAtSteamToolStripMenuItem, "subscribeAtSteamToolStripMenuItem");
             this.subscribeAtSteamToolStripMenuItem.Click += new System.EventHandler(this.subscribeAtSteamToolStripMenuItem_Click);
             // 
             // toolStripSeparator2
             // 
             this.toolStripSeparator2.Name = "toolStripSeparator2";
-            this.toolStripSeparator2.Size = new System.Drawing.Size(198, 6);
+            resources.ApplyResources(this.toolStripSeparator2, "toolStripSeparator2");
             // 
             // authorToolStripMenuItem
             // 
             this.authorToolStripMenuItem.Name = "authorToolStripMenuItem";
-            this.authorToolStripMenuItem.Size = new System.Drawing.Size(201, 22);
-            this.authorToolStripMenuItem.Text = "About";
+            resources.ApplyResources(this.authorToolStripMenuItem, "authorToolStripMenuItem");
             this.authorToolStripMenuItem.Click += new System.EventHandler(this.authorToolStripMenuItem_Click);
+            // 
+            // languageToolStripMenuItem
+            // 
+            this.languageToolStripMenuItem.Name = "languageToolStripMenuItem";
+            resources.ApplyResources(this.languageToolStripMenuItem, "languageToolStripMenuItem");
             // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
-            this.openFileDialog1.Filter = "AirShipsModMaker File|*.lps";
+            resources.ApplyResources(this.openFileDialog1, "openFileDialog1");
             // 
             // saveFileDialog1
             // 
-            this.saveFileDialog1.Filter = "AirShipsModMaker File|*.lps";
+            resources.ApplyResources(this.saveFileDialog1, "saveFileDialog1");
             // 
             // openFileDialogimage
             // 
-            this.openFileDialogimage.Filter = "png image only|*.png";
+            resources.ApplyResources(this.openFileDialogimage, "openFileDialogimage");
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Controls.Add(this.tabPage2);
-            this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tabControl1.Location = new System.Drawing.Point(0, 25);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(484, 428);
-            this.tabControl1.TabIndex = 2;
             // 
             // tabPage1
             // 
@@ -306,90 +299,57 @@
             this.tabPage1.Controls.Add(this.textBoxModName);
             this.tabPage1.Controls.Add(this.labelT1);
             this.tabPage1.Controls.Add(this.pictureBoxModImage);
-            this.tabPage1.Location = new System.Drawing.Point(4, 26);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(476, 398);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Main Info";
             this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // labelT3
             // 
-            this.labelT3.AutoSize = true;
-            this.labelT3.Location = new System.Drawing.Point(8, 329);
+            resources.ApplyResources(this.labelT3, "labelT3");
             this.labelT3.Name = "labelT3";
-            this.labelT3.Size = new System.Drawing.Size(312, 64);
-            this.labelT3.TabIndex = 4;
-            this.labelT3.Text = "Tips:\r\nMove Mouse to TextBox to see Help\r\nGo To \'Item\' List To Add your own item\r" +
-    "\nFile-Export to output your Mod";
-            this.toolTip1.SetToolTip(this.labelT3, "You Open the ToolTip");
+            this.toolTip1.SetToolTip(this.labelT3, resources.GetString("labelT3.ToolTip"));
             // 
             // textBoxModInfo
             // 
-            this.textBoxModInfo.Location = new System.Drawing.Point(86, 49);
-            this.textBoxModInfo.Multiline = true;
+            resources.ApplyResources(this.textBoxModInfo, "textBoxModInfo");
             this.textBoxModInfo.Name = "textBoxModInfo";
-            this.textBoxModInfo.Size = new System.Drawing.Size(267, 145);
-            this.textBoxModInfo.TabIndex = 3;
-            this.textBoxModInfo.Text = "AirShip Mod Maker is a tool that you can creat your Own Mod very easy.\r\nHave Fun!" +
-    "";
-            this.toolTip1.SetToolTip(this.textBoxModInfo, "introduce your mod\r\nWhat is strengths?");
+            this.toolTip1.SetToolTip(this.textBoxModInfo, resources.GetString("textBoxModInfo.ToolTip"));
             this.textBoxModInfo.TextChanged += new System.EventHandler(this.textBoxModName_TextChanged);
             // 
             // textBoxModName
             // 
-            this.textBoxModName.Location = new System.Drawing.Point(86, 17);
+            resources.ApplyResources(this.textBoxModName, "textBoxModName");
             this.textBoxModName.Name = "textBoxModName";
-            this.textBoxModName.Size = new System.Drawing.Size(267, 26);
-            this.textBoxModName.TabIndex = 2;
-            this.textBoxModName.Text = "Simple Mod";
-            this.toolTip1.SetToolTip(this.textBoxModName, "A Name that show to everyone");
+            this.toolTip1.SetToolTip(this.textBoxModName, resources.GetString("textBoxModName.ToolTip"));
             this.textBoxModName.TextChanged += new System.EventHandler(this.textBoxModName_TextChanged);
             // 
             // labelT1
             // 
-            this.labelT1.AutoSize = true;
-            this.labelT1.Location = new System.Drawing.Point(8, 20);
+            resources.ApplyResources(this.labelT1, "labelT1");
             this.labelT1.Name = "labelT1";
-            this.labelT1.Size = new System.Drawing.Size(72, 48);
-            this.labelT1.TabIndex = 1;
-            this.labelT1.Text = "Mod Name\r\n\r\nMod Info";
             // 
             // pictureBoxModImage
             // 
             this.pictureBoxModImage.Image = global::AirshipsModMaker.Properties.Resources.nomal_image;
-            this.pictureBoxModImage.Location = new System.Drawing.Point(370, 6);
+            resources.ApplyResources(this.pictureBoxModImage, "pictureBoxModImage");
             this.pictureBoxModImage.Name = "pictureBoxModImage";
-            this.pictureBoxModImage.Size = new System.Drawing.Size(100, 100);
-            this.pictureBoxModImage.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxModImage.TabIndex = 0;
             this.pictureBoxModImage.TabStop = false;
-            this.toolTip1.SetToolTip(this.pictureBoxModImage, "a good image is a good way to show your mod\r\nTips this image will lost  when you " +
-        "move or delete");
+            this.toolTip1.SetToolTip(this.pictureBoxModImage, resources.GetString("pictureBoxModImage.ToolTip"));
             this.pictureBoxModImage.Click += new System.EventHandler(this.pictureBoxModImage_Click);
             // 
             // tabPage2
             // 
             this.tabPage2.Controls.Add(this.label1);
             this.tabPage2.Controls.Add(this.listView1);
-            this.tabPage2.Location = new System.Drawing.Point(4, 26);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(476, 398);
-            this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Item List";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(8, 3);
+            resources.ApplyResources(this.label1, "label1");
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(352, 32);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Tips:\r\nRight Click the Item to view more operation";
-            this.toolTip1.SetToolTip(this.label1, "You Open the ToolTip");
+            this.toolTip1.SetToolTip(this.label1, resources.GetString("label1.ToolTip"));
             // 
             // listView1
             // 
@@ -403,33 +363,31 @@
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.Location = new System.Drawing.Point(8, 38);
+            resources.ApplyResources(this.listView1, "listView1");
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(460, 352);
-            this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // columnHeader1
             // 
-            this.columnHeader1.Text = "ID";
-            this.columnHeader1.Width = 47;
+            this.columnHeader1.Tag = "columnHeader1";
+            resources.ApplyResources(this.columnHeader1, "columnHeader1");
             // 
             // columnHeader2
             // 
-            this.columnHeader2.Text = "Item Name";
-            this.columnHeader2.Width = 120;
+            this.columnHeader2.Tag = "columnHeader2";
+            resources.ApplyResources(this.columnHeader2, "columnHeader2");
             // 
             // columnHeader3
             // 
-            this.columnHeader3.Text = "Item Template";
-            this.columnHeader3.Width = 146;
+            this.columnHeader3.Tag = "columnHeader3";
+            resources.ApplyResources(this.columnHeader3, "columnHeader3");
             // 
             // columnHeader4
             // 
-            this.columnHeader4.Text = "Item Info";
-            this.columnHeader4.Width = 127;
+            this.columnHeader4.Tag = "columnHeader4";
+            resources.ApplyResources(this.columnHeader4, "columnHeader4");
             // 
             // contextMenuStrip1
             // 
@@ -438,50 +396,40 @@
             this.editToolStripMenuItem,
             this.removeToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(124, 70);
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
             // addToolStripMenuItem
             // 
             this.addToolStripMenuItem.Name = "addToolStripMenuItem";
-            this.addToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.addToolStripMenuItem.Text = "Add";
+            resources.ApplyResources(this.addToolStripMenuItem, "addToolStripMenuItem");
             this.addToolStripMenuItem.Click += new System.EventHandler(this.addToolStripMenuItem_Click);
             // 
             // editToolStripMenuItem
             // 
             this.editToolStripMenuItem.Name = "editToolStripMenuItem";
-            this.editToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.editToolStripMenuItem.Text = "Edit";
+            resources.ApplyResources(this.editToolStripMenuItem, "editToolStripMenuItem");
             this.editToolStripMenuItem.Click += new System.EventHandler(this.editToolStripMenuItem_Click);
             // 
             // removeToolStripMenuItem
             // 
             this.removeToolStripMenuItem.Name = "removeToolStripMenuItem";
-            this.removeToolStripMenuItem.Size = new System.Drawing.Size(123, 22);
-            this.removeToolStripMenuItem.Text = "Remove";
+            resources.ApplyResources(this.removeToolStripMenuItem, "removeToolStripMenuItem");
             this.removeToolStripMenuItem.Click += new System.EventHandler(this.removeToolStripMenuItem_Click);
             // 
             // templateToolStripMenuItem
             // 
             this.templateToolStripMenuItem.Name = "templateToolStripMenuItem";
-            this.templateToolStripMenuItem.Size = new System.Drawing.Size(32, 19);
-            this.templateToolStripMenuItem.Text = "Template";
+            resources.ApplyResources(this.templateToolStripMenuItem, "templateToolStripMenuItem");
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(484, 453);
             this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.menuStrip1);
-            this.Font = new System.Drawing.Font("宋体", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "Airships Mod Maker - ";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -547,5 +495,8 @@
         private System.Windows.Forms.ToolStripMenuItem templateManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
         private System.Windows.Forms.ToolStripMenuItem stuffManagerToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
+        private System.Windows.Forms.ToolStripMenuItem versionChackToolStripMenuItem;
     }
 }

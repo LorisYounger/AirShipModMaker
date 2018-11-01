@@ -1,0 +1,68 @@
+MLS#AirshipsModMaker:|lang#Chinese (中文):|
+
+form#FrmMain:|Airships Mod 制作器 - 
+menu#openToolStripMenuItem:|打开
+menu#SavetoolStripMenuItem1:|保存
+menu#saveAsToolStripMenuItem:|另存为
+menu#exportToolStripMenuItem:|导出
+menu#fileToolStripMenuItem:|文件
+menu#templateManagerToolStripMenuItem:|模板管理器
+menu#stuffManagerToolStripMenuItem:|自定义项管理器
+menu#inputToolStripMenuItem:|模板地址
+menu#getMoreTemplateToolStripMenuItem:|获取更多模板
+menu#templateToolStripMenuItem1:|模板
+menu#onStreamToolStripMenuItem:|在 Stream
+menu#onGitHubToolStripMenuItem:|在 GitHub
+menu#reportBugsToolStripMenuItem:|建议/反馈BUG
+menu#sourceCodeToolStripMenuItem:|源代码
+menu#howToUseToolStripMenuItem:|如何使用
+menu#updateSoftwareToolStripMenuItem:|更新软件
+menu#subscribeAtSteamToolStripMenuItem:|订阅在 Steam
+menu#authorToolStripMenuItem:|关于
+menu#aboutToolStripMenuItem:|更多
+menu#languageToolStripMenuItem:|Language
+frm#labelT3:|Tips:/r/n悬浮在文本框上查看帮助/r/n前往'项目'列表添加你自己的项目/r/n文件-导出 来输出你的 Mod (在游戏中查看)
+.ToolTip#labelT3.ToolTip:|你成功打开了提示
+.ToolTip#textBoxModInfo.ToolTip:|介绍你的Mod/r/n有什么特长
+.ToolTip#textBoxModName.ToolTip:|模组名字来给任何人的第一印象
+frm#labelT1:|模组名字/r/n/r/n模组介绍
+.ToolTip#pictureBoxModImage.ToolTip:|一个好的图片帮助你介绍MOD/r/n如果你删除源文件，图片会丢失
+frm#tabPage1:|主要信息
+frm#label1:|Tips:/r/n右键查看更多功能
+.ToolTip#label1.ToolTip:|你成功打开了提示
+Header#columnHeader2:|项目名
+Header#columnHeader3:|使用模板
+Header#columnHeader4:|介绍
+ToolStrip#addToolStripMenuItem:|添加
+ToolStrip#editToolStripMenuItem:|编辑
+ToolStrip#removeToolStripMenuItem:|移除
+frm#tabPage2:|列表
+frm#templateToolStripMenuItem:|模板
+
+form#FrmItem:|项目编辑器
+frm#textBoxItemInfo:|你需要模板去编辑项目
+.ToolTip#textBoxItemInfo.ToolTip:|这文本将会告诉用户这个项目可以做什么
+.ToolTip#comboBoxItemTemplare.ToolTip:|首先选择模板
+frm#labelT2:|项目模板/r/n/r/n项目名/r/n/r/n项目介绍
+frm#textBoxName:|首先选择模板
+.ToolTip#textBoxName.ToolTip:|这是名字
+.ToolTip#pictureBoxdisplay.ToolTip:|大致长相
+frm#textBoxlable:|点击文本框查看帮助
+menu#saveToolStripMenuItem:|保存
+menu#saveAndCloseToolStripMenuItem:|保存并关闭
+menu#dontSaveAndCloseToolStripMenuItem:|不保存并关闭
+menu#addCustomStuffToolStripMenuItem:|添加自定义项目
+
+form#FrmTemplate:|模板管理器
+ToolStrip#addTemplatesToolStripMenuItem:|安装/升级
+Header#columnHeaderAuthor:|作者
+ToolStrip#reloadToolStripMenuItem:|重新加载
+ToolStrip#reMoveTemplateToolStripMenuItem:|删除模板
+Header#columnHeaderVer:|版本
+ToolStrip#showOnExplorerToolStripMenuItem:|在文件管理器打开
+Header#columnHeaderName:|名称
+Header#columnHeaderInfo:|介绍
+
+form#FrmModSet:|选择 自定义项
+frm#textBoxlable:|<-- 输入文本来搜索/r/n/r/n/r/n/r/n<-- 选择列表来查看帮助/r/n/r/n/r/n    点击来选择自定义项目/r/n      |/r/n     \|/
+frm#buttonSelect:|选择 自定义项

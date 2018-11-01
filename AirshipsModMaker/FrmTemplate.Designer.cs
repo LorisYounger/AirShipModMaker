@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmTemplate));
             this.listView1 = new System.Windows.Forms.ListView();
             this.columnHeaderName = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeaderAuthor = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
@@ -52,37 +53,34 @@
             this.columnHeaderVer,
             this.columnHeaderInfo});
             this.listView1.ContextMenuStrip = this.contextMenuStrip1;
-            this.listView1.Dock = System.Windows.Forms.DockStyle.Fill;
+            resources.ApplyResources(this.listView1, "listView1");
             this.listView1.FullRowSelect = true;
             this.listView1.GridLines = true;
             this.listView1.HeaderStyle = System.Windows.Forms.ColumnHeaderStyle.Nonclickable;
-            this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.MultiSelect = false;
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(751, 299);
-            this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // columnHeaderName
             // 
-            this.columnHeaderName.Text = "Name";
-            this.columnHeaderName.Width = 140;
+            this.columnHeaderName.Tag = "columnHeaderName";
+            resources.ApplyResources(this.columnHeaderName, "columnHeaderName");
             // 
             // columnHeaderAuthor
             // 
-            this.columnHeaderAuthor.Text = "Author";
-            this.columnHeaderAuthor.Width = 80;
+            this.columnHeaderAuthor.Tag = "columnHeaderAuthor";
+            resources.ApplyResources(this.columnHeaderAuthor, "columnHeaderAuthor");
             // 
             // columnHeaderVer
             // 
-            this.columnHeaderVer.Text = "Ver";
-            this.columnHeaderVer.Width = 40;
+            this.columnHeaderVer.Tag = "columnHeaderVer";
+            resources.ApplyResources(this.columnHeaderVer, "columnHeaderVer");
             // 
             // columnHeaderInfo
             // 
-            this.columnHeaderInfo.Text = "Info";
-            this.columnHeaderInfo.Width = 460;
+            this.columnHeaderInfo.Tag = "columnHeaderInfo";
+            resources.ApplyResources(this.columnHeaderInfo, "columnHeaderInfo");
             // 
             // contextMenuStrip1
             // 
@@ -93,57 +91,48 @@
             this.toolStripSeparator1,
             this.reloadToolStripMenuItem});
             this.contextMenuStrip1.Name = "contextMenuStrip1";
-            this.contextMenuStrip1.Size = new System.Drawing.Size(183, 98);
+            resources.ApplyResources(this.contextMenuStrip1, "contextMenuStrip1");
             // 
             // addTemplatesToolStripMenuItem
             // 
             this.addTemplatesToolStripMenuItem.Name = "addTemplatesToolStripMenuItem";
-            this.addTemplatesToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.addTemplatesToolStripMenuItem.Text = "Install/Update";
+            resources.ApplyResources(this.addTemplatesToolStripMenuItem, "addTemplatesToolStripMenuItem");
             this.addTemplatesToolStripMenuItem.Click += new System.EventHandler(this.addTemplatesToolStripMenuItem_Click);
             // 
             // reMoveTemplateToolStripMenuItem
             // 
             this.reMoveTemplateToolStripMenuItem.Name = "reMoveTemplateToolStripMenuItem";
-            this.reMoveTemplateToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.reMoveTemplateToolStripMenuItem.Text = "ReMove Template";
+            resources.ApplyResources(this.reMoveTemplateToolStripMenuItem, "reMoveTemplateToolStripMenuItem");
             this.reMoveTemplateToolStripMenuItem.Click += new System.EventHandler(this.reMoveTemplateToolStripMenuItem_Click);
             // 
             // showOnExplorerToolStripMenuItem
             // 
             this.showOnExplorerToolStripMenuItem.Name = "showOnExplorerToolStripMenuItem";
-            this.showOnExplorerToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.showOnExplorerToolStripMenuItem.Text = "Show On Explorer";
+            resources.ApplyResources(this.showOnExplorerToolStripMenuItem, "showOnExplorerToolStripMenuItem");
             this.showOnExplorerToolStripMenuItem.Click += new System.EventHandler(this.showOnExplorerToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
-            this.toolStripSeparator1.Size = new System.Drawing.Size(179, 6);
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // reloadToolStripMenuItem
             // 
             this.reloadToolStripMenuItem.Name = "reloadToolStripMenuItem";
-            this.reloadToolStripMenuItem.Size = new System.Drawing.Size(182, 22);
-            this.reloadToolStripMenuItem.Text = "Reload";
+            resources.ApplyResources(this.reloadToolStripMenuItem, "reloadToolStripMenuItem");
             this.reloadToolStripMenuItem.Click += new System.EventHandler(this.reloadToolStripMenuItem_Click);
             // 
             // FrmTemplate
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(751, 299);
             this.Controls.Add(this.listView1);
-            this.Font = new System.Drawing.Font("宋体", 12F);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.SizableToolWindow;
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "FrmTemplate";
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
-            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Template Manager";
             this.contextMenuStrip1.ResumeLayout(false);
             this.ResumeLayout(false);
 

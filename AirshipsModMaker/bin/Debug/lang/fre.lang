@@ -1,0 +1,64 @@
+MLS#AirshipsModMaker:|lang#French (Français):|
+form#FrmMain:|Dispositif de fabrication de Airships mod -
+menu#openToolStripMenuItem:|Ouvrir
+menu#SavetoolStripMenuItem1:|Enregistrer
+menu#saveAsToolStripMenuItem:|Enregistrer sous
+menu#exportToolStripMenuItem:|Exporter
+menu#fileToolStripMenuItem:|Fichier
+menu#templateManagerToolStripMenuItem:|Gestionnaire de modèles
+menu#stuffManagerToolStripMenuItem:|Un dispositif de gestion de personnalisations
+menu#inputToolStripMenuItem:|Modèle d'adresse
+menu#getMoreTemplateToolStripMenuItem:|Pour obtenir davantage de gabarit
+menu#templateToolStripMenuItem1:|Gabarit
+menu#onStreamToolStripMenuItem:|Dans le flux
+menu#onGitHubToolStripMenuItem:|Dans github
+menu#reportBugsToolStripMenuItem:|Recommandations/rétroaction bug
+menu#sourceCodeToolStripMenuItem:|Code source
+menu#howToUseToolStripMenuItem:|Comment utiliser
+menu#updateSoftwareToolStripMenuItem:|La mise à jour de logiciel
+menu#subscribeAtSteamToolStripMenuItem:|Des abonnements à vapeur
+menu#authorToolStripMenuItem:|Sur
+menu#aboutToolStripMenuItem:|De plus
+menu#languageToolStripMenuItem:|Language
+frm#labelT3:|Tips:/r/nen suspension dans la boîte de texte sur aide/r/nde la liste de projets à ajouter votre propre projet/r/nFichier - dérivée de la sortie de ton MOD (jeu de vue)
+.ToolTip#labelT3.ToolTip:|Tu réussis a ouvert la pointe
+.ToolTip#textBoxModInfo.ToolTip:|Présenter ton MOD/r/na de quoi
+.ToolTip#textBoxModName.ToolTip:|Module de nom pour donner à personne une première impression
+frm#labelT1:|Un module de nom/r/n/r/nIntroduction
+.ToolTip#pictureBoxModImage.ToolTip:|Une bonne image de vous aider à le mod/r/nsi vous supprimez le fichier source d'images perdues
+frm#tabPage1:|Principaux messages
+frm#label1:|Tips: //r/nbouton droit de voir davantage de fonctions
+.ToolTip#label1.ToolTip:|Tu réussis a ouvert la pointe
+Header#columnHeader2:|Nom du projet
+Header#columnHeader3:|L'utilisation de modèles
+Header#columnHeader4:|Introduction
+ToolStrip#addToolStripMenuItem:|Ajouter
+ToolStrip#editToolStripMenuItem:|Édition
+ToolStrip#removeToolStripMenuItem:|Supprimer
+frm#tabPage2:|Liste
+frm#templateToolStripMenuItem:|Gabarit
+form#FrmItem:|Projet d'éditeur
+frm#textBoxItemInfo:|Vous avez besoin de modèles pour éditer un projet
+.ToolTip#textBoxItemInfo.ToolTip:|Ce texte va dire ce projet permet à l'utilisateur de faire
+.ToolTip#comboBoxItemTemplare.ToolTip:|Tout d'abord, de sélectionner un gabarit
+frm#labelT2:|Modèle de projet/r/n/r/nnom de projet/r/n/r/nprojet Introduction
+frm#textBoxName:|Tout d'abord, de sélectionner un gabarit
+.ToolTip#textBoxName.ToolTip:|C'est le nom de
+.ToolTip#pictureBoxdisplay.ToolTip:|Approximativement.
+frm#textBoxlable:|Cliquez sur la boîte de texte d'aider à la visualisation
+menu#saveToolStripMenuItem:|Enregistrer
+menu#saveAndCloseToolStripMenuItem:|De sauver et de fermeture
+menu#dontSaveAndCloseToolStripMenuItem:|Ne pas conserver et fermer
+menu#addCustomStuffToolStripMenuItem:|Ajouter des projets
+form#FrmTemplate:|Gestionnaire de modèles
+ToolStrip#addTemplatesToolStripMenuItem:|L'installation / mise à jour
+Header#columnHeaderAuthor:|Auteur
+ToolStrip#reloadToolStripMenuItem:|Recharger
+ToolStrip#reMoveTemplateToolStripMenuItem:|Supprimer le modèle
+Header#columnHeaderVer:|Version
+ToolStrip#showOnExplorerToolStripMenuItem:|Ouvrir dans le gestionnaire de fichiers
+Header#columnHeaderName:|Nom
+Header#columnHeaderInfo:|Introduction
+form#FrmModSet:|La sélection des articles personnalisés
+frm#textBoxlable:|<-- pour l'entrée de texte, de recherche/r/n/r/n/r/n/r/n<-- la liste de sélection pour visualiser l'aide/r/n/r/n/r/nCliquez pour sélectionner des projets/r/n      |/r/n     \|/
+frm#buttonSelect:|La sélection des articles personnalisés

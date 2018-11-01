@@ -39,6 +39,9 @@
     <Reference Include="LinePutScript">
       <HintPath>..\..\LinePutScript\LinePutScript\bin\Debug\LinePutScript.dll</HintPath>
     </Reference>
+    <Reference Include="MultiLang">
+      <HintPath>..\..\Multi Language Support\MultiLang\bin\Debug\MultiLang.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -86,6 +89,7 @@
     </Compile>
     <EmbeddedResource Include="FrmItem.resx">
       <DependentUpon>FrmItem.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>

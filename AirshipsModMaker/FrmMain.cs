@@ -7,6 +7,7 @@ using System.Linq;
 using LinePutScript;
 using System.Text;
 using System.Threading;
+using MultiLang;
 
 namespace AirshipsModMaker
 {
@@ -18,6 +19,63 @@ namespace AirshipsModMaker
         //子项集合
         public List<MSetin> MSetins = new List<MSetin>();
         string SavePath = "";//保存位置
+
+
+        //语言项目
+        public List<Lang> Langs = new List<Lang>();
+
+        /// <summary>
+        /// 该Form的翻译方法
+        /// </summary>
+        /// <param name="lang">语言</param>
+        public void Translate(Lang lang)
+        {
+            lang.Translate(this);
+            //手动添加进行修改 例如 menu
+            foreach (Line line in lang.FindLangForm(this).FindGroupLine("menu"))
+                foreach (var tmp in menuStrip1.Items.Find(line.Info, true))
+                {
+                    tmp.Text = line.Text;
+                }
+            foreach (Line line in lang.FindLangForm(this).FindGroupLine(".ToolTip"))
+            {
+                foreach (var tmp in this.Controls.Find(line.Info.Split('.')[0], true))
+                {
+                    toolTip1.SetToolTip(tmp, line.Text);
+                }
+            }
+            foreach (Line line in lang.FindLangForm(this).FindGroupLine("ToolStrip"))
+            {
+                foreach (var tmp in contextMenuStrip1.Items.Find(line.Info, true))
+                {
+                    tmp.Text = line.Text;
+                }
+            }
+            foreach (ColumnHeader va in listView1.Columns)
+            {
+                var tmps = lang.FindLangForm(this).FindGroupLine("Header");
+                var tmp = tmps.Find(x => x.Info == (string)va.Tag);
+                if (tmp != null)
+                    va.Text = tmp.Text;
+            }
+
+
+            //版本号加上
+            this.Text += Program.Verizon;
+        }
+
+        public Lang lang()
+        {
+            return Langs.Find(x => x.Language == Properties.Settings.Default.Lang);
+        }
+        public void LangClick(object sender, System.EventArgs e)
+        {
+            ToolStripMenuItem mi = (ToolStripMenuItem)sender;
+            Properties.Settings.Default.Lang = mi.Text;
+            Properties.Settings.Default.Save();
+            var lang = Langs.Find(x => x.Language == mi.Text);
+            Translate(lang);
+        }
         public FrmMain()
         {
             InitializeComponent();
@@ -30,9 +88,52 @@ namespace AirshipsModMaker
                     System.Diagnostics.Process.Start(@"http://download.exlb.org/AirShipModMaker/AirShipModMaker.zip");
             }
 #endif
-            this.Text += Program.Verizon;
+            //多语言支持
+
+            //收集全部语言
+            DirectoryInfo info = new DirectoryInfo(Application.StartupPath + @"\lang");
+            if (info.Exists)
+            {
+                Lang tmp;
+                StreamReader sr;
+                foreach (FileInfo fi in info.GetFiles("*.lang"))
+                {
+                    sr = new StreamReader(fi.OpenRead(), Encoding.UTF8);
+                    tmp = new Lang(sr.ReadToEnd(), "AirshipsModMaker");
+                    sr.Close();
+                    sr.Dispose();
+                    if (!tmp.Language.Contains("ERROR"))
+                    {
+                        Langs.Add(tmp);
+                        languageToolStripMenuItem.DropDownItems.Add(Langs.Last().Language, null, LangClick);
+                    }
+                }
+                //加载语言选项
+                if (Properties.Settings.Default.Lang != "")
+                {
+                    var lang = Langs.Find(x => x.Language == Properties.Settings.Default.Lang);
+                    if (lang != null)
+                    {
+                        if (!lang.Default)//判断是不是主语言，如果是，就不翻译(节约资源)
+                            Translate(lang);
+                        else
+                            this.Text += Program.Verizon;
+                    }
+                    else
+                        Properties.Settings.Default.Lang = "";
+                }
+            }
+            else
+            {
+                this.Text += Program.Verizon;
+            }
+            //设置项目加载
+            versionChackToolStripMenuItem.Checked = Properties.Settings.Default.VersionCheck;
+
+
+
             //新建文件夹
-            DirectoryInfo info = new DirectoryInfo(Program.PathMain);
+            info = new DirectoryInfo(Program.PathMain);
             if (!info.Exists)
             {
                 MessageBox.Show("You can creat mods with using this tool\nIf you think this tool is not bad, Subscribe and Thumbs-up on steam", "Thanks For Using AirshipsModMaker");
@@ -127,8 +228,8 @@ namespace AirshipsModMaker
 
         private void SavetoolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            Save();
-            MessageBox.Show("SaveSuccess");
+            if (Save())
+                MessageBox.Show("SaveSuccess");
         }
 
         private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -138,9 +239,9 @@ namespace AirshipsModMaker
             {
                 SavePath = saveFileDialog1.FileName;
                 Save(SavePath);
+                MessageBox.Show("SaveSuccess");
                 return;
             }
-            MessageBox.Show("SaveSuccess");
         }
 
         private void openToolStripMenuItem_Click(object sender, EventArgs e)
@@ -194,7 +295,7 @@ namespace AirshipsModMaker
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             isChange = true;
-            FrmItem fi = new FrmItem(data.ItemID, Templates.ToArray(), MSetins.ToArray());
+            FrmItem fi = new FrmItem(data.ItemID, Templates.ToArray(), MSetins.ToArray(), lang());
             if (fi.ShowDialog() == DialogResult.OK)
             {
                 data.modItems.Add(fi.ModItem);
@@ -221,7 +322,7 @@ namespace AirshipsModMaker
             int id = listView1.SelectedIndices[0];
             ModItem mi = data.modItems[id];
             isChange = true;
-            FrmItem fi = new FrmItem(mi, Templates.ToArray(), MSetins.ToArray());
+            FrmItem fi = new FrmItem(mi, Templates.ToArray(), MSetins.ToArray(), lang());
             if (fi.ShowDialog() == DialogResult.OK)
             {
                 data.modItems[id] = fi.ModItem;
@@ -293,7 +394,7 @@ namespace AirshipsModMaker
 
                 fi.CopyTo(path + @"\logo.png");
 
-                lang.AppendLine($"modulecategory_AMM{data.Outputid}={data.ModName.Replace("\r", "").Replace("\n", @"\n")}");
+                //lang.AppendLine($"modulecategory_AMM{data.Outputid}={data.ModName.Replace("\r", "").Replace("\n", @"\n")}");
 
                 StringBuilder tmp = new StringBuilder(LPSMReplace(Properties.Resources.info, new Sub("id", data.Outputid),
                     new Sub("name", data.ModName.Replace("\r", "").Replace("\n", @"\n")),
@@ -328,19 +429,19 @@ namespace AirshipsModMaker
 
 
                     fs = fi.Create();
-                    buff = Encoding.UTF8.GetBytes(mi.UseTemp.RepFile.Replace("|name:|", "AMM" + mi.ItemID).Replace("|lpsm:|", tmp.ToString()));
+                    buff = Encoding.UTF8.GetBytes(mi.UseTemp.RepFile.Replace("|name:|", "AMM" + data.Outputid + mi.ItemID).Replace("|lpsm:|", tmp.ToString()));
                     fs.Write(buff, 0, buff.Length);
                     fs.Close();
                     fs.Dispose();
 
                     //lang
                     if (mi.UseTemp.Prefix == "mod_")
-                        lang.AppendLine($"mod_AMM{mi.ItemID}={mi.Name}\r\nmod_desc_AMM{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
+                        lang.AppendLine($"mod_AMM{data.Outputid}{mi.ItemID}={mi.Name}\r\nmod_desc_AMM{data.Outputid}{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
                     else
-                        lang.AppendLine($"{mi.UseTemp.Prefix}AMM{mi.ItemID}={mi.Name}\r\n{mi.UseTemp.Prefix}AMM{mi.ItemID}_desc={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
+                        lang.AppendLine($"{mi.UseTemp.Prefix}AMM{data.Outputid}{mi.ItemID}={mi.Name}\r\n{mi.UseTemp.Prefix}AMM{data.Outputid}{mi.ItemID}_desc={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
 
                     if (mi.UseTemp.IsFlipped)
-                        lang.AppendLine($"{mi.UseTemp.Prefix}FLIPPED_AMM{mi.ItemID}={mi.Name}(Flipped)\r\n{mi.UseTemp.Prefix}desc_FLIPPED_AMM{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
+                        lang.AppendLine($"{mi.UseTemp.Prefix}FLIPPED_AMM{data.Outputid}{mi.ItemID}={mi.Name}(Flipped)\r\n{mi.UseTemp.Prefix}desc_FLIPPED_AMM{data.Outputid}{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
                 }
                 //lang
                 di = new DirectoryInfo(path + @"\strings");
@@ -360,7 +461,7 @@ namespace AirshipsModMaker
         {
             foreach (Sub sub in subs)
             {
-                lpsm = lpsm.Replace($"|{sub.Name}:|", sub.info);
+                lpsm = lpsm.Replace($"|{sub.Name}:|", sub.Info);
             }
             return lpsm;
         }
@@ -445,7 +546,7 @@ namespace AirshipsModMaker
 
         private void templateManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmTemplate(Templates.ToArray(), this).ShowDialog();
+            new FrmTemplate(Templates.ToArray(), this, lang()).ShowDialog();
         }
 
         private void howToUseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -455,9 +556,15 @@ namespace AirshipsModMaker
 
         private void stuffManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            var tmp = new FrmModSet(MSetins.ToArray());
+            var tmp = new FrmModSet(MSetins.ToArray(), lang());
             tmp.buttonSelect.Visible = false;
             tmp.ShowDialog();
+        }
+
+        private void versionChackToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Properties.Settings.Default.VersionCheck = !Properties.Settings.Default.VersionCheck;
+            versionChackToolStripMenuItem.Checked = Properties.Settings.Default.VersionCheck;
         }
     }
 
@@ -484,23 +591,27 @@ namespace AirshipsModMaker
         public AirShipModData() { }
         public AirShipModData(string lps, Template[] templates, MSetin[] MSetins)
         {
+#if !DEBUG
             try
             {
-                LpsDocument lpsd = new LpsDocument(lps);
-                if (lpsd.Read().Name != "airshipmod" && lpsd.Read().Info.ToLower() != "usersave")
-                    return;
-                ModName = lpsd.Read().Find("name").Info;
-                ModInfo = lpsd.Read().Find("info").Info;
-                if (lpsd.Read().Find("id") != null)
-                    Outputid = lpsd.Read().Find("id").info;//output id
-                Modlogo = lpsd.ReadNext().Find("logo").Info;
-                while (lpsd.ReadCanNext())
-                    modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates, MSetins));
-            }
+#endif
+            LpsDocument lpsd = new LpsDocument(lps);
+            if (lpsd.Read().Name != "airshipmod" && lpsd.Read().Info.ToLower() != "usersave")
+                return;
+            ModName = lpsd.Read().Find("name").Info;
+            ModInfo = lpsd.Read().Find("info").Info;
+            if (lpsd.Read().Find("id") != null)
+                Outputid = lpsd.Read().Find("id").info;//output id
+            Modlogo = lpsd.ReadNext().Find("logo").Info;
+            while (lpsd.ReadCanNext())
+                modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates, MSetins));
+#if !DEBUG
+        }
             catch
             {
                 ModName = "";
             }
+#endif
         }
     }
     /// <summary>
@@ -534,18 +645,29 @@ namespace AirshipsModMaker
             Name = line.Find("name").Info;
             Info = line.Find("info").Info;
             Line tmp;
+            MSetin mstmp;
             for (int i = 2; i < line.Subs.Count; i++)
             {
                 tmp = UseTemp.Data.FindLine(line.Subs[i].Name);
-                Data.Add(new ModSet()
+                if (tmp == null)
                 {
-                    Setin = mSetins.First(x => x.Name == line.Subs[i].Name),
-                    Value = line.Subs[i].Info,
-                });
-                if (tmp.Find("nomal") != null)
-                    Data.Last().valuenomal = tmp.Find("nomal").Info;
+                    mstmp = mSetins.First(x => x.Name == line.Subs[i].Name);
+                    Data.Add(new ModSet()
+                    {
+                        Setin = mSetins.First(x => x.Name == line.Subs[i].Name),
+                        Value = line.Subs[i].Info,
+                        valuenomal = mstmp.valuenomal
+                    });
+                }
                 else
-                    Data.Last().valuenomal = Data.Last().Setin.valuenomal;
+                {
+                    Data.Add(new ModSet()
+                    {
+                        Setin = mSetins.First(x => x.Name == line.Subs[i].Name),
+                        Value = line.Subs[i].Info,
+                        valuenomal = tmp.Find("nomal").Info
+                    });
+                }
             }
         }
 
@@ -704,9 +826,14 @@ namespace AirshipsModMaker
         public string Verison = "N/A";
         public bool IsFlipped = false;//是不是IsFlipped
         public LpsDocument Data;//替换的数据
-        public Image DemoImage;
         public string path;
         public string Error = "";
+
+        public Image DemoImage
+        {
+            get => Image.FromFile(path + @"\logo.png");
+        }
+
         public Template(string path, List<MSetin> mSetins)
         {
             try
@@ -728,16 +855,18 @@ namespace AirshipsModMaker
                 sr = null;
 
                 //判断版本
-
-                if (Data.Read().Find("ver") != null)
-                    Verison = Data.Read().Find("ver").GetInfo();
-                if (!(ModSet.IsUNumeric(Verison) && Convert.ToDouble(Verison) >= 2))
+                if (Properties.Settings.Default.VersionCheck)
                 {
-                    Error = "Verison too old";
-                }
-                else if (Convert.ToDouble(Verison) >= 3)
-                {
-                    Error = "Verison too High, Upgreat software to support";
+                    if (Data.Read().Find("ver") != null)
+                        Verison = Data.Read().Find("ver").GetInfo();
+                    if (!(ModSet.IsUNumeric(Verison) && Convert.ToDouble(Verison) >= 2))
+                    {
+                        Error = "Verison too old";
+                    }
+                    else if (Convert.ToDouble(Verison) >= 3)
+                    {
+                        Error = "Verison too High, Upgreat software to support";
+                    }
                 }
 
                 //获取信息
@@ -775,7 +904,6 @@ namespace AirshipsModMaker
                     }
                 }
 
-                DemoImage = Image.FromFile(path + @"\logo.png");
             }
             catch (Exception e)
             {

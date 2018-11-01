@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MultiLang;
 
 namespace AirshipsModMaker
 {
@@ -14,15 +15,30 @@ namespace AirshipsModMaker
     {
         List<MSetin> MSetins;
         MSetin[] NowShowMS;
+        Lang lang;
         public MSetin NowSelect;
-        public FrmModSet(MSetin[] mSetins)
+        public FrmModSet(MSetin[] mSetins,Lang lang)
         {
             InitializeComponent();
+            //语言操作
+            if (lang != null && !lang.Default)
+            {
+                this.lang = lang;
+                Translate(lang);
+            }
+
             MSetins = mSetins.ToList();
             this.DialogResult = DialogResult.None;
             Display();
         }
-
+        /// <summary>
+        /// 该Form的翻译方法
+        /// </summary>
+        /// <param name="lang">语言</param>
+        public void Translate(Lang lang)
+        {
+            lang.Translate(this);           
+        }
         private void FrmModSet_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (this.DialogResult == DialogResult.None)

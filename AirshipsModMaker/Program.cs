@@ -10,7 +10,7 @@ namespace AirshipsModMaker
     {
         public static readonly string PathMain = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\LBSoft\Airship";
         public static bool Reload = true;
-        public static readonly string Verizon = "beta 3";
+        public static readonly string Verizon = "beta 4";
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -19,6 +19,7 @@ namespace AirshipsModMaker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
 #if !DEBUG
             while (Reload)
             {
