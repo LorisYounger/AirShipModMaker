@@ -651,7 +651,11 @@ namespace AirshipsModMaker
                 tmp = UseTemp.Data.FindLine(line.Subs[i].Name);
                 if (tmp == null)
                 {
-                    mstmp = mSetins.First(x => x.Name == line.Subs[i].Name);
+                    mstmp = null
+                    mstmp = mSetins.FirstOrDefault(x => x.Name == line.Subs[i].Name);
+                    if (mstmp==null)
+                        mstmp = mSetins.FirstOrDefault(x => x.Name == line.Subs[i].Name);
+
                     Data.Add(new ModSet()
                     {
                         Setin = mSetins.First(x => x.Name == line.Subs[i].Name),
@@ -841,7 +845,7 @@ namespace AirshipsModMaker
                 this.path = path;
                 FileInfo fi = new FileInfo(path + @"\json.lpsm");
                 StreamReader sr;
-                sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.Default);
+                sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.UTF8);
                 RepFile = sr.ReadToEnd().Replace("\r", "");
                 sr.Dispose();
 
@@ -849,7 +853,7 @@ namespace AirshipsModMaker
 
                 Data = new LpsDocument();
                 fi = new FileInfo(path + @"\info.lps");
-                sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.Default);
+                sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.UTF8);
                 Data = new LpsDocument(sr.ReadToEnd());
                 sr.Dispose();
                 sr = null;
