@@ -1,0 +1,9 @@
+﻿airshipmod#Item:|name#Coal store:|info#Coal is needed to power suspendium chambers and propellers. Unfortunately, it burns easily:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#240:|info#The number of max hurt You can bear:|
+coal:|type#UInt:|name#Coal Number:|nomal#100:|info#The number of coal you can Carry:|
+weight:|type#UInt:|name#Weight:|nomal#80:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#30:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#600:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#450:|info#When HP Lower Than This,it will Geting Fire:|
+explodeHP:|type#UInt:|name#Explode HP:|nomal#100:|info#When HP Lower Than This,it will Explode:|
+explodeDmg:|type#UInt:|name#Explode damage:|nomal#150:|info#When it Explode,Many damage it will cause:|

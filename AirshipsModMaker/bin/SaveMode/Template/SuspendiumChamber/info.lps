@@ -1,0 +1,10 @@
+﻿airshipmod#Item:|name#Suspendium Chamber:|info#A large crystal of Suspendium is kept chained and charged in this chamber, keeping the ship aloft:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#200:|info#The number of max hurt You can bear:|
+coalReload:|type#UInt:|name#Coal Reload:|nomal#20000:|info#This Item need One Coal every {Coal Reload} Millisecond:|
+lift:|type#UInt:|name#Lift:|nomal#2000:|info#How many force it can lift you ship up:|
+weight:|type#UInt:|name#Weight:|nomal#120:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#180:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#800:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#120:|info#When HP Lower Than This,it will Geting Fire:|
+explodeHP:|type#UInt:|name#Explode HP:|nomal#90:|info#When HP Lower Than This,it will Explode:|
+explodeDmg:|type#UInt:|name#Explode damage:|nomal#70:|info#When it Explode,Many damage it will cause:|

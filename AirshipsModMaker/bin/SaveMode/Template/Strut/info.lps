@@ -1,0 +1,8 @@
+﻿airshipmod#Item:|name#Strut:|info#A sturdy and lightweight metal framework for reinforcing your construction.:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.1:|
+hp:|type#UInt:|name#Item HP:|nomal#50:|info#The number of max hurt You can bear:|
+weight:|type#UInt:|name#Weight:|nomal#2:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#3:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#10000:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#0:|info#When HP Lower Than This,it will Geting Fire:|
+adjacencyBonusStrength:|type#Number:|name#Adjacency Bonus Strength:|nomal#0.5:|info#Increase the strength of surrounding components:|
+hardness:|type#Number:|name#Hardness:|nomal#0.2:|info#make components more hard is very firm and stiff to touch and is not easily bent, cut, or broken.:|

@@ -1,0 +1,7 @@
+﻿airshipmod#Item:|name#Armour Dragonhide:|info#The sloughed-off skin of dragons, tanned and layered over a wooden framework:|local#ArmourType:|author#Loris:|prefix#armour_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#60:|info#The number of max hurt You can bear:|
+sort:|type#UInt:|name#Sort:|nomal#120:|info#The process of putting armour in powerful order.:|
+blastDmgAbsorb:|type#UInt:|name#Absorb:Blast:|nomal#15:|info#The number of Blast injury weapon will Absorb:|
+penDmgAbsorb:|type#UInt:|name#Absorb:Penetrate:|nomal#5:|info#The number of puncture injury weapon will Absorb:|
+weight:|type#UInt:|name#Weight:|nomal#0:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#15:|info#the amount of money that you need in order to make:|

@@ -1,0 +1,85 @@
+[
+    {
+        "name": "|name:|",
+		|lpsm:|
+        "placeSound": "place_wood",
+        "placePitch": 0.7,        
+        "windowApp": {
+            "src": "spritesheet",
+            "x": 2,
+            "y": 13
+        },
+        "damagedApps": [
+            {
+                "src": "spritesheet",
+                "x": 2,
+                "y": 0
+            },
+            {
+                "src": "spritesheet",
+                "x": 2,
+                "y": 20
+            },
+            {
+                "src": "spritesheet",
+                "x": 2,
+                "y": 21
+            },
+            {
+                "src": "spritesheet",
+                "x": 2,
+                "y": 22
+            },
+            {
+                "src": "spritesheet",
+                "x": 2,
+                "y": 23
+            }
+        ],
+        "smallHitSound": {
+            "layers": [
+                {
+                    "variations": [ "hit_wood_1", "hit_wood_2", "hit_wood_3", "hit_wood_4" ],
+                    "volume": {
+                        "min": 0.3,
+                        "max": 0.4
+                    },
+                    "pitch": {
+                        "min": 1.05,
+                        "max": 1.15
+                    }
+                }
+            ]
+        },
+        "largeHitSound": {
+            "layers": [
+                {
+                    "variations": [ "hit_wood_1", "hit_wood_2", "hit_wood_3", "hit_wood_4" ],
+                    "volume": {
+                        "min": 0.7,
+                        "max": 1.0
+                    },
+                    "pitch": {
+                        "min": 0.95,
+                        "max": 1.05
+                    }
+                }
+            ]
+        },
+        "brokenSound": {
+            "layers": [
+                {
+                    "variations": [ "hit_wood_1", "hit_wood_2", "hit_wood_3", "hit_wood_4" ],
+                    "volume": {
+                        "min": 1.5,
+                        "max": 2.4
+                    },
+                    "pitch": {
+                        "min": 0.9,
+                        "max": 0.95
+                    }
+                }
+            ]
+        }
+    },
+]

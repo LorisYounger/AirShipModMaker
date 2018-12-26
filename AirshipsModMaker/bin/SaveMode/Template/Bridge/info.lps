@@ -1,0 +1,9 @@
+﻿airshipmod#Item:|name#Bridge:|info#The ship's command center. Without a working bridge or cockpit, you cannot give orders in battle or see the inside of the ship:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#200:|info#The number of max hurt You can bear:|
+command:|type#UInt:|name#Command Support:|nomal#5:|info#(TODO:command):|
+weight:|type#UInt:|name#Weight:|nomal#50:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#40:|info#the amount of money that you need in order to make:|
+moveDelay:|type#Int:|name#Control consume:|nomal#600:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#60:|info#When HP Lower Than This,it will Geting Fire:|
+explodeHP:|type#UInt:|name#Explode HP:|nomal#40:|info#When HP Lower Than This,it will Explode:|
+explodeDmg:|type#UInt:|name#Explode damage:|nomal#40:|info#When it Explode,Many damage it will cause:|

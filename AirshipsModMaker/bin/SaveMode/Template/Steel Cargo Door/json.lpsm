@@ -1,0 +1,37 @@
+[
+    {
+        "name": "|name:|",
+        "categories": ["RESOURCES"],
+        "external": true,
+        "armourType": "MED_STEEL_HIDDEN",
+        "w": 2,
+        "h": 2,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 36,
+            "y": 4,
+            "w": 2,
+            "h": 2
+        },
+        "externalAppearances": [
+            {
+                "appearance": {
+                    "src": "spritesheet",
+                    "x": 38,
+                    "y": 4,
+                    "w": 2,
+                    "h": 2
+                },
+                "x": 0,
+                "y": 0
+            }
+        ],
+        |lpsm:|
+        "upDoors": [ 0 ],
+        "canOccupy": [
+            { "x": 0, "y": 0 },
+            { "x": 0, "y": 1 },
+            { "x": 1, "y": 1 }
+        ]
+    }
+]

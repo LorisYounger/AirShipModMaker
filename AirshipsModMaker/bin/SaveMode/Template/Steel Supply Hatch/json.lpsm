@@ -1,0 +1,27 @@
+[
+    {
+        "name": "|name:|",
+        "categories": ["BASIC", "RESOURCES"],
+        "external": true,
+        "armourType": "MED_STEEL_HIDDEN",
+        "w": 1,
+        "h": 1,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 34,
+            "y": 4
+        },
+        "externalAppearances": [
+            {
+                "appearance": {
+                    "src": "spritesheet",
+                    "x": 35,
+                    "y": 4
+                },
+                "x": 0,
+                "y": 0
+            }
+        ],
+        |lpsm:|
+    }
+]

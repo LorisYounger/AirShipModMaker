@@ -1,0 +1,15 @@
+﻿airshipmod#Item:|name#Rifle:|info#Riflemen are accurate and cheap, but their weapons cannot penetrate heavy armour:|local#ModuleType:|flipped:|author#Loris:|prefix#mod_:|ver#2.1:|
+hp:|type#UInt:|name#Item HP:|nomal#40:|info#The number of max hurt You can bear:|
+weight:|type#UInt:|name#Weight:|nomal#8:|info#how heavy are this Item:|
+shotSpeed:|type#UNUMBER:|name#Bullet Speed:|nomal#0.3:|info#The greater the Bullet Speed,The faster the bullet hits the target.:|
+reload:|type#UInt:|name#Reload Time:|nomal#1300:|info# The time (Millisecond) it spend in each launch/shooting:|
+clip:|type#UInt:|name#Clip limit:|nomal#16:|info#the capacity of your clip:|
+inaccuracy:|type#UNUMBER:|nomal#0.0012:|name#Weapon inaccuracy:|info#This Number is More Less,The weapon are more possibilities to hit:|
+blastDmg:|type#UInt:|name#Weapon:Blast:|nomal#0:|info#The number of Blast injury weapon will cause:|
+penDmg:|type#UInt:|name#Weapon:Penetrate:|nomal#5:|info#The number of puncture injury weapon will cause:|
+recoilForce:|type#UNUMBER:|name#Recoil Force:|nomal#1.2:|info#is the backward movement of a gun when it is discharged:|
+cost:|type#UInt:|name#Cost:|nomal#20:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#800:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#15:|info#When HP Lower Than This,it will Geting Fire:|
+explodeHP:|type#UInt:|name#Explode HP:|nomal#30:|info#When HP Lower Than This,it will Explode:|
+explodeDmg:|type#UInt:|name#Explode damage:|nomal#35:|info#When it Explode,Many damage it will cause:|

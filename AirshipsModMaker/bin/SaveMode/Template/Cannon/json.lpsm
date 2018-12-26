@@ -1,0 +1,115 @@
+[
+    {
+        "name": "FLIPPED_|name:|",
+        "flippedFrom": "|name:|"
+    },
+    {
+        "name": "|name:|",
+        "categories": ["BASIC", "WEAPONS"],
+        "isWeapon": true,
+        "w": 2,
+        "h": 1,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 22,
+            "y": 0,
+            "w": 2,
+            "h": 1
+        },
+        |lpsm:|
+        "crew": 1,
+        "recommendedCrew": 2,
+        "recommendedGuards": 1,
+        "frontOnly": true,
+        "isGun": true,
+        "isCannon": true,       
+        "fireArc": { "direction": "forwards", "degrees": 70 },
+        "muzzleCenterX": 1.25,
+        "muzzleCenterY": 0.5625,
+        "muzzleLength": 1.75,
+        "optimumRange": 400,
+        "fireSound": {
+            "layers": [
+                {
+                    "variations": [ "cannon0", "cannon1", "cannon2", "cannon3", "cannon4", "cannon5", "cannon6" ],
+                    "volume": {
+                        "min": 2,
+                        "max": 2,
+						"distance": [
+                            0, 1,
+							750, 0.75,
+							2000, 0.3,
+							3000, 0.2,
+							4000, 0.1,
+							5000, 0
+                        ],
+                    },
+                    "pitch": {
+                        "min": 0.9,
+                        "max": 1.2,
+                        "distance": [
+                            0, 1,
+                            2000, 0.9,
+							4000, 0.75
+                        ]
+                    }
+                },
+                {
+                    "variations": [ "cannon_high_1", "cannon_high_2", "cannon_high_3", "cannon_high_4", "cannon_high_5", "cannon_high_6" ],
+                    "volume": {
+                        "min": 0.3,
+                        "max": 0.3,
+						"distance": [
+                            0, 1,
+							750, 0.75,
+							2000, 0.3,
+							3000, 0.2,
+							4000, 0.1,
+							5000, 0
+                        ],
+                    },
+                    "pitch": {
+                        "min": 0.9,
+                        "max": 1.2,
+                        "distance": [
+                            0, 1,
+                            2000, 0.9,
+							4000, 0.75
+                        ]
+                    }
+                },
+				{
+                    "variations": [ "cannon_d_0", "cannon_d_1", "cannon_d_2", "cannon_d_3" ],
+                    "volume": {
+                        "min": 0.6,
+                        "max": 0.6,
+						"distance": [
+                            0, 0,
+							750, 0,
+							2000, 0.1,
+							3000, 0.5,
+							4000, 0.75,
+							5000, 0.1
+						],
+					},
+                    "pitch": {
+                        "min": 0.9,
+                        "max": 1.2,
+                        "distance": [
+                            0, 1,
+                            2000, 1,
+							5000, 0.85
+						]
+					}
+				}	
+			]
+		},
+        "weaponAppearance": {
+            "shot": { "src": "spritesheet", "x": 16, "y": 304, "w": 5, "h": 5 },
+            "barrel": { "src": "spritesheet", "x": 263, "y": 183, "w": 56, "h": 8 },
+            "barrelX": -8,
+            "barrelY": 5,
+            "recoil": 8
+        }
+    }
+]

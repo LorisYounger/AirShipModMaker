@@ -1,0 +1,54 @@
+[
+    {
+        "name": "FLIPPED_|name:|",
+        "flippedFrom": "|name:|"
+    },
+    {
+        "name": "|name:|",
+		|lpsm:|
+        "categories": ["BASIC", "WEAPONS"],
+        "isWeapon": true,
+        "isGun": true,
+        "w": 1,
+        "h": 1,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 19,
+            "y": 0
+        },        
+        "crew": 1,
+        "recommendedCrew": 1,
+        "frontOnly": true,        
+        "fixedInaccuracyVsTroops": 7,        
+        "shootTroopsRange": 400,
+        "fireArc": { "direction": "forwards", "degrees": 240 },
+        "muzzleCenterX": 0.68,
+        "muzzleCenterY": 0.56,
+        "muzzleLength": 1,
+        "fireSound": {
+            "layers": [
+                {
+                    "variations": [ "rifle0" ],
+                    "volume": 0.9,
+                    "pitch": {
+                        "min": 0.9,
+                        "max": 1.1,
+                        "distance": [
+                            0, 1.2,
+                            3000, 0.5
+                        ]
+                    }
+                }
+            ]
+        },
+        "optimumRange": 800,
+        "jitterMerge": 0.4,
+        "weaponAppearance": {
+            "shot": { "src": "spritesheet", "x": 48, "y": 304, "w": 1, "h": 1 },
+            "barrel": { "src": "spritesheet", "x": 321, "y": 112, "w": 23, "h": 6 },
+            "barrelX": 0,
+            "barrelY": 6,
+            "recoil": 2
+        }
+    }
+]

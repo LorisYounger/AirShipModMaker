@@ -1,0 +1,29 @@
+﻿[
+    {
+		"name": "|name:|",
+        |lpsm:|
+        "categories": ["BASIC", "RESOURCES"],
+        "w": 3,
+        "h": 2,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 0,
+            "y": 3,
+            "w": 3,
+            "h": 2
+        },        
+        "optionalCrew": 3,
+        "upDoors": [ 1, 2 ],
+        "leftDoors": [ 0, 1 ],
+        "rightDoors": [ 0, 1 ],
+        "canOccupy": [
+            { "x": 0, "y": 0 },
+            { "x": 1, "y": 0 },
+            { "x": 2, "y": 0 },
+            { "x": 0, "y": 1 },
+            { "x": 1, "y": 1 },
+            { "x": 2, "y": 1 }
+        ],
+        "recommendedGuards": 1
+    }
+]

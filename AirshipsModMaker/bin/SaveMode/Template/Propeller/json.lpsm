@@ -1,0 +1,169 @@
+[    
+    {
+        "name": "|name:|",
+		|lpsm:|
+        "categories": ["BASIC", "PROPULSION"],
+        "availableFor": ["AIRSHIP"],
+        "w": 2,
+        "h": 2,
+        "appearance": {
+            "src": "spritesheet",
+            "interval": 120,
+            "frames": [
+                {
+                    "x": 1,
+                    "y": 9,
+                    "w": 2,
+                    "h": 2
+                },
+                {
+                    "x": 10,
+                    "y": 9,
+                    "w": 2,
+                    "h": 2
+                },
+                {
+                    "x": 7,
+                    "y": 9,
+                    "w": 2,
+                    "h": 2
+                },
+                {
+                    "x": 13,
+                    "y": 9,
+                    "w": 2,
+                    "h": 2
+                }
+            ]
+        },
+        "externalAppearances": [
+            {
+                "x": 0,
+                "y": 0,
+                "appearance": {
+                    "src": "spritesheet",
+                    "x": 4,
+                    "y": 9,
+                    "w": 2,
+                    "h": 2
+                }
+            },
+            {
+                "x": -1,
+                "y": 0,
+                "appearance": {
+                    "src": "spritesheet",
+                    "interval": 120,
+                    "frames": [
+                        {
+                            "x": 0,
+                            "y": 9,
+                            "w": 1,
+                            "h": 2
+                        },
+                        {
+                            "x": 12,
+                            "y": 9,
+                            "w": 1,
+                            "h": 2
+                        },
+                        {
+                            "x": 6,
+                            "y": 9,
+                            "w": 1,
+                            "h": 2
+                        },
+                        {
+                            "x": 9,
+                            "y": 9,
+                            "w": 1,
+                            "h": 2
+                        }
+                    ]
+                }
+            }
+        ],
+        "destroyedExternalAppearances": [
+            {
+                "x": 0,
+                "y": 0,
+                "appearance": {
+                    "src": "spritesheet",
+                    "x": 4,
+                    "y": 9,
+                    "w": 2,
+                    "h": 2
+                }
+            },
+            {
+                "x": -1,
+                "y": 0,
+                "appearance": {
+                    "src": "spritesheet",
+                    "x": 4,
+                    "y": 11,
+                    "w": 1,
+                    "h": 2
+                }
+            }
+        ],       
+        "backOnly": true,
+        "crew": 1,
+        "recommendedCrew": 2,
+        "recommendedGuards": 1,
+        "msUntilPlayLoop": 1800,
+        "runningLoop": {
+            "loopFadeInMs": 300,
+            "loopFadeOutMs": 400,
+            "layers": [
+                {
+                    "variations": [ "engine_1600" ],
+                    "volume": {
+                        "value": 0.8,
+                        "onViewingSide": [
+                            0, 0.5,
+                            1, 1
+                        ],
+                        "xSpeed": [
+                            -0.3, 1.2,
+                            0, 0.4,
+                            0.3, 1.2
+                        ]
+                    },
+                    "pitch": {
+                        "min": 1.0,
+                        "max": 1.0,
+                        "xSpeed": [
+                            -0.3, 1.2,
+                            0, 0.8,
+                            0.3, 1.2
+                        ]
+                    }
+                }
+            ]
+        },
+        "emitters": [
+            {
+                "x": 1.2,
+                "y": 0.38,
+                "type": "smoke",
+                "emitProbability": 0.0012
+            },
+            {
+                "x": 1.5,
+                "y": 1.55,
+                "type": "ember",
+                "emitProbability": 0.002,
+                "inside": true
+            }
+        ],
+        "lights": [
+            {
+                "r": 255, "g": 90, "b": 10,
+                "radius": 40,
+                "x": 1.5,
+                "y": 1.55
+            }
+        ]
+    }
+]

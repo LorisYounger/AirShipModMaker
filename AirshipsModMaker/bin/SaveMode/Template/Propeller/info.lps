@@ -1,0 +1,8 @@
+﻿airshipmod#Item:|name#Propeller:|info#A steam-powered propeller, used to move the ship forwards or back:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#160:|info#The number of max hurt You can bear:|
+coalReload:|type#UInt:|name#Coal Reload:|nomal#30000:|info#This Item need One Coal every {Coal Reload} Millisecond:|
+propulsion:|type#UNUMBER:|name#Propulsion:|nomal#0.08:|info#the power that moves something, especially a vehicle, in direction:|
+weight:|type#UInt:|name#Weight:|nomal#80:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#60:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#800:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#100:|info#When HP Lower Than This,it will Geting Fire:|

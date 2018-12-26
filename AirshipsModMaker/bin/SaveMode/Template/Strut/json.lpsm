@@ -1,0 +1,28 @@
+[
+    {
+        "name": "|name:|",
+		|lpsm:|
+        "categories": ["STRUCTURAL"],
+        "external": true,
+        "w": 1,
+        "h": 1,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 22,
+            "y": 1
+        },
+        "externalAppearances": [
+            {
+                "appearance": {
+                    "src": "spritesheet",
+                    "x": 22,
+                    "y": 1
+                },
+                "x": 0,
+                "y": 0
+            }
+        ],
+        "canOccupy": [],
+        "drawExternalsBelowDecals": true,
+    }
+]

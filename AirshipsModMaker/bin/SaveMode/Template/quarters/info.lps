@@ -1,0 +1,8 @@
+﻿airshipmod#Item:|name#Quarters:|info#Enough hammocks to sleep twelve airsailors:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#100:|info#The number of max hurt You can bear:|
+quarters:|type#UInt:|name#Water:|nomal#12:|info#The number of sailor you can Carry:|
+weight:|type#UInt:|name#Weight:|nomal#40:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#40:|info#the amount of money that you need in order to make:|
+maintenanceCost:|type#Int:|name#Maintenance Cost:|nomal#8:|info#(Conquer)the amount of money that you need in maintain Every month:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#600:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#70:|info#When HP Lower Than This,it will Geting Fire:|

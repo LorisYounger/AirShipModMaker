@@ -1,0 +1,24 @@
+[
+    {
+        "name": "|name:|",
+        "categories": ["BASIC", "COMMAND_AND_CREW"],
+        "w": 3,
+        "h": 1,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 16,
+            "y": 0,
+            "w": 3,
+            "h": 1
+        },
+        |lpsm:|
+        "crew": 3,
+        "recommendedCrew": 3,
+        "recommendedGuards": 3,
+        "windows": [
+            { "x": 0, "y": 0 },
+            { "x": 1, "y": 0 },
+            { "x": 2, "y": 0 }
+        ]
+    }
+]

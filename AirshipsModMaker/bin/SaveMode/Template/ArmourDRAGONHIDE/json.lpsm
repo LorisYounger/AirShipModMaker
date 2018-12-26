@@ -1,0 +1,85 @@
+[
+    {
+        "name": "|name:|",       
+		|lpsm:|
+        "placeSound": "place_wood",
+        "placePitch": 1.4,        
+        "windowApp": {
+            "src": "spritesheet",
+            "x": 10,
+            "y": 22
+        },
+        "damagedApps": [
+            {
+                "src": "spritesheet",
+                "x": 9,
+                "y": 22
+            },
+            {
+                "src": "spritesheet",
+                "x": 11,
+                "y": 22
+            },
+            {
+                "src": "spritesheet",
+                "x": 12,
+                "y": 22
+            },
+            {
+                "src": "spritesheet",
+                "x": 13,
+                "y": 22
+            },
+            {
+                "src": "spritesheet",
+                "x": 14,
+                "y": 22
+            }
+        ],
+        "smallHitSound": {
+            "layers": [
+                {
+                    "variations": [ "hit_dragon_1", "hit_dragon_2", "hit_dragon_3", "hit_dragon_4" ],
+                    "volume": {
+                        "min": 0.3,
+                        "max": 0.4
+                    },
+                    "pitch": {
+                        "min": 1.05,
+                        "max": 1.15
+                    }
+                }
+            ]
+        },
+        "largeHitSound": {
+            "layers": [
+                {
+                    "variations": [ "hit_dragon_1", "hit_dragon_2", "hit_dragon_3", "hit_dragon_4" ],
+                    "volume": {
+                        "min": 0.7,
+                        "max": 1.0
+                    },
+                    "pitch": {
+                        "min": 0.95,
+                        "max": 1.05
+                    }
+                }
+            ]
+        },
+        "brokenSound": {
+            "layers": [
+                {
+                    "variations": [ "hit_dragon_1", "hit_dragon_2", "hit_dragon_3", "hit_dragon_4" ],
+                    "volume": {
+                        "min": 1.5,
+                        "max": 2.4
+                    },
+                    "pitch": {
+                        "min": 0.9,
+                        "max": 0.95
+                    }
+                }
+            ]
+        }
+    },
+]

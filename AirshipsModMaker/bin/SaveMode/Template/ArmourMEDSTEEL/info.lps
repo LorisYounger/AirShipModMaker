@@ -1,0 +1,7 @@
+﻿airshipmod#Item:|name#Armour Steel:|info#Steel plates that shrug off anything smaller than a cannonball:|local#ArmourType:|author#Loris:|prefix#armour_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#45:|info#The number of max hurt You can bear:|
+sort:|type#UInt:|name#Sort:|nomal#50:|info#The process of putting armour in powerful order.:|
+blastDmgAbsorb:|type#Int:|name#Absorb:Blast:|nomal#16:|info#The number of Blast injury weapon will Absorb:|
+penDmgAbsorb:|type#Int:|name#Absorb:Penetrate:|nomal#6:|info#The number of puncture injury weapon will Absorb:|
+weight:|type#Int:|name#Weight:|nomal#16:|info#how heavy are this Item:|
+cost:|type#Int:|name#Cost:|nomal#8:|info#the amount of money that you need in order to make:|

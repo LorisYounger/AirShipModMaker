@@ -1,0 +1,9 @@
+﻿airshipmod#Item:|name#Ammo Store:|info#Ammunition for the ship's weapons is stored here. Just make sure it doesn't catch fire!:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.1:|
+hp:|type#UInt:|name#Item HP:|nomal#240:|info#The number of max hurt You can bear:|
+ammo:|type#UInt:|name#Ammo Number:|nomal#100:|info#The number of ammo you can Carry:|
+weight:|type#Int:|name#Weight:|nomal#100:|info#how heavy are this Item:|
+cost:|type#Int:|name#Cost:|nomal#40:|info#the amount of money that you need in order to make:|
+moveDelay:|type#Int:|name#Control consume:|nomal#600:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#160:|info#When HP Lower Than This,it will Geting Fire:|
+explodeHP:|type#UInt:|name#Explode HP:|nomal#100:|info#When HP Lower Than This,it will Explode:|
+explodeDmg:|type#UInt:|name#Explode damage:|nomal#150:|info#When it Explode,Many damage it will cause:|

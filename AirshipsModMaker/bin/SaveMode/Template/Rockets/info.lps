@@ -1,0 +1,15 @@
+﻿airshipmod#Item:|name#Rockets:|info#Not accurate, or safe, but pretty devastating when they hit:|local#ModuleType:|author#Loris:|prefix#mod_:|flipped:|ver#2.1:|
+hp:|type#UInt:|name#Item HP:|nomal#120:|info#The number of max hurt You can bear:|
+weight:|type#UInt:|name#Weight:|nomal#30:|info#how heavy are this Item:|
+shotSpeed:|type#UNUMBER:|name#Bullet Speed:|nomal#0.6:|info#Bullet Speed:|
+reload:|type#UInt:|name#Reload Time:|nomal#4500:|info#The time (Millisecond) it spend in each launch/shooting:|
+clip:|type#UInt:|name#Clip Capacity:|nomal#1:|info#the capacity of your clip:|
+inaccuracy:|type#UNUMBER:|nomal#0.004:|name#Weapon inaccuracy:|info#This Number is More Less,The weapon are more possibilities to hit:|
+blastDmg:|type#UInt:|name#Weapon:Blast:|nomal#39:|info#The number of Blast injury weapon will cause:|
+blastSplashRadius:|type#UInt:|name#Weapon:Blast Splash Radius:|nomal#40:|info#a round area that covers the Blast Splash:|
+penDmg:|type#UInt:|name#Weapon:Penetrate:|nomal#0:|info#The number of puncture injury weapon will cause:|
+cost:|type#UInt:|name#Cost:|nomal#40:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#800:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#100:|info#When HP Lower Than This,it will Geting Fire:|
+explodeHP:|type#UInt:|name#Explode HP:|nomal#50:|info#When HP Lower Than This,it will Explode:|
+explodeDmg:|type#UInt:|name#Explode damage:|nomal#30:|info#When it Explode,Many damage it will cause:|

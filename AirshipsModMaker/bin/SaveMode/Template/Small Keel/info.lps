@@ -1,0 +1,8 @@
+﻿airshipmod#Item:|name#Small Keel:|info#A solid wooden keel to reinforce the ship.:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.1:|
+hp:|type#UInt:|name#Item HP:|nomal#200:|info#The number of max hurt You can bear:|
+weight:|type#UInt:|name#Weight:|nomal#400:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#50:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#10000:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#30:|info#When HP Lower Than This,it will Geting Fire:|
+structuralStressAmount:|type#UInt:|name#Structural Stress Amount:|nomal#-100:|info#Reducing this value avoids vulnerability:|
+shipHPBonus:|type#UInt:|name#Ship HP Bonus:|nomal#750:|info#Ship will be hurt. when shipHPBonus does not have HP:|

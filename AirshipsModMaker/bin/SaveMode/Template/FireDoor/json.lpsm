@@ -1,0 +1,21 @@
+[
+    {
+        "name": "|name:|",
+		|lpsm:|
+        "categories": ["STRUCTURAL"],
+        "w": 1,
+        "h": 1,
+        "sort": 20,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 2,
+            "y": 6,
+            "w": 1,
+            "h": 1
+        },
+        "upDoors": [ 0 ],
+        "windows": [
+            { "x": 0, "y": 0 }
+        ]
+    }
+]

@@ -1,0 +1,7 @@
+﻿airshipmod#Item:|name#Fire extinguisher:|info#A small tank of pressurized water to quickly put out nearby fires.:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#32:|info#The number of max hurt You can bear:|
+water:|type#UInt:|name#Water:|nomal#6:|info#The number of water you can Carry:|
+weight:|type#UInt:|name#Weight:|nomal#12:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#10:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#400:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#5:|info#When HP Lower Than This,it will Geting Fire:|

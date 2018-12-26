@@ -1,0 +1,6 @@
+﻿airshipmod#Item:|name#Fire door:|info#A reinforced fire door to slow the spread of fire down the ship's corridors. It also slows crew down a little.:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.1:|
+hp:|type#UInt:|name#Item HP:|nomal#50:|info#The number of max hurt You can bear:|
+weight:|type#UInt:|name#Weight:|nomal#20:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#5:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#500:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#0:|info#When HP Lower Than This,it will Geting Fire:|

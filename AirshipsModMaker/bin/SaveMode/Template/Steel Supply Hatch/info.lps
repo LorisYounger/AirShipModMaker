@@ -1,0 +1,7 @@
+﻿airshipmod#Item:|name#Teel Supply Hatch:|info#A way in and out for supplies and people. You need at least one of these:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#60:|info#The number of max hurt You can bear:|
+supplyProvided:|type#UInt:|name#Supply Provided:|nomal#8:|info#The number of 'Supply' it can Provided:|
+weight:|type#UInt:|name#Weight:|nomal#8:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#5:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#350:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#20:|info#When HP Lower Than This,it will Geting Fire:|

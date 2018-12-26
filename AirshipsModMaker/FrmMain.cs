@@ -13,21 +13,21 @@ namespace AirshipsModMaker
 {
     public partial class FrmMain : Form
     {
-        AirShipModData data = new AirShipModData();//当前存档
-        //全部模板
+        AirShipModData data = new AirShipModData();//当前存档 Current archive
+        //全部模板 All templates
         List<Template> Templates = new List<Template>();
-        //子项集合
+        //子项集合 Subitem set
         public List<MSetin> MSetins = new List<MSetin>();
-        string SavePath = "";//保存位置
+        string SavePath = "";//保存位置 Save position
 
 
         //语言项目
         public List<Lang> Langs = new List<Lang>();
 
         /// <summary>
-        /// 该Form的翻译方法
+        /// 该Form的翻译方法 The Translation Method of the Form
         /// </summary>
-        /// <param name="lang">语言</param>
+        /// <param name="lang">语言 language</param>
         public void Translate(Lang lang)
         {
             lang.Translate(this);
@@ -58,10 +58,11 @@ namespace AirshipsModMaker
                 if (tmp != null)
                     va.Text = tmp.Text;
             }
-
-
             //版本号加上
             this.Text += Program.Verizon;
+#if SAFE
+            this.Text += " (Safe Mode)";
+#endif
         }
 
         public Lang lang()
@@ -85,7 +86,11 @@ namespace AirshipsModMaker
             if (update != "")
             {
                 if (MessageBox.Show(update + "\nUpdate Now?", "There have new Update", MessageBoxButtons.YesNo) == DialogResult.Yes)
+#if SAFE
+                    System.Diagnostics.Process.Start(@"http://download.exlb.org/AirShipModMaker/AirShipModMaker_SafeMode.zip");
+#else
                     System.Diagnostics.Process.Start(@"http://download.exlb.org/AirShipModMaker/AirShipModMaker.zip");
+#endif
             }
 #endif
             //多语言支持
@@ -117,15 +122,30 @@ namespace AirshipsModMaker
                         if (!lang.Default)//判断是不是主语言，如果是，就不翻译(节约资源)
                             Translate(lang);
                         else
+                        {
                             this.Text += Program.Verizon;
+#if SAFE
+                            this.Text += " (Safe Mode)";
+#endif
+                        }
                     }
                     else
                         Properties.Settings.Default.Lang = "";
+                }
+                else
+                {
+                    this.Text += Program.Verizon;
+#if SAFE
+                    this.Text += " (Safe Mode)";
+#endif
                 }
             }
             else
             {
                 this.Text += Program.Verizon;
+#if SAFE
+                this.Text += " (Safe Mode)";
+#endif
             }
             //设置项目加载
             versionChackToolStripMenuItem.Checked = Properties.Settings.Default.VersionCheck;
@@ -134,6 +154,7 @@ namespace AirshipsModMaker
 
             //新建文件夹
             info = new DirectoryInfo(Program.PathMain);
+#if !SAFE            
             if (!info.Exists)
             {
                 MessageBox.Show("You can creat mods with using this tool\nIf you think this tool is not bad, Subscribe and Thumbs-up on steam", "Thanks For Using AirshipsModMaker");
@@ -143,11 +164,14 @@ namespace AirshipsModMaker
                 else
                     info.Create();
             }
+#endif
             if (info.GetDirectories().Length == 0)//检查有没有模板
             {
+#if !SAFE
                 FrmTemplate.UpdateTemplates(new DirectoryInfo(Environment.CurrentDirectory + @"\Template\"));
                 if (info.GetDirectories().Length == 0)
                 {
+
                     MessageBox.Show("Template No find\nPlase choose Tempalte/Tempaltes folder", "Template No find");
                     if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
                     {
@@ -156,6 +180,10 @@ namespace AirshipsModMaker
                     }
                     Close();
                 }
+#else
+                MessageBox.Show("Template No find", "Safe Mod");
+                Close();
+#endif
             }
             //加载Template
             foreach (DirectoryInfo di in info.GetDirectories())
@@ -351,7 +379,14 @@ namespace AirshipsModMaker
 
         private void exportToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            folderBrowserDialog1.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\AirshipsGame\mods\";
+            if (isChange)
+                Save();
+#if SAFE
+            folderBrowserDialog1.SelectedPath = Environment.CurrentDirectory;
+#else
+            folderBrowserDialog1.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\AirshipsGame\mods\";            
+#endif
+
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
             {
                 FileInfo fi;
@@ -454,6 +489,10 @@ namespace AirshipsModMaker
                 fs.Dispose();
 
                 MessageBox.Show("Export Success!");
+                //Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\AirshipsGame\mods\"              
+#if SAFE
+                MessageBox.Show($"If you want to use this mod,You need copy \n'{path}'\nto\n'{Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) }\\AirshipsGame\\mods\'", "Safe Mode Prompt", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+#endif
             }
         }
 
@@ -595,18 +634,18 @@ namespace AirshipsModMaker
             try
             {
 #endif
-            LpsDocument lpsd = new LpsDocument(lps);
-            if (lpsd.Read().Name != "airshipmod" && lpsd.Read().Info.ToLower() != "usersave")
-                return;
-            ModName = lpsd.Read().Find("name").Info;
-            ModInfo = lpsd.Read().Find("info").Info;
-            if (lpsd.Read().Find("id") != null)
-                Outputid = lpsd.Read().Find("id").info;//output id
-            Modlogo = lpsd.ReadNext().Find("logo").Info;
-            while (lpsd.ReadCanNext())
-                modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates, MSetins));
+                LpsDocument lpsd = new LpsDocument(lps);
+                if (lpsd.Read().Name != "airshipmod" && lpsd.Read().Info.ToLower() != "usersave")
+                    return;
+                ModName = lpsd.Read().Find("name").Info;
+                ModInfo = lpsd.Read().Find("info").Info;
+                if (lpsd.Read().Find("id") != null)
+                    Outputid = lpsd.Read().Find("id").info;//output id
+                Modlogo = lpsd.ReadNext().Find("logo").Info;
+                while (lpsd.ReadCanNext())
+                    modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates, MSetins));
 #if !DEBUG
-        }
+            }
             catch
             {
                 ModName = "";
@@ -651,9 +690,8 @@ namespace AirshipsModMaker
                 tmp = UseTemp.Data.FindLine(line.Subs[i].Name);
                 if (tmp == null)
                 {
-                    mstmp = null
                     mstmp = mSetins.FirstOrDefault(x => x.Name == line.Subs[i].Name);
-                    if (mstmp==null)
+                    if (mstmp == null)
                         mstmp = mSetins.FirstOrDefault(x => x.Name == line.Subs[i].Name);
 
                     Data.Add(new ModSet()

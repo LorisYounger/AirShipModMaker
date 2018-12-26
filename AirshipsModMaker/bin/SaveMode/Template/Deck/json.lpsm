@@ -1,0 +1,31 @@
+[
+    {
+        "name": "|name:|",
+		|lpsm:|
+        "categories": ["STRUCTURAL"],
+        "external": true,
+        "drawDoors": false,
+        "w": 1,
+        "h": 1,
+        "sort": 10,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 35,
+            "y": 5
+        },
+        "externalAppearances": [
+            {
+                "appearance": {
+                    "src": "spritesheet",
+                    "x": 35,
+                    "y": 5
+                },
+                "x": 0,
+                "y": 0
+            }
+        ],
+        "drawExternalsBelowDecals": true,
+        "externalSubColor": { "r": 88, "g": 92, "b": 96 },
+        "drawAppearanceInside": false
+    }
+]

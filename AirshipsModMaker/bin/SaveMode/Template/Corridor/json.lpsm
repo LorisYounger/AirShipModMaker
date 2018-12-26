@@ -1,0 +1,18 @@
+[
+	{
+        "name": "|name:|",
+		|lpsm:|
+        "sort": -2,
+        "categories": ["BASIC", "STRUCTURAL"],
+        "w": 1,
+        "h": 1,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 60,
+            "y": 17
+        },
+        "windows": [
+            { "x": 0, "y": 0 }
+        ]
+    }
+]

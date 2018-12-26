@@ -1,0 +1,7 @@
+﻿airshipmod#Item:|name#Armour Brick wall:|info#A thin brick wall, easily shattered by a grenade or cannonball, but able to take a few rifle rounds before crumbling:|local#ArmourType:|author#Loris:|prefix#armour_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#30:|info#The number of max hurt You can bear:|
+sort:|type#UInt:|name#Sort:|nomal#70:|info#The process of putting armour in powerful order.:|
+blastDmgAbsorb:|type#UInt:|name#Absorb:Blast:|nomal#0:|info#The number of Blast injury weapon will Absorb:|
+penDmgAbsorb:|type#UInt:|name#Absorb:Penetrate:|nomal#0:|info#The number of Blast injury weapon will Absorb:|
+weight:|type#UInt:|name#Weight:|nomal#45:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#1:|info#the amount of money that you need in order to make:|

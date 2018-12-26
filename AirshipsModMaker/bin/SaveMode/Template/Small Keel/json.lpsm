@@ -1,0 +1,19 @@
+[
+    {
+        "name": "|name:|",
+		|lpsm:|
+        "categories": ["STRUCTURAL"],
+        "availableFor": ["AIRSHIP", "LANDSHIP"],
+        "w": 5,
+        "h": 1,
+        "sort": 31,
+        "appearance": {
+            "src": "spritesheet",
+            "x": 6,
+            "y": 1,
+            "w": 5,
+            "h": 1
+        },
+        "canOccupy": [],
+    }
+]

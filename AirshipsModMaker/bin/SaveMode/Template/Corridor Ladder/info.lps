@@ -1,0 +1,6 @@
+﻿airshipmod#Item:|name#Corridor with Ladder:|info#Allows crew to move through the ship rapidly, and change floors using a ladder.:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.1:|
+hp:|type#UInt:|name#Item HP:|nomal#32:|info#The number of max hurt You can bear:|
+weight:|type#UInt:|name#Weight:|nomal#4:|info#how heavy are this Item:|
+cost:|type#UInt:|name#Cost:|nomal#5:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#350:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#15:|info#When HP Lower Than This,it will Geting Fire:|

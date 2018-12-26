@@ -1,0 +1,15 @@
+﻿airshipmod#Item:|name#Bomb Bay:|info#Bombs dropped from above are an effective way to destroy anything that does not move away in time:|local#ModuleType:|author#Loris:|prefix#mod_:|ver#2.1:|
+hp:|type#UInt:|name#Item HP:|nomal#80:|info#The number of max hurt You can bear:|
+weight:|type#UInt:|name#Weight:|nomal#40:|info#how heavy are this Item:|
+shotSpeed:|type#UNUMBER:|name#Bullet Speed:|nomal#0.3:|info#The greater the Bullet Speed,The faster the bullet hits the target.:|
+reload:|type#UInt:|name#Reload Time:|nomal#6000:|info# The time (Millisecond) it spend in each launch/shooting:|
+clip:|type#UInt:|name#Clip Capacity:|nomal#1:|info#the capacity of your clip:|
+inaccuracy:|type#UNUMBER:|nomal#0.005:|name#Weapon inaccuracy:|info#This Number is More Less,The weapon are more possibilities to hit:|
+blastDmg:|type#UInt:|name#Weapon:Blast:|nomal#40:|info#The number of Blast injury weapon will cause:|
+blastSplashRadius:|type#UInt:|name#Weapon:Blast Splash Radius:|nomal#50:|info#a round area that covers the Blast Splash:|
+penDmg:|type#UInt:|name#Weapon:Penetrate:|nomal#0:|info#The number of puncture injury weapon will cause:|
+cost:|type#UInt:|name#Cost:|nomal#30:|info#the amount of money that you need in order to make:|
+moveDelay:|type#UInt:|name#Control consume:|nomal#80:|info#the Control time it need to spend:|
+fireHP:|type#UInt:|name#Fire HP:|nomal#50:|info#When HP Lower Than This,it will Geting Fire:|
+explodeHP:|type#UInt:|name#Explode HP:|nomal#40:|info#When HP Lower Than This,it will Explode:|
+explodeDmg:|type#UInt:|name#Explode damage:|nomal#40:|info#When it Explode,Many damage it will cause:|

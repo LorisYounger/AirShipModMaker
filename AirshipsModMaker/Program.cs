@@ -8,7 +8,14 @@ namespace AirshipsModMaker
 {
     static class Program
     {
+
+#if !SAFE
         public static readonly string PathMain = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\LBSoft\Airship";
+#else
+        public static readonly string PathMain = Environment.CurrentDirectory + @"\Template";//safemode
+#endif
+
+
         public static bool Reload = true;
         public static readonly string Verizon = "beta 4.1";
         /// <summary>
@@ -19,7 +26,6 @@ namespace AirshipsModMaker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-
 #if !DEBUG
             while (Reload)
             {

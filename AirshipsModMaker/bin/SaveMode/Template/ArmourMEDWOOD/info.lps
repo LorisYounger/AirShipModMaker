@@ -1,0 +1,7 @@
+﻿airshipmod#Item:|name#Armour Wooden:|info#Sufficient to protect against small arms fire, but highly vulnerable to explosives:|local#ArmourType:|author#Loris:|prefix#armour_:|ver#2.0:|
+hp:|type#UInt:|name#Item HP:|nomal#35:|info#The number of max hurt You can bear:|
+sort:|type#UInt:|name#Sort:|nomal#20:|info#The process of putting armour in powerful order.:|
+blastDmgAbsorb:|type#Int:|name#Absorb:Blast:|nomal#2:|info#The number of Blast injury weapon will Absorb:|
+penDmgAbsorb:|type#Int:|name#Absorb:Penetrate:|nomal#4:|info#The number of puncture injury weapon will Absorb:|
+weight:|type#Int:|name#Weight:|nomal#3:|info#how heavy are this Item:|
+cost:|type#Int:|name#Cost:|nomal#2:|info#the amount of money that you need in order to make:|
