@@ -159,8 +159,10 @@ namespace AirshipsModMaker
             {
                 MessageBox.Show("You can creat mods with using this tool\nIf you think this tool is not bad, Subscribe and Thumbs-up on steam", "Thanks For Using AirshipsModMaker");
                 DirectoryInfo di = new DirectoryInfo(Environment.CurrentDirectory + @"\Template\");
-                if (di.Exists)
+                if (di.Exists) {
+                    info.Create();
                     di.MoveTo(Program.PathMain);
+                }
                 else
                     info.Create();
             }
@@ -384,7 +386,7 @@ namespace AirshipsModMaker
 #if SAFE
             folderBrowserDialog1.SelectedPath = Environment.CurrentDirectory;
 #else
-            folderBrowserDialog1.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\AirshipsGame\mods\";            
+            folderBrowserDialog1.SelectedPath = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\AirshipsGame\mods\";
 #endif
 
             if (folderBrowserDialog1.ShowDialog() == DialogResult.OK)
@@ -634,16 +636,16 @@ namespace AirshipsModMaker
             try
             {
 #endif
-                LpsDocument lpsd = new LpsDocument(lps);
-                if (lpsd.Read().Name != "airshipmod" && lpsd.Read().Info.ToLower() != "usersave")
-                    return;
-                ModName = lpsd.Read().Find("name").Info;
-                ModInfo = lpsd.Read().Find("info").Info;
-                if (lpsd.Read().Find("id") != null)
-                    Outputid = lpsd.Read().Find("id").info;//output id
-                Modlogo = lpsd.ReadNext().Find("logo").Info;
-                while (lpsd.ReadCanNext())
-                    modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates, MSetins));
+            LpsDocument lpsd = new LpsDocument(lps);
+            if (lpsd.Read().Name != "airshipmod" && lpsd.Read().Info.ToLower() != "usersave")
+                return;
+            ModName = lpsd.Read().Find("name").Info;
+            ModInfo = lpsd.Read().Find("info").Info;
+            if (lpsd.Read().Find("id") != null)
+                Outputid = lpsd.Read().Find("id").info;//output id
+            Modlogo = lpsd.ReadNext().Find("logo").Info;
+            while (lpsd.ReadCanNext())
+                modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates, MSetins));
 #if !DEBUG
             }
             catch
