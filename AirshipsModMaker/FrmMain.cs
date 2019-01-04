@@ -160,7 +160,7 @@ namespace AirshipsModMaker
                 MessageBox.Show("You can creat mods with using this tool\nIf you think this tool is not bad, Subscribe and Thumbs-up on steam", "Thanks For Using AirshipsModMaker");
                 DirectoryInfo di = new DirectoryInfo(Environment.CurrentDirectory + @"\Template\");
                 if (di.Exists) {
-                    info.Create();
+                    info.Parent.Create();
                     di.MoveTo(Program.PathMain);
                 }
                 else

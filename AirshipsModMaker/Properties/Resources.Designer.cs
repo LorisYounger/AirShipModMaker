@@ -61,6 +61,21 @@ namespace AirshipsModMaker.Properties {
         }
         
         /// <summary>
+        ///   查找类似 [
+        ///	{
+        ///		&quot;name&quot;: &quot;modmaker&quot;,
+        ///		&quot;bump&quot;: &quot;modmaker_b&quot;,
+        ///		&quot;fragments&quot;:&quot;modmaker_f&quot;
+        ///	}
+        ///] 的本地化字符串。
+        /// </summary>
+        internal static string bunck {
+            get {
+                return ResourceManager.GetString("bunck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   查找类似 {
         ///		&quot;id&quot;: &quot;AMM|id:|&quot;,
         ///		&quot;name&quot;: {
