@@ -40,6 +40,7 @@
             this.templateToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.templateManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.stuffManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.versionChackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
@@ -144,6 +145,7 @@
             this.templateToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.templateManagerToolStripMenuItem,
             this.stuffManagerToolStripMenuItem,
+            this.imageManagerToolStripMenuItem,
             this.toolStripSeparator5,
             this.versionChackToolStripMenuItem,
             this.toolStripSeparator4,
@@ -163,6 +165,12 @@
             this.stuffManagerToolStripMenuItem.Name = "stuffManagerToolStripMenuItem";
             resources.ApplyResources(this.stuffManagerToolStripMenuItem, "stuffManagerToolStripMenuItem");
             this.stuffManagerToolStripMenuItem.Click += new System.EventHandler(this.stuffManagerToolStripMenuItem_Click);
+            // 
+            // imageManagerToolStripMenuItem
+            // 
+            this.imageManagerToolStripMenuItem.Name = "imageManagerToolStripMenuItem";
+            resources.ApplyResources(this.imageManagerToolStripMenuItem, "imageManagerToolStripMenuItem");
+            this.imageManagerToolStripMenuItem.Click += new System.EventHandler(this.imageManagerToolStripMenuItem_Click);
             // 
             // toolStripSeparator5
             // 
@@ -498,5 +506,6 @@
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
         private System.Windows.Forms.ToolStripMenuItem versionChackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageManagerToolStripMenuItem;
     }
 }

@@ -12,11 +12,11 @@ namespace AirshipsModMaker
         Template[] Templates;
         FrmMain frmMain;
         Lang lang;
-        public FrmTemplate(Template[] templates, FrmMain frmMain,Lang lang)
+        public FrmTemplate(FrmMain frmMain,Lang lang)
         {
             InitializeComponent();
-            Templates = templates;
             this.frmMain = frmMain;
+            Templates = frmMain.Templates.ToArray();
             //语言操作
             if (lang != null && !lang.Default)
             {

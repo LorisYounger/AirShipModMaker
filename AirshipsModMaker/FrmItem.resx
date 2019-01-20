@@ -141,7 +141,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;flowLayoutPanelShow.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="textBoxItemInfo.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 102</value>
@@ -178,7 +178,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxItemInfo.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>3</value>
   </data>
   <data name="comboBoxItemTemplare.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 35</value>
@@ -202,7 +202,7 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;comboBoxItemTemplare.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>4</value>
   </data>
   <data name="labelT2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -233,7 +233,7 @@ Item Info</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;labelT2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>5</value>
   </data>
   <data name="textBoxName.Location" type="System.Drawing.Point, System.Drawing">
     <value>121, 68</value>
@@ -260,7 +260,7 @@ Item Info</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxName.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>6</value>
   </data>
   <data name="pictureBoxdisplay.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -32732,13 +32732,13 @@ Item Info</value>
 </value>
   </data>
   <data name="pictureBoxdisplay.Location" type="System.Drawing.Point, System.Drawing">
-    <value>359, 47</value>
+    <value>359, 39</value>
   </data>
   <data name="pictureBoxdisplay.Size" type="System.Drawing.Size, System.Drawing">
     <value>100, 100</value>
   </data>
   <data name="pictureBoxdisplay.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
-    <value>StretchImage</value>
+    <value>Zoom</value>
   </data>
   <data name="pictureBoxdisplay.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
@@ -32756,7 +32756,7 @@ Item Info</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;pictureBoxdisplay.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>7</value>
   </data>
   <data name="textBoxlable.Location" type="System.Drawing.Point, System.Drawing">
     <value>5, 506</value>
@@ -32786,7 +32786,7 @@ Item Info</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;textBoxlable.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>118, 17</value>
@@ -32837,7 +32837,40 @@ Item Info</value>
     <value>$this</value>
   </data>
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>8</value>
+  </data>
+  <data name="buttonChooseImage.FlatStyle" type="System.Windows.Forms.FlatStyle, System.Windows.Forms">
+    <value>Flat</value>
+  </data>
+  <data name="buttonChooseImage.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 9pt</value>
+  </data>
+  <data name="buttonChooseImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="buttonChooseImage.Location" type="System.Drawing.Point, System.Drawing">
+    <value>359, 137</value>
+  </data>
+  <data name="buttonChooseImage.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="buttonChooseImage.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="buttonChooseImage.Text" xml:space="preserve">
+    <value>Choose Image</value>
+  </data>
+  <data name="&gt;&gt;buttonChooseImage.Name" xml:space="preserve">
+    <value>buttonChooseImage</value>
+  </data>
+  <data name="&gt;&gt;buttonChooseImage.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;buttonChooseImage.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;buttonChooseImage.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>

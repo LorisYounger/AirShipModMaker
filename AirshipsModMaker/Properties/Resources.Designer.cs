@@ -63,9 +63,9 @@ namespace AirshipsModMaker.Properties {
         /// <summary>
         ///   查找类似 [
         ///	{
-        ///		&quot;name&quot;: &quot;modmaker&quot;,
-        ///		&quot;bump&quot;: &quot;modmaker_b&quot;,
-        ///		&quot;fragments&quot;:&quot;modmaker_f&quot;
+        ///		&quot;name&quot;: &quot;modmaker|id:|&quot;,
+        ///		&quot;bump&quot;: &quot;modmaker_b|id:|&quot;,
+        ///		&quot;fragments&quot;:&quot;modmaker_f|id:|&quot;
         ///	}
         ///] 的本地化字符串。
         /// </summary>
@@ -89,6 +89,36 @@ namespace AirshipsModMaker.Properties {
         internal static string info {
             get {
                 return ResourceManager.GetString("info", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap modmaker {
+            get {
+                object obj = ResourceManager.GetObject("modmaker", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap modmaker_b {
+            get {
+                object obj = ResourceManager.GetObject("modmaker_b", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   查找 System.Drawing.Bitmap 类型的本地化资源。
+        /// </summary>
+        internal static System.Drawing.Bitmap modmaker_f {
+            get {
+                object obj = ResourceManager.GetObject("modmaker_f", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
             }
         }
         

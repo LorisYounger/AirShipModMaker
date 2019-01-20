@@ -11,13 +11,14 @@ namespace AirshipsModMaker
 
 #if !SAFE
         public static readonly string PathMain = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\LBSoft\Airship";
+        public static readonly string PathImage = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + @"\LBSoft\AirshipImage";
 #else
         public static readonly string PathMain = Environment.CurrentDirectory + @"\Template";//safemode
 #endif
 
 
         public static bool Reload = true;
-        public static readonly string Verizon = "beta 4.1";
+        public static readonly string Verizon = "beta 5";
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>

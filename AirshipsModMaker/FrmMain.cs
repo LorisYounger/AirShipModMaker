@@ -14,8 +14,11 @@ namespace AirshipsModMaker
     public partial class FrmMain : Form
     {
         AirShipModData data = new AirShipModData();//当前存档 Current archive
-        //全部模板 All templates
-        List<Template> Templates = new List<Template>();
+
+                                                   //全部模板 All templates
+        public List<Template> Templates = new List<Template>();
+        public List<TempImage> TempImages = new List<TempImage>();
+
         //子项集合 Subitem set
         public List<MSetin> MSetins = new List<MSetin>();
         string SavePath = "";//保存位置 Save position
@@ -159,7 +162,8 @@ namespace AirshipsModMaker
             {
                 MessageBox.Show("You can creat mods with using this tool\nIf you think this tool is not bad, Subscribe and Thumbs-up on steam", "Thanks For Using AirshipsModMaker");
                 DirectoryInfo di = new DirectoryInfo(Environment.CurrentDirectory + @"\Template\");
-                if (di.Exists) {
+                if (di.Exists)
+                {
                     info.Parent.Create();
                     di.MoveTo(Program.PathMain);
                 }
@@ -171,7 +175,7 @@ namespace AirshipsModMaker
             {
 #if !SAFE
                 FrmTemplate.UpdateTemplates(new DirectoryInfo(Environment.CurrentDirectory + @"\Template\"));
-                if (info.GetDirectories().Length == 0)
+                if (info.GetDirectories().Length == 0)//第二次检查
                 {
 
                     MessageBox.Show("Template No find\nPlase choose Tempalte/Tempaltes folder", "Template No find");
@@ -192,7 +196,29 @@ namespace AirshipsModMaker
             {
                 Templates.Add(new Template(di.FullName, MSetins));
             }
-
+            //加载图片库
+            info = new DirectoryInfo(Program.PathImage);
+            if (!info.Exists)
+            {
+                info.Create();
+            }
+            else
+            {
+                foreach (FileInfo fi in info.GetFiles().Where(x => x.Extension == ".png"))
+                    TempImages.Add(new TempImage(fi.FullName));
+            }
+            foreach (Template tmp in Templates.FindAll(x => x.Error == ""))
+            {
+                TempImages.Add(tmp.Image);
+            }
+            for (int i = 0; i < TempImages.Count; i++)
+            {
+                if (TempImages[i].Path == "ERROR")
+                {
+                    TempImages.Remove(TempImages[i]);
+                    i--;
+                }
+            }
         }
 
 
@@ -291,9 +317,17 @@ namespace AirshipsModMaker
                 data = tmp;
                 textBoxModName.Text = data.ModName;
                 textBoxModInfo.Text = data.ModInfo;
-                if (data.Modlogo != "" && new FileInfo(data.Modlogo).Exists)
-                    pictureBoxModImage.Image = Image.FromFile(data.Modlogo);
-                else
+                try
+                {
+                    if (data.Modlogo != "" && new FileInfo(data.Modlogo).Exists)
+                        pictureBoxModImage.Image = Image.FromFile(data.Modlogo);
+                    else
+                    {
+                        data.Modlogo = "";
+                        pictureBoxModImage.Image = Properties.Resources.nomal_image;
+                    }
+                }
+                catch
                 {
                     data.Modlogo = "";
                     pictureBoxModImage.Image = Properties.Resources.nomal_image;
@@ -325,7 +359,7 @@ namespace AirshipsModMaker
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             isChange = true;
-            FrmItem fi = new FrmItem(data.ItemID, Templates.ToArray(), MSetins.ToArray(), lang());
+            FrmItem fi = new FrmItem(data.ItemID,this, lang());
             if (fi.ShowDialog() == DialogResult.OK)
             {
                 data.modItems.Add(fi.ModItem);
@@ -352,7 +386,7 @@ namespace AirshipsModMaker
             int id = listView1.SelectedIndices[0];
             ModItem mi = data.modItems[id];
             isChange = true;
-            FrmItem fi = new FrmItem(mi, Templates.ToArray(), MSetins.ToArray(), lang());
+            FrmItem fi = new FrmItem(mi, this, lang());
             if (fi.ShowDialog() == DialogResult.OK)
             {
                 data.modItems[id] = fi.ModItem;
@@ -429,7 +463,7 @@ namespace AirshipsModMaker
                 //先创建文件和图片
                 StringBuilder lang = new StringBuilder();//strings
 
-                fi.CopyTo(path + @"\logo.png");
+                fi.CopyTo(path + @"\logo.png",true);
 
                 //lang.AppendLine($"modulecategory_AMM{data.Outputid}={data.ModName.Replace("\r", "").Replace("\n", @"\n")}");
 
@@ -444,6 +478,30 @@ namespace AirshipsModMaker
                 fs.Close();
                 fs.Dispose();
 
+                //给图片准备好文件夹
+                di = new DirectoryInfo(path + @"\SpritesheetBundle");
+                if (!di.Exists)
+                    di.Create();
+                di = new DirectoryInfo(path + @"\images");
+                if (!di.Exists)
+                    di.Create();
+
+                //图片加载位置准备好
+                fi = new FileInfo(path + @"\SpritesheetBundle\bunck.json");
+                fs = fi.Create();
+                buff = Encoding.UTF8.GetBytes(Properties.Resources.bunck.Replace("|id:|",data.Outputid));
+                fs.Write(buff, 0, buff.Length);
+                fs.Close();
+                fs.Dispose();
+
+                //开始准备图片
+                Properties.Resources.modmaker_b.Save(path + $"\\images\\modmaker_b{data.Outputid}.png");
+                Properties.Resources.modmaker_f.Save(path + $"\\images\\modmaker_f{data.Outputid}.png");
+
+                //一会要使用的图片和参数
+                int NowX = 0, NowY = 0, NextY = 0;//X用于确定位置，Y用于确定下一次位置，当X>=30的时候,跳到NowY+NextY,X=0
+                Bitmap BM = new Bitmap(Properties.Resources.modmaker);
+                Graphics graphics = Graphics.FromImage(BM);
 
                 foreach (ModItem mi in data.modItems)
                 {
@@ -453,8 +511,30 @@ namespace AirshipsModMaker
 
                     fi = new FileInfo(path + @"\" + mi.UseTemp.Local + @"\AMM" + mi.ItemID + ".json");//singlefile
 
+                    tmp.Clear();//清空文字缓存
+
+
+                    if (mi.UseTemp.Prefix == "mod_")//不支持盔甲
+                    {
+                        //图片处理
+                        graphics.DrawImage(mi.GetImage.DemoImage, NowX, NowY, mi.GetImage.RealSize.Width, mi.GetImage.RealSize.Height);
+
+                        //输出信息
+                        tmp.AppendLine($"\"appearance\": {{\"src\": \"modmaker{data.Outputid}\",\"x\": {NowX / 16},\"y\": {NowY / 16},\"w\": {mi.GetImage.VirtualSize.Width},\"h\": {mi.GetImage.VirtualSize.Height}}},");
+
+                        //下一步骤
+                        NowX += mi.GetImage.RealSize.Width;
+                        if (NextY < mi.GetImage.RealSize.Height)
+                            NextY = mi.GetImage.RealSize.Height;
+                        if (NowX >= 480)//30*16
+                        {
+                            NowX = 0;
+                            NowY += NextY;
+                            NextY = 0;
+                        }
+                    }
                     /*LPSMReplace(mi.UseTemp.RepFile, mi.ToSubs()).Replace("|name:|", "AMM" + mi.ItemID);*/
-                    tmp.Clear();
+
                     foreach (ModSet ms in mi.Data)
                     {
                         tmp.Append($"\"{ms.Setin.Name}\": ");
@@ -480,6 +560,9 @@ namespace AirshipsModMaker
                     if (mi.UseTemp.IsFlipped)
                         lang.AppendLine($"{mi.UseTemp.Prefix}FLIPPED_AMM{data.Outputid}{mi.ItemID}={mi.Name}(Flipped)\r\n{mi.UseTemp.Prefix}desc_FLIPPED_AMM{data.Outputid}{mi.ItemID}={mi.Info.Replace("\r", "").Replace("\n", @"\n")}");
                 }
+                //图片处理
+                BM.Save(path + $"\\images\\modmaker{data.Outputid}.png");
+
                 //lang
                 di = new DirectoryInfo(path + @"\strings");
                 di.Create();
@@ -587,7 +670,7 @@ namespace AirshipsModMaker
 
         private void templateManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new FrmTemplate(Templates.ToArray(), this, lang()).ShowDialog();
+            new FrmTemplate(this, lang()).ShowDialog();
         }
 
         private void howToUseToolStripMenuItem_Click(object sender, EventArgs e)
@@ -607,352 +690,13 @@ namespace AirshipsModMaker
             Properties.Settings.Default.VersionCheck = !Properties.Settings.Default.VersionCheck;
             versionChackToolStripMenuItem.Checked = Properties.Settings.Default.VersionCheck;
         }
-    }
 
-    /// <summary>
-    /// 整个Mod数据
-    /// </summary>
-    public class AirShipModData
-    {
-        public string ModName = "";
-        public string ModInfo;
-        public string Modlogo = "";
-        public List<ModItem> modItems = new List<ModItem>();
-        public int ItemID = 0;//用于编辑(自增)
-        public string Outputid = new Random().Next().ToString("X");
-
-        public string ToLps()
+        private void imageManagerToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            LpsDocument lps = new LpsDocument();
-            lps.AddLine(new Line("airshipmod", "UserSave", "", new Sub("name", ModName), new Sub("info", ModInfo), new Sub("logo", Modlogo), new Sub("id", Outputid)));
-            foreach (ModItem mi in modItems)
-                lps.AddLine(mi.ToLine());
-            return lps.ToString();
-        }
-        public AirShipModData() { }
-        public AirShipModData(string lps, Template[] templates, MSetin[] MSetins)
-        {
-#if !DEBUG
-            try
-            {
-#endif
-            LpsDocument lpsd = new LpsDocument(lps);
-            if (lpsd.Read().Name != "airshipmod" && lpsd.Read().Info.ToLower() != "usersave")
-                return;
-            ModName = lpsd.Read().Find("name").Info;
-            ModInfo = lpsd.Read().Find("info").Info;
-            if (lpsd.Read().Find("id") != null)
-                Outputid = lpsd.Read().Find("id").info;//output id
-            Modlogo = lpsd.ReadNext().Find("logo").Info;
-            while (lpsd.ReadCanNext())
-                modItems.Add(new ModItem(ItemID++, lpsd.ReadNext(), templates, MSetins));
-#if !DEBUG
-            }
-            catch
-            {
-                ModName = "";
-            }
-#endif
+            var tmp = new FrmImage(TempImages);
+            tmp.buttonSelect.Visible = false;
+            tmp.ShowDialog();
         }
     }
-    /// <summary>
-    /// Mod中的物品栏
-    /// </summary>
-    public class ModItem
-    {
-        public string Name;
-        public string Info;
-        public Template UseTemp;//所使用模板
-        public List<ModSet> Data = new List<ModSet>();
-        public int ItemID;
-        //案例 name#data:|
-        public Line ToLine()//转换成行
-        {
-            Line li = new Line("temp", UseTemp.Name, "", new Sub("name", Name), new Sub("info", Info));
-            li.AddRange(ToSubs());
-            return li;
-        }
-        public Sub[] ToSubs()//转换成Subs
-        {
-            List<Sub> subs = new List<Sub>();
-            foreach (ModSet ms in Data)
-                subs.Add(ms.ToSub());
-            return subs.ToArray();
-        }
-        public ModItem(int id, Line line, Template[] templates, MSetin[] mSetins)//加载
-        {
-            ItemID = id;
-            UseTemp = templates.FirstOrDefault(x => x.Name == line.Find("temp").Info);
-            Name = line.Find("name").Info;
-            Info = line.Find("info").Info;
-            Line tmp;
-            MSetin mstmp;
-            for (int i = 2; i < line.Subs.Count; i++)
-            {
-                tmp = UseTemp.Data.FindLine(line.Subs[i].Name);
-                if (tmp == null)
-                {
-                    mstmp = mSetins.FirstOrDefault(x => x.Name == line.Subs[i].Name);
-                    if (mstmp == null)
-                        mstmp = mSetins.FirstOrDefault(x => x.Name == line.Subs[i].Name);
 
-                    Data.Add(new ModSet()
-                    {
-                        Setin = mSetins.First(x => x.Name == line.Subs[i].Name),
-                        Value = line.Subs[i].Info,
-                        valuenomal = mstmp.valuenomal
-                    });
-                }
-                else
-                {
-                    Data.Add(new ModSet()
-                    {
-                        Setin = mSetins.First(x => x.Name == line.Subs[i].Name),
-                        Value = line.Subs[i].Info,
-                        valuenomal = tmp.Find("nomal").Info
-                    });
-                }
-            }
-        }
-
-        //现在template 单独设置项所需内容为
-        //name 用作定位(ps:直接就是名字)
-        //nomal 标准值
-        //skip 如有需要跳过读取
-
-        public ModItem(int id, string name, string info, Template usrTemp, MSetin[] mSetins)//新建ModItem
-        {
-            ItemID = id;
-            Name = name;
-            Info = info;
-            UseTemp = usrTemp;
-            UseTemp.Data.LineNode = 1;
-            while (UseTemp.Data.ReadCanNext())
-                Data.Add(new ModSet
-                {
-                    Setin = mSetins.First(x => x.Name == UseTemp.Data.Read().Name),
-                    Value = UseTemp.Data.Read().Find("nomal").Info,
-                    valuenomal = UseTemp.Data.ReadNext().Find("nomal").Info,
-                });
-        }
-        public ModItem(ModItem mi)
-        {
-            Name = mi.Name;
-            Data = mi.Data.ToList();
-            Info = mi.Info;
-            ItemID = mi.ItemID;
-            UseTemp = mi.UseTemp;
-        }
-    }
-    /// <summary>
-    /// Mod中的物品中的单项设置
-    /// </summary>
-    public class ModSet
-    {
-        public MSetin Setin;//这是固定信息，属于不会变的那种
-
-        private string value;
-
-        public string valuenomal;
-        public string Value
-        {
-            get => value; set
-            {
-                switch (Setin.ModSetType)
-                {
-                    case MSetin.SetType.UINT:
-                        if (IsUnsignInt(value))
-                            this.value = value;
-                        break;
-                    case MSetin.SetType.INT:
-                        if (IsInt(value))
-                            this.value = value;
-                        break;
-                    case MSetin.SetType.NUMBER:
-                        if (IsNumeric(value))
-                            this.value = value;
-                        break;
-                    case MSetin.SetType.UNUMBER:
-                        if (IsUNumeric(value))
-                            this.value = value;
-                        break;
-                    default:
-                        this.value = value;
-                        break;
-                }
-            }
-        }
-        public static bool IsNumeric(string value)
-        {
-            return System.Text.RegularExpressions.Regex.IsMatch(value, @"^-?([1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0)$");
-        }
-        public static bool IsUNumeric(string value)
-        {
-            return System.Text.RegularExpressions.Regex.IsMatch(value, @"^[1-9]\d*\.\d*|0\.\d*[1-9]\d*|0?\.0+|0$");
-        }
-        public static bool IsInt(string value)
-        {
-            return System.Text.RegularExpressions.Regex.IsMatch(value, @"^-?[1-9]\d*|0$");
-        }
-        public static bool IsUnsignInt(string value)
-        {
-            return System.Text.RegularExpressions.Regex.IsMatch(value, @"^[1-9]\d*|0$"); ;
-        }
-        public Sub ToSub()
-        {
-            return new Sub(Setin.Name, Value);
-        }
-
-    }
-    ///// <summary>
-    ///// 从全部MS中找到的
-    ///// </summary>
-    //public class TempMSetin
-    //{
-
-
-    //    public MSetin GetMSetin(string name)
-    //    {
-    //        return MSetins.FirstOrDefault(x => x.Name == name);
-    //    }
-
-    //    public void AddMsetin(MSetin mSetin)
-    //    {
-    //        if (GetMSetin(mSetin.Name) == null)
-    //            MSetins.Add(mSetin);
-    //    }
-
-    //}
-    //这是ModSet的固定信息
-    public class MSetin
-    {
-        public SetType ModSetType = SetType.STRING;
-        /// <summary>
-        /// 名字
-        /// </summary>
-        public string Name;
-        /// <summary>
-        /// 给用户的名字
-        /// </summary>
-        public string Mname;
-        public string info;
-        /// <summary>
-        /// is Not Obsolete,It Only No Recommend 
-        /// </summary>
-        //[Obsolete()]
-        public string valuenomal;
-        //来自哪里
-        public string From;
-
-        public ModSet ToModSet()
-        {
-            return new ModSet();
-        }
-        public enum SetType
-        {
-            UINT, INT, NUMBER, UNUMBER, STRING
-        }
-
-    }
-
-
-    /// <summary>
-    /// 模板文件
-    /// </summary>
-    public class Template
-    {
-        public string Name;
-        public string Info;
-        public string RepFile;//用来替换的文件
-        public string Author;//作者
-        public string Local;//位置
-        public string Prefix;//前缀
-        public string Verison = "N/A";
-        public bool IsFlipped = false;//是不是IsFlipped
-        public LpsDocument Data;//替换的数据
-        public string path;
-        public string Error = "";
-
-        public Image DemoImage
-        {
-            get => Image.FromFile(path + @"\logo.png");
-        }
-
-        public Template(string path, List<MSetin> mSetins)
-        {
-            try
-            {
-                this.path = path;
-                FileInfo fi = new FileInfo(path + @"\json.lpsm");
-                StreamReader sr;
-                sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.UTF8);
-                RepFile = sr.ReadToEnd().Replace("\r", "");
-                sr.Dispose();
-
-                //读取完成
-
-                Data = new LpsDocument();
-                fi = new FileInfo(path + @"\info.lps");
-                sr = new StreamReader(fi.OpenRead(), System.Text.Encoding.UTF8);
-                Data = new LpsDocument(sr.ReadToEnd());
-                sr.Dispose();
-                sr = null;
-
-                //判断版本
-                if (Properties.Settings.Default.VersionCheck)
-                {
-                    if (Data.Read().Find("ver") != null)
-                        Verison = Data.Read().Find("ver").GetInfo();
-                    if (!(ModSet.IsUNumeric(Verison) && Convert.ToDouble(Verison) >= 2))
-                    {
-                        Error = "Verison too old";
-                    }
-                    else if (Convert.ToDouble(Verison) >= 3)
-                    {
-                        Error = "Verison too High, Upgreat software to support";
-                    }
-                }
-
-                //获取信息
-
-                Name = Data.Read().Find("name").GetInfo();
-                Info = Data.Read().Find("info").GetInfo();
-                Author = Data.Read().Find("author").GetInfo();
-                Local = Data.Read().Find("local").GetInfo();
-                Prefix = Data.Read().Find("prefix").GetInfo();
-                IsFlipped = (Data.Read().Find("flipped") != null);
-
-
-                //加载到MSetins
-
-                Data.LineNode = 1;
-                MSetin tmp;
-                while (Data.ReadCanNext())
-                {
-                    tmp = mSetins.FirstOrDefault(x => x.Name == Data.Read().Name);
-                    if (tmp == null && Data.Read().Find("skip") == null)//如果读取到跳过，则跳过:(有引发bug的可能性)
-                    {
-                        mSetins.Add(new MSetin()
-                        {
-                            Name = Data.Read().Name,
-                            info = Data.Read().Find("info").info,
-                            valuenomal = Data.Read().Find("nomal").info,
-                            ModSetType = (MSetin.SetType)Enum.Parse(typeof(MSetin.SetType), Data.Read().Find("type").info.ToUpper()),
-                            Mname = Data.Read().Find("name").info,
-                            From = Name
-                        });
-                    }
-                    else
-                    {
-                        Data.LineNode++;
-                    }
-                }
-
-            }
-            catch (Exception e)
-            {
-                Error = e.Message;//cath error
-            }
-        }
-    }
 }

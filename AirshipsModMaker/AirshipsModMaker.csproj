@@ -65,6 +65,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassMain.cs" />
+    <Compile Include="FrmImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmImage.Designer.cs">
+      <DependentUpon>FrmImage.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmItem.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -97,6 +104,9 @@
     <Compile Include="UCSettingItem.Designer.cs">
       <DependentUpon>UCSettingItem.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="FrmImage.resx">
+      <DependentUpon>FrmImage.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmItem.resx">
       <DependentUpon>FrmItem.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -141,6 +151,9 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="logo.ico" />
+    <None Include="Resources\modmaker.png" />
+    <None Include="Resources\modmaker_f.png" />
+    <None Include="Resources\modmaker_b.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

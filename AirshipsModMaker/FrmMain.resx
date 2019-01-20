@@ -206,6 +206,12 @@
   <data name="stuffManagerToolStripMenuItem.Text" xml:space="preserve">
     <value>Stuff Manager</value>
   </data>
+  <data name="imageManagerToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 22</value>
+  </data>
+  <data name="imageManagerToolStripMenuItem.Text" xml:space="preserve">
+    <value>Image Manager</value>
+  </data>
   <data name="toolStripSeparator5.Size" type="System.Drawing.Size, System.Drawing">
     <value>186, 6</value>
   </data>
@@ -1896,6 +1902,12 @@ Right Click the Item to view more operation</value>
     <value>stuffManagerToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;stuffManagerToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;imageManagerToolStripMenuItem.Name" xml:space="preserve">
+    <value>imageManagerToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;imageManagerToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripSeparator5.Name" xml:space="preserve">

@@ -13,7 +13,8 @@ namespace AirshipsModMaker
         Template[] Templates;
         MSetin[] MSetins;
         Lang lang;
-        public FrmItem(ModItem mi, Template[] templates, MSetin[] mSetins, Lang lang)
+        FrmMain frmMain;
+        public FrmItem(ModItem mi, FrmMain frmmain, Lang lang)
         {
             this.DialogResult = DialogResult.Cancel;
             InitializeComponent();
@@ -23,9 +24,9 @@ namespace AirshipsModMaker
                 this.lang = lang;
                 Translate(lang);
             }
-
-            Templates = templates;
-            MSetins = mSetins;
+            frmMain = frmmain;
+            Templates = frmMain.Templates.ToArray();
+            MSetins = frmMain.MSetins.ToArray();
             relstmp();
             for (int i = 0; i < Templates.Length; i++)
                 if (Templates[i] == mi.UseTemp)
@@ -39,7 +40,7 @@ namespace AirshipsModMaker
             textBoxItemInfo.Text = TmpItem.Info;
             setShow();
         }//加载
-        public FrmItem(int id, Template[] templates, MSetin[] mSetins, Lang lang)
+        public FrmItem(int id, FrmMain frmmain, Lang lang)
         {
             this.DialogResult = DialogResult.Cancel;
             InitializeComponent();
@@ -49,8 +50,9 @@ namespace AirshipsModMaker
                 this.lang = lang;
                 Translate(lang);
             }
-            MSetins = mSetins;
-            Templates = templates;
+            frmMain = frmmain;
+            Templates = frmMain.Templates.ToArray();
+            MSetins = frmMain.MSetins.ToArray();
             Nowed = id;
             addCustomStuffToolStripMenuItem.Visible = false;
             relstmp();
@@ -117,7 +119,7 @@ namespace AirshipsModMaker
             //{
             //    pictureBoxdisplay.Image = Properties.Resources.nomal_image;
             //}
-            pictureBoxdisplay.Image = TmpItem.UseTemp.DemoImage;
+            pictureBoxdisplay.Image = TmpItem.GetImage.DemoImage;
 
             toolTip1.SetToolTip(labelT2, "This Templare is Made By " + TmpItem.UseTemp.Author);
             //展示数据
@@ -182,7 +184,7 @@ namespace AirshipsModMaker
         }
         private void addCustomStuffToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            FrmModSet modSet = new FrmModSet(MSetins,lang);
+            FrmModSet modSet = new FrmModSet(MSetins, lang);
             if (modSet.ShowDialog() == DialogResult.OK)
             {
                 if (TmpItem.Data.Find(x => x.Setin.Name == modSet.NowSelect.Name) != null)
@@ -200,6 +202,26 @@ namespace AirshipsModMaker
                 UCSettingItem uC = new UCSettingItem(ms, ChangeText, DelectModSetin);
                 flowLayoutPanelShow.Controls.Add(uC);
                 flowLayoutPanelShow.ScrollControlIntoView(uC);
+            }
+        }
+
+        private void buttonChooseImage_Click(object sender, EventArgs e)
+        {
+            if (TmpItem.UseTemp.Prefix == "armour_")
+            {
+                MessageBox.Show("Armour is Not Support Now\nSubscribe and Thumbs-up on steam To Let author Update faster");
+                return;
+            }
+            FrmImage Fi = new FrmImage(frmMain.TempImages);
+            if (Fi.ShowDialog() == DialogResult.OK)
+            {
+                if(Fi.NowSelect.VirtualSize != TmpItem.UseTemp.Image.VirtualSize)
+                {
+                    MessageBox.Show($"This Item Image is {Fi.NowSelect.VirtualSize.ToString()}\n You Select {TmpItem.ItemImage.VirtualSize.ToString()}");
+                    return;
+                }
+                TmpItem.ItemImage = Fi.NowSelect;
+                setShow();
             }
         }
     }

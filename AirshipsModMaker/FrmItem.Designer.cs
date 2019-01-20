@@ -43,6 +43,7 @@
             this.saveAndCloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dontSaveAndCloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCustomStuffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.buttonChooseImage = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxdisplay)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -81,6 +82,7 @@
             // 
             // pictureBoxdisplay
             // 
+            this.pictureBoxdisplay.BackColor = System.Drawing.Color.SandyBrown;
             resources.ApplyResources(this.pictureBoxdisplay, "pictureBoxdisplay");
             this.pictureBoxdisplay.Name = "pictureBoxdisplay";
             this.pictureBoxdisplay.TabStop = false;
@@ -131,10 +133,19 @@
             resources.ApplyResources(this.addCustomStuffToolStripMenuItem, "addCustomStuffToolStripMenuItem");
             this.addCustomStuffToolStripMenuItem.Click += new System.EventHandler(this.addCustomStuffToolStripMenuItem_Click);
             // 
+            // buttonChooseImage
+            // 
+            this.buttonChooseImage.BackColor = System.Drawing.Color.WhiteSmoke;
+            resources.ApplyResources(this.buttonChooseImage, "buttonChooseImage");
+            this.buttonChooseImage.Name = "buttonChooseImage";
+            this.buttonChooseImage.UseVisualStyleBackColor = false;
+            this.buttonChooseImage.Click += new System.EventHandler(this.buttonChooseImage_Click);
+            // 
             // FrmItem
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonChooseImage);
             this.Controls.Add(this.textBoxlable);
             this.Controls.Add(this.flowLayoutPanelShow);
             this.Controls.Add(this.textBoxItemInfo);
@@ -174,5 +185,6 @@
         private System.Windows.Forms.ToolStripMenuItem saveAndCloseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dontSaveAndCloseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addCustomStuffToolStripMenuItem;
+        private System.Windows.Forms.Button buttonChooseImage;
     }
 }
