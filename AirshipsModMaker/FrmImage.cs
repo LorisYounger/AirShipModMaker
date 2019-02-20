@@ -63,6 +63,7 @@ namespace AirshipsModMaker
                 return;
             TempImages.Remove(NowSelect);
             pictureBoxDisplay.Image = null;
+            NowSelect.DemoImage.Dispose();
             if (!NowSelect.Path.ToLower().EndsWith("logo.png"))
                 try
                 {

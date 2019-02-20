@@ -419,9 +419,15 @@ namespace AirshipsModMaker
     {
         public string Path;
         public string Name;
+        Image demoimage;
         public Image DemoImage
         {
-            get => Image.FromFile(Path);
+            get
+            {
+                if (demoimage == null)
+                    demoimage = Image.FromFile(Path);
+                return demoimage;
+            }
         }
         public Size RealSize;
         public Size VirtualSize;

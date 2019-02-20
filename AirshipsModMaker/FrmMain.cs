@@ -15,7 +15,7 @@ namespace AirshipsModMaker
     {
         AirShipModData data = new AirShipModData();//当前存档 Current archive
 
-                                                   //全部模板 All templates
+        //全部模板 All templates
         public List<Template> Templates = new List<Template>();
         public List<TempImage> TempImages = new List<TempImage>();
 
@@ -165,11 +165,21 @@ namespace AirshipsModMaker
                 if (di.Exists)
                 {
                     info.Parent.Create();
-                    di.MoveTo(Program.PathMain);
+                    MoveFolder(di, Program.PathMain);//防止出 试图将一个目录移到不同的卷。 IOException
                 }
                 else
                     info.Create();
             }
+            else
+            {
+                DirectoryInfo di = new DirectoryInfo(Environment.CurrentDirectory + @"\Template\");
+                if (di.Exists)
+                {
+                    FrmTemplate.UpdateTemplates(di);
+                }
+            }
+
+
 #endif
             if (info.GetDirectories().Length == 0)//检查有没有模板
             {
@@ -267,7 +277,6 @@ namespace AirshipsModMaker
             SavePath = openFileDialog1.FileName;
         }
 
-
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             if (isChange)
@@ -359,7 +368,7 @@ namespace AirshipsModMaker
         private void addToolStripMenuItem_Click(object sender, EventArgs e)
         {
             isChange = true;
-            FrmItem fi = new FrmItem(data.ItemID,this, lang());
+            FrmItem fi = new FrmItem(data.ItemID, this, lang());
             if (fi.ShowDialog() == DialogResult.OK)
             {
                 data.modItems.Add(fi.ModItem);
@@ -463,7 +472,7 @@ namespace AirshipsModMaker
                 //先创建文件和图片
                 StringBuilder lang = new StringBuilder();//strings
 
-                fi.CopyTo(path + @"\logo.png",true);
+                fi.CopyTo(path + @"\logo.png", true);
 
                 //lang.AppendLine($"modulecategory_AMM{data.Outputid}={data.ModName.Replace("\r", "").Replace("\n", @"\n")}");
 
@@ -489,7 +498,7 @@ namespace AirshipsModMaker
                 //图片加载位置准备好
                 fi = new FileInfo(path + @"\SpritesheetBundle\bunck.json");
                 fs = fi.Create();
-                buff = Encoding.UTF8.GetBytes(Properties.Resources.bunck.Replace("|id:|",data.Outputid));
+                buff = Encoding.UTF8.GetBytes(Properties.Resources.bunck.Replace("|id:|", data.Outputid));
                 fs.Write(buff, 0, buff.Length);
                 fs.Close();
                 fs.Dispose();
@@ -618,7 +627,7 @@ namespace AirshipsModMaker
                 MessageBox.Show("Your Software are up-to-date", "Update Check");
             }
         }
-
+    
         public string UpdateCheck()
         {
             string ReadText;
@@ -634,25 +643,76 @@ namespace AirshipsModMaker
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message, ex.Source);
+                MessageBox.Show(ex.Message + "\nForm:\n" + ex.Source, "{Plese Send to Author} Update Check Web Error" );
                 return "";
             }
-            string[] tmps = ReadText.Split('\n');
-            if (tmps.First().Contains(Program.Verizon))
-                return "";
-            ReadText = "What's New";
-            foreach (string tmp in tmps)
+            try
             {
-                if (!tmp.Contains(Program.Verizon))
+                string[] tmps = ReadText.Split('\n');
+                if (tmps.First().Contains(Program.Verizon))
+                    return "";
+                ReadText = "What's New";
+                foreach (string tmp in tmps)
                 {
-                    ReadText += "\n" + tmp;
+                    if (!tmp.Contains(Program.Verizon))
+                    {
+                        ReadText += "\n" + tmp;
+                    }
+                    else
+                        break;
                 }
-                else
-                    break;
+                return ReadText;
             }
-            return ReadText;
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message + "\nForm:\n" + ex.Source, "{Plese Send to Author} Update Check Error: " + ex.Source);
+                return "";
+            }
         }
 
+        public static void MoveFolder(DirectoryInfo di,string path)
+        {
+            CopyFolder(di.FullName, path);
+            di.Delete(true);
+        }
+
+        public static void CopyFolder(string strFromPath, string strToPath)
+        {
+            //如果源文件夹不存在，则创建
+            if (!Directory.Exists(strFromPath))
+            {
+                Directory.CreateDirectory(strFromPath);
+            }
+            //取得要拷贝的文件夹名
+            string strFolderName = strFromPath.Substring(strFromPath.LastIndexOf("\\") +
+              1, strFromPath.Length - strFromPath.LastIndexOf("\\") - 1);
+            //如果目标文件夹中没有源文件夹则在目标文件夹中创建源文件夹
+            if (!Directory.Exists(strToPath + "\\" + strFolderName))
+            {
+                Directory.CreateDirectory(strToPath + "\\" + strFolderName);
+            }
+            //创建数组保存源文件夹下的文件名
+            string[] strFiles = Directory.GetFiles(strFromPath);
+            //循环拷贝文件
+            for (int i = 0; i < strFiles.Length; i++)
+            {
+                //取得拷贝的文件名，只取文件名，地址截掉。
+                string strFileName = strFiles[i].Substring(strFiles[i].LastIndexOf("\\") + 1, strFiles[i].Length - strFiles[i].LastIndexOf("\\") - 1);
+                //开始拷贝文件,true表示覆盖同名文件
+                File.Copy(strFiles[i], strToPath + "\\" + strFolderName + "\\" + strFileName, true);
+            }
+            //创建DirectoryInfo实例
+            DirectoryInfo dirInfo = new DirectoryInfo(strFromPath);
+            //取得源文件夹下的所有子文件夹名称
+            DirectoryInfo[] ZiPath = dirInfo.GetDirectories();
+            for (int j = 0; j < ZiPath.Length; j++)
+            {
+                //获取所有子文件夹名
+                string strZiPath = strFromPath + "\\" + ZiPath[j].ToString();
+                //把得到的子文件夹当成新的源文件夹，从头开始新一轮的拷贝
+                CopyFolder(strZiPath, strToPath + "\\" + strFolderName);
+            }
+        }
         private void getMoreTemplateToolStripMenuItem_Click(object sender, EventArgs e)
         {
             System.Diagnostics.Process.Start(@"http://download.exlb.org/?rootPath=./AirShipModMaker/Templates");

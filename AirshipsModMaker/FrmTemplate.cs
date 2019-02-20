@@ -87,7 +87,7 @@ namespace AirshipsModMaker
                     di.Delete(true);
                     Thread.Sleep(10);//if Delete it, it will have bug
                 }
-                Path.MoveTo(Program.PathMain + @"\" + Path.Name);
+                FrmMain.MoveFolder(Path, Program.PathMain + @"\" + Path.Name);
             }
             else//copy all
             {
@@ -113,6 +113,7 @@ namespace AirshipsModMaker
                 if (MessageBox.Show("Operation cannot be cancelled\n Are you Sure Delete This Template", "You are Try to Delete '" +
                    listView1.SelectedItems[0].Text + "'", MessageBoxButtons.YesNo) == DialogResult.Yes)
                 {
+                    Templates[listView1.SelectedIndices[0]].DemoImage.Dispose();
                     new DirectoryInfo(Templates[listView1.SelectedIndices[0]].path).Delete(true);
                     Thread.Sleep(10);//if Delete it, it will have bug
                     listView1.SelectedItems[0].BackColor = Color.LightSalmon;

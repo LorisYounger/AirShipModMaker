@@ -44,6 +44,7 @@
             this.dontSaveAndCloseToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.addCustomStuffToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.buttonChooseImage = new System.Windows.Forms.Button();
+            this.labelSize = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxdisplay)).BeginInit();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
@@ -141,10 +142,16 @@
             this.buttonChooseImage.UseVisualStyleBackColor = false;
             this.buttonChooseImage.Click += new System.EventHandler(this.buttonChooseImage_Click);
             // 
+            // labelSize
+            // 
+            resources.ApplyResources(this.labelSize, "labelSize");
+            this.labelSize.Name = "labelSize";
+            // 
             // FrmItem
             // 
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.labelSize);
             this.Controls.Add(this.buttonChooseImage);
             this.Controls.Add(this.textBoxlable);
             this.Controls.Add(this.flowLayoutPanelShow);
@@ -186,5 +193,6 @@
         private System.Windows.Forms.ToolStripMenuItem dontSaveAndCloseToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem addCustomStuffToolStripMenuItem;
         private System.Windows.Forms.Button buttonChooseImage;
+        private System.Windows.Forms.Label labelSize;
     }
 }

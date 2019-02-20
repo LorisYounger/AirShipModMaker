@@ -18,7 +18,7 @@ namespace AirshipsModMaker
 
 
         public static bool Reload = true;
-        public static readonly string Verizon = "beta 5";
+        public static readonly string Verizon = "beta 5.4";
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>
@@ -35,13 +35,16 @@ namespace AirshipsModMaker
                 try
                 {
 #endif
-            Application.Run(new FrmMain());
+                    Application.Run(new FrmMain());
 #if !DEBUG
                 }
                 catch (Exception e)
                 {
                     if (e.HResult != -2146232798)
-                        throw e;
+                    {
+                        if (MessageBox.Show(e.Message + "\nForm:\n" + e.Source + "\n\nPress Retry to ReOpen ModMaker", "Fatal Error {Plese Send to Author} " + e.HResult, MessageBoxButtons.RetryCancel) == DialogResult.Cancel)
+                            return;
+                    }
                 }
 
             }

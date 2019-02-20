@@ -217,7 +217,7 @@ namespace AirshipsModMaker
             {
                 if(Fi.NowSelect.VirtualSize != TmpItem.UseTemp.Image.VirtualSize)
                 {
-                    MessageBox.Show($"This Item Image is {Fi.NowSelect.VirtualSize.ToString()}\n You Select {TmpItem.ItemImage.VirtualSize.ToString()}");
+                    MessageBox.Show($"This Item Image is {Fi.NowSelect.VirtualSize.ToString()}\n You Select {TmpItem.UseTemp.Image.VirtualSize.ToString()}","Size Error");
                     return;
                 }
                 TmpItem.ItemImage = Fi.NowSelect;
