@@ -145,6 +145,7 @@
             // labelSize
             // 
             resources.ApplyResources(this.labelSize, "labelSize");
+            this.labelSize.BackColor = System.Drawing.Color.PeachPuff;
             this.labelSize.Name = "labelSize";
             // 
             // FrmItem

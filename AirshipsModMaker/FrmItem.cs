@@ -121,6 +121,8 @@ namespace AirshipsModMaker
             //}
             pictureBoxdisplay.Image = TmpItem.GetImage.DemoImage;
 
+            labelSize.Text = TmpItem.GetImage.VirtualSize.Width.ToString() + '*' + TmpItem.GetImage.VirtualSize.Height.ToString();
+
             toolTip1.SetToolTip(labelT2, "This Templare is Made By " + TmpItem.UseTemp.Author);
             //展示数据
             flowLayoutPanelShow.Controls.Clear();
@@ -215,9 +217,9 @@ namespace AirshipsModMaker
             FrmImage Fi = new FrmImage(frmMain.TempImages);
             if (Fi.ShowDialog() == DialogResult.OK)
             {
-                if(Fi.NowSelect.VirtualSize != TmpItem.UseTemp.Image.VirtualSize)
+                if (Fi.NowSelect.VirtualSize != TmpItem.UseTemp.Image.VirtualSize)
                 {
-                    MessageBox.Show($"This Item Image is {Fi.NowSelect.VirtualSize.ToString()}\n You Select {TmpItem.UseTemp.Image.VirtualSize.ToString()}","Size Error");
+                    MessageBox.Show($"This Item Image is {Fi.NowSelect.VirtualSize.ToString()}\n You Select {TmpItem.UseTemp.Image.VirtualSize.ToString()}", "Size Error");
                     return;
                 }
                 TmpItem.ItemImage = Fi.NowSelect;

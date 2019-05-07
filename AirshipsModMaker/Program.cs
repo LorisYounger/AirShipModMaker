@@ -18,7 +18,7 @@ namespace AirshipsModMaker
 
 
         public static bool Reload = true;
-        public static readonly string Verizon = "beta 5.4";
+        public static readonly string version = "beta 6";
         /// <summary>
         /// 应用程序的主入口点。
         /// </summary>

@@ -353,11 +353,11 @@ namespace AirshipsModMaker
                         Error = "No Verison"; return;
                     }
 
-                    if (!ModSet.IsUNumeric(Verison) || Convert.ToDouble(Verison) < 3)
+                    if (!ModSet.IsUNumeric(Verison) || Convert.ToDouble(Verison) < 4)
                     {
                         Error = "Verison too old"; return;
                     }
-                    else if (Convert.ToDouble(Verison) >= 4)
+                    else if (Convert.ToDouble(Verison) >= 5)
                     {
                         Error = "Verison too High, Upgreat software to support"; return;
                     }

@@ -62,7 +62,7 @@ namespace AirshipsModMaker
                     va.Text = tmp.Text;
             }
             //版本号加上
-            this.Text += Program.Verizon;
+            this.Text += Program.version;
 #if SAFE
             this.Text += " (Safe Mode)";
 #endif
@@ -126,7 +126,7 @@ namespace AirshipsModMaker
                             Translate(lang);
                         else
                         {
-                            this.Text += Program.Verizon;
+                            this.Text += Program.version;
 #if SAFE
                             this.Text += " (Safe Mode)";
 #endif
@@ -137,7 +137,7 @@ namespace AirshipsModMaker
                 }
                 else
                 {
-                    this.Text += Program.Verizon;
+                    this.Text += Program.version;
 #if SAFE
                     this.Text += " (Safe Mode)";
 #endif
@@ -145,13 +145,13 @@ namespace AirshipsModMaker
             }
             else
             {
-                this.Text += Program.Verizon;
+                this.Text += Program.version;
 #if SAFE
                 this.Text += " (Safe Mode)";
 #endif
             }
             //设置项目加载
-            versionChackToolStripMenuItem.Checked = Properties.Settings.Default.VersionCheck;
+            VersionCheckToolStripMenuItem.Checked = Properties.Settings.Default.VersionCheck;
 
 
 
@@ -450,8 +450,8 @@ namespace AirshipsModMaker
                     return;
                 }
 
-                data.ModName = textBoxModName.Text;
-                data.ModInfo = textBoxModInfo.Text;
+                data.ModName = textBoxModName.Text.Replace("=", "");
+                data.ModInfo = textBoxModInfo.Text.Replace("=", "").Replace("\r", "").Replace("\n", @"\n");
 
                 string path = folderBrowserDialog1.SelectedPath + $"\\{data.ModName}";
 
@@ -474,12 +474,13 @@ namespace AirshipsModMaker
 
                 fi.CopyTo(path + @"\logo.png", true);
 
-                //lang.AppendLine($"modulecategory_AMM{data.Outputid}={data.ModName.Replace("\r", "").Replace("\n", @"\n")}");
+                lang.AppendLine($"modulecategory_AMM{data.Outputid}={data.ModName}");
 
                 StringBuilder tmp = new StringBuilder(LPSMReplace(Properties.Resources.info, new Sub("id", data.Outputid),
-                    new Sub("name", data.ModName.Replace("\r", "").Replace("\n", @"\n")),
+                    new Sub("name", data.ModName),
                     new Sub("info", data.ModInfo.Replace("\r", "").Replace("\n", @"\n"))));//info.json
 
+                //创建info
                 fi = new FileInfo(path + @"\info.json");
                 FileStream fs = fi.Create();
                 byte[] buff = Encoding.UTF8.GetBytes(tmp.ToString());
@@ -487,13 +488,25 @@ namespace AirshipsModMaker
                 fs.Close();
                 fs.Dispose();
 
+                //给集合创建文件夹
+                di = new DirectoryInfo(path + @"\ModuleCategory");
+                if (!di.Exists)
+                    di.Create();
                 //给图片准备好文件夹
                 di = new DirectoryInfo(path + @"\SpritesheetBundle");
                 if (!di.Exists)
-                    di.Create();
+                    di.Create();               
                 di = new DirectoryInfo(path + @"\images");
                 if (!di.Exists)
                     di.Create();
+
+                //创建集合
+                fi = new FileInfo(path + @"\ModuleCategory\categories.json");
+                fs = fi.Create();
+                buff = Encoding.UTF8.GetBytes(Properties.Resources.categories.Replace("|id:|", data.Outputid));
+                fs.Write(buff, 0, buff.Length);
+                fs.Close();
+                fs.Dispose();
 
                 //图片加载位置准备好
                 fi = new FileInfo(path + @"\SpritesheetBundle\bunck.json");
@@ -553,6 +566,8 @@ namespace AirshipsModMaker
                             tmp.AppendLine(ms.Value + ',');
                     }
 
+                    //增加分组信息
+                    tmp.AppendLine($"\"categories\": [\"AMM{data.Outputid}\"],");
 
                     fs = fi.Create();
                     buff = Encoding.UTF8.GetBytes(mi.UseTemp.RepFile.Replace("|name:|", "AMM" + data.Outputid + mi.ItemID).Replace("|lpsm:|", tmp.ToString()));
@@ -572,7 +587,7 @@ namespace AirshipsModMaker
                 //图片处理
                 BM.Save(path + $"\\images\\modmaker{data.Outputid}.png");
 
-                //lang
+                //lang 语言处理
                 di = new DirectoryInfo(path + @"\strings");
                 di.Create();
                 fi = new FileInfo(path + @"\strings\en.properties");
@@ -649,12 +664,12 @@ namespace AirshipsModMaker
             try
             {
                 string[] tmps = ReadText.Split('\n');
-                if (tmps.First().Contains(Program.Verizon))
+                if (tmps.First().Contains(Program.version))
                     return "";
                 ReadText = "What's New";
                 foreach (string tmp in tmps)
                 {
-                    if (!tmp.Contains(Program.Verizon))
+                    if (!tmp.Contains(Program.version))
                     {
                         ReadText += "\n" + tmp;
                     }
@@ -748,7 +763,12 @@ namespace AirshipsModMaker
         private void versionChackToolStripMenuItem_Click(object sender, EventArgs e)
         {
             Properties.Settings.Default.VersionCheck = !Properties.Settings.Default.VersionCheck;
-            versionChackToolStripMenuItem.Checked = Properties.Settings.Default.VersionCheck;
+            VersionCheckToolStripMenuItem.Checked = Properties.Settings.Default.VersionCheck;
+            if (!Properties.Settings.Default.VersionCheck)
+            {
+                Program.Reload = true;
+                this.Close();
+            }
         }
 
         private void imageManagerToolStripMenuItem_Click(object sender, EventArgs e)

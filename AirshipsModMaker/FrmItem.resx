@@ -32875,17 +32875,20 @@ Item Info</value>
   <data name="labelSize.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="labelSize.Font" type="System.Drawing.Font, System.Drawing">
+    <value>宋体, 12pt, style=Bold</value>
+  </data>
   <data name="labelSize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>360, 121</value>
+    <value>359, 121</value>
   </data>
   <data name="labelSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>32, 16</value>
+    <value>35, 16</value>
   </data>
   <data name="labelSize.TabIndex" type="System.Int32, mscorlib">
     <value>19</value>
   </data>
   <data name="labelSize.Text" xml:space="preserve">
-    <value>1x1</value>
+    <value>0*0</value>
   </data>
   <data name="&gt;&gt;labelSize.Name" xml:space="preserve">
     <value>labelSize</value>

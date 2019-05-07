@@ -42,7 +42,7 @@
             this.stuffManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.imageManagerToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.versionChackToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.VersionCheckToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.inputToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.getMoreTemplateToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,7 +147,7 @@
             this.stuffManagerToolStripMenuItem,
             this.imageManagerToolStripMenuItem,
             this.toolStripSeparator5,
-            this.versionChackToolStripMenuItem,
+            this.VersionCheckToolStripMenuItem,
             this.toolStripSeparator4,
             this.inputToolStripMenuItem,
             this.getMoreTemplateToolStripMenuItem});
@@ -177,11 +177,11 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             resources.ApplyResources(this.toolStripSeparator5, "toolStripSeparator5");
             // 
-            // versionChackToolStripMenuItem
+            // VersionCheckToolStripMenuItem
             // 
-            this.versionChackToolStripMenuItem.Name = "versionChackToolStripMenuItem";
-            resources.ApplyResources(this.versionChackToolStripMenuItem, "versionChackToolStripMenuItem");
-            this.versionChackToolStripMenuItem.Click += new System.EventHandler(this.versionChackToolStripMenuItem_Click);
+            this.VersionCheckToolStripMenuItem.Name = "VersionCheckToolStripMenuItem";
+            resources.ApplyResources(this.VersionCheckToolStripMenuItem, "VersionCheckToolStripMenuItem");
+            this.VersionCheckToolStripMenuItem.Click += new System.EventHandler(this.versionChackToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -505,7 +505,7 @@
         private System.Windows.Forms.ToolStripMenuItem stuffManagerToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem languageToolStripMenuItem;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator5;
-        private System.Windows.Forms.ToolStripMenuItem versionChackToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem VersionCheckToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem imageManagerToolStripMenuItem;
     }
 }

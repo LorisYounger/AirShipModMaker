@@ -86,8 +86,8 @@ namespace AirshipsModMaker
                 {
                     di.Delete(true);
                     Thread.Sleep(10);//if Delete it, it will have bug
-                }
-                FrmMain.MoveFolder(Path, Program.PathMain + @"\" + Path.Name);
+                } 
+                FrmMain.MoveFolder(Path, Program.PathMain);
             }
             else//copy all
             {
@@ -133,8 +133,8 @@ namespace AirshipsModMaker
         {
             if (MessageBox.Show("You Will Lost All Work You Didn't Save!\nSure to Reload Template", "Reload Template", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                frmMain.Close();
                 Program.Reload = true;
+                frmMain.Close();
                 this.Close();
             }
         }

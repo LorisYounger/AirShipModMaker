@@ -126,6 +126,13 @@
 	}
 ]</value>
   </data>
+  <data name="categories" xml:space="preserve">
+    <value>[
+    {
+        "name": "AMM|id:|"
+    }
+]</value>
+  </data>
   <data name="info" xml:space="preserve">
     <value>{
 		"id": "AMM|id:|",
